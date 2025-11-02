@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr445gttfhtbh"]
+
+[ext_resource type="Script" uid="uid://c1kmsxi42sv7w" path="res://map.gd" id="1_wijl4"]
+[ext_resource type="PackedScene" uid="uid://bv4yubv0w5x82" path="res://character_body.tscn" id="2_e0an3"]
+[ext_resource type="PackedScene" uid="uid://iqsa7thkgt43" path="res://hub.tscn" id="3_e0an3"]
+
+[node name="map" type="Node2D"]
+script = ExtResource("1_wijl4")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_e0an3")]
+
+[node name="hub" parent="." instance=ExtResource("3_e0an3")]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(603, 315)

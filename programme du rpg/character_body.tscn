@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://bv4yubv0w5x82"]
+
+[ext_resource type="Script" uid="uid://56gqpmrecwvk" path="res://character_body_2d.gd" id="1_l2fv6"]
+[ext_resource type="Texture2D" uid="uid://cxj0nq15obm6n" path="res://art/character.png" id="2_kovia"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35wd1"]
+atlas = ExtResource("2_kovia")
+region = Rect2(0, 177, 58, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jttj"]
+atlas = ExtResource("2_kovia")
+region = Rect2(58, 177, 58, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rs1b"]
+atlas = ExtResource("2_kovia")
+region = Rect2(116, 177, 58, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2kj4"]
+atlas = ExtResource("2_kovia")
+region = Rect2(174, 177, 58, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugclq"]
+atlas = ExtResource("2_kovia")
+region = Rect2(232, 177, 58, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ug1c1"]
+atlas = ExtResource("2_kovia")
+region = Rect2(290, 177, 58, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lm2gw"]
+atlas = ExtResource("2_kovia")
+region = Rect2(348, 177, 58, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsti8"]
+atlas = ExtResource("2_kovia")
+region = Rect2(406, 177, 58, 59)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yur7t"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35wd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jttj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rs1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2kj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugclq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ug1c1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lm2gw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsti8")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3kxg"]
+radius = 16.0
+height = 54.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_l2fv6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(298, 114)
+sprite_frames = SubResource("SpriteFrames_yur7t")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(296, 120)
+shape = SubResource("CapsuleShape2D_f3kxg")
