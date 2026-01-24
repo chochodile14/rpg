@@ -1,11 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dr445gttfhtbh"]
+[gd_scene load_steps=5 format=3 uid="uid://dr445gttfhtbh"]
 
 [ext_resource type="Script" uid="uid://c1kmsxi42sv7w" path="res://map.gd" id="1_wijl4"]
 [ext_resource type="PackedScene" uid="uid://bv4yubv0w5x82" path="res://character_body.tscn" id="2_e0an3"]
-[ext_resource type="PackedScene" uid="uid://iqsa7thkgt43" path="res://hub.tscn" id="3_e0an3"]
+[ext_resource type="Texture2D" uid="uid://d2aq4xaiotbcf" path="res://art/a.jpeg" id="2_p5pve"]
+[ext_resource type="PackedScene" uid="uid://qdl1o1fy4y1m" path="res://hub.tscn" id="3_e0an3"]
 
 [node name="map" type="Node2D"]
 script = ExtResource("1_wijl4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1147.0
+offset_bottom = 828.0
+texture = ExtResource("2_p5pve")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_e0an3")]
 
