@@ -1,8 +1,9 @@
-extends CharacterBody2D
+class_name player_beta extends CharacterBody2D
 @export var speed = 400 
 var screen_size 
-func _ready() -> void:
-	screen_size = get_viewport_rect().size
+@export var target_scale =1
+#func _ready() -> void:
+	#screen_size = get_viewport_rect().size
 
 func _process(delta: float) -> void:
 	var velocity = Vector2.ZERO
@@ -22,8 +23,18 @@ func _process(delta: float) -> void:
 		$AnimatedSprite2D.stop()
 		
 	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
+	#position = position.clamp(Vector2.ZERO, screen_size)
 	
 	if velocity.x != 0:
 		$AnimatedSprite2D.animation = "walk"
 		$AnimatedSprite2D.flip_h = velocity.x < 0
+		
+func start_turn():
+	target_scale = 1.1
+	
+func end_turn():
+	target_scale=0.9
+	
+	
+func is_player():
+	pass

@@ -1,0 +1,98 @@
+[gd_scene load_steps=13 format=3 uid="uid://bioiiawcbv3s2"]
+
+[ext_resource type="Script" uid="uid://chw38dcmm84lx" path="res://mob.gd" id="1_dy6sc"]
+[ext_resource type="Texture2D" uid="uid://wnqjg41y1ie6" path="res://art/monstre.png" id="2_nokgg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nokgg"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(0, 456, 116, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubaqv"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(116, 456, 116, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p11y5"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(232, 456, 116, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5nov"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(0, 333, 93, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3mxk"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(93, 333, 93, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qmh0"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(186, 333, 93, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfurk"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(279, 333, 93, 111)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ieysi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nokgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubaqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p11y5")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5nov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3mxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qmh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfurk")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cixyi"]
+radius = 192.0
+height = 384.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nokgg"]
+radius = 39.0
+height = 106.0
+
+[node name="mob" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_dy6sc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 1
+sprite_frames = SubResource("SpriteFrames_ieysi")
+animation = &"walk"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(15, 4)
+shape = SubResource("CapsuleShape2D_cixyi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(14, 5)
+shape = SubResource("CapsuleShape2D_nokgg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
