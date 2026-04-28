@@ -1,28 +1,31 @@
-class_name player_beta extends CharacterBody2D
+class_name Player extends CharacterBody2D
 @export var speed = 400 
 var screen_size 
 @export var target_scale =1
 #func _ready() -> void:
 	#screen_size = get_viewport_rect().size
+func _ready():
+	add_to_group("Player")
+	print("Groupes du joueur :", get_groups())
 
-func _process(delta: float) -> void:
-	var velocity = Vector2.ZERO
+func _physics_process(delta: float) -> void:
+	var imput_dir = Vector2.ZERO
 	if Input.is_action_pressed("mouvement_droit"):
-		velocity.x += 1
+		imput_dir.x += 1
 	if Input.is_action_pressed("mouvement_gauche"):
-		velocity.x -= 1
+		imput_dir.x -= 1
 	if Input.is_action_pressed("mouvement_haut"):
-		velocity.y -= 1
+		imput_dir.y -= 1
 	if Input.is_action_pressed("mouvement_bas"):
-		velocity.y += 1
+		imput_dir.y += 1
 	
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed;
+	if imput_dir.length() > 0:
+		imput_dir = imput_dir.normalized() * speed;
 		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.stop()
-		
-	position += velocity * delta
+	self.velocity = imput_dir
+	move_and_slide()
 	#position = position.clamp(Vector2.ZERO, screen_size)
 	
 	if velocity.x != 0:
