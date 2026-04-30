@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dre6j4ioo1ck6"]
+
+[ext_resource type="PackedScene" uid="uid://del62hgxlfxd4" path="res://player/player_group.tscn" id="1_fw8re"]
+[ext_resource type="Texture2D" uid="uid://b1g7hkpwfuled" path="res://art/battleback1_0.png" id="1_r5l0u"]
+
+[node name="BattleScene" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1155.0
+offset_bottom = 646.0
+texture = ExtResource("1_r5l0u")
+expand_mode = 1
+
+[node name="player group" parent="." instance=ExtResource("1_fw8re")]

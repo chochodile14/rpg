@@ -19,7 +19,10 @@ config/icon="res://icon.svg"
 
 folder_colors={
 "res://art/": "purple",
-"res://art/map/": "orange"
+"res://art/map/": "orange",
+"res://mob/": "red",
+"res://player/": "yellow",
+"res://script/": "green"
 }
 
 [input]

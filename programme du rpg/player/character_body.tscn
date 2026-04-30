@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://bv4yubv0w5x82"]
 
-[ext_resource type="Script" uid="uid://56gqpmrecwvk" path="res://character_body_2d.gd" id="1_l2fv6"]
+[ext_resource type="Script" uid="uid://56gqpmrecwvk" path="res://script/character_body_2d.gd" id="1_l2fv6"]
 [ext_resource type="Texture2D" uid="uid://cxj0nq15obm6n" path="res://art/character.png" id="2_kovia"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l2fv6"]
@@ -133,7 +133,7 @@ radius = 16.0
 height = 54.0
 
 [node name="character_beta" type="CharacterBody2D"]
-collision_mask = 2
+collision_mask = 3
 script = ExtResource("1_l2fv6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

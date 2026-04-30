@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://qdl1o1fy4y1m"]
 
-[ext_resource type="Script" uid="uid://duq8scgdy4ldm" path="res://button.gd" id="1_l10or"]
+[ext_resource type="Script" uid="uid://duq8scgdy4ldm" path="res://script/button.gd" id="1_l10or"]
 
 [sub_resource type="GDScript" id="GDScript_qlmhu"]
 script/source = "extends CanvasLayer

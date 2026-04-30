@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://del62hgxlfxd4"]
+
+[ext_resource type="PackedScene" uid="uid://qj0o2lxpnqkf" path="res://player/battle_p_1.tscn" id="1_mimlm"]
+
+[node name="player group" type="Node2D"]
+
+[node name="battle_p_1" parent="." instance=ExtResource("1_mimlm")]
+position = Vector2(-57, -12)
+
+[node name="battle_p_2" parent="." instance=ExtResource("1_mimlm")]
+position = Vector2(-57, 116)
+
+[node name="battle_p_3" parent="." instance=ExtResource("1_mimlm")]
+position = Vector2(-60, 268)
+
+[node name="battle_p_4" parent="." instance=ExtResource("1_mimlm")]
+position = Vector2(-59, 428)

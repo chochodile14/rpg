@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://qj0o2lxpnqkf"]
+
+[ext_resource type="Texture2D" uid="uid://dpokgj5tipgg2" path="res://art/character in battle.png" id="1_gdlbw"]
+[ext_resource type="Texture2D" uid="uid://bkr2rmwturtj2" path="res://art/pixel_hand_2-removebg-preview.png" id="2_5jqhn"]
+
+[sub_resource type="Animation" id="Animation_bjyci"]
+resource_name = "hurt"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("base:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23753075, 0.25240254, 0.4198215, 0.44871566, 0.70111823, 0.7142911, 0.84134185, 1.0087608, 1.0297943, 1.2184615, 1.2333333, 1.3873646, 1.4007523, 1.4296464, 1.6082169, 1.6820489, 1.8222727, 1.9622816, 1.9896916, 2.010725, 2.0218766),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(1, 1, 1, 1), Color(18.892157, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(18.892157, 18.892157, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 18.892157, 1), Color(1, 1, 1, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(1.2219125, 1.2219125, 1.2219125, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(1.1624898, 1.1624898, 1.1624898, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tfs5t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("base:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yacii"]
+_data = {
+&"RESET": SubResource("Animation_tfs5t"),
+&"hurt": SubResource("Animation_bjyci")
+}
+
+[node name="battle_p_1" type="Node2D"]
+
+[node name="base" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1050.75, 160)
+scale = Vector2(4.3026314, 3.8478258)
+texture = ExtResource("1_gdlbw")
+
+[node name="turn" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(73, 127.00001)
+rotation = 1.5707964
+scale = Vector2(0.47122195, 0.5535819)
+texture = ExtResource("2_5jqhn")
+
+[node name="pv" type="ProgressBar" parent="."]
+modulate = Color(0.23529412, 0.8862745, 0, 1)
+self_modulate = Color(1, 0.8784314, 1, 1)
+offset_left = 984.75
+offset_top = 15.0
+offset_right = 1076.75
+offset_bottom = 42.0
+scale = Vector2(1.5, 1.5)
+value = 100.0
+
+[node name="hurt" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_yacii")
+}
