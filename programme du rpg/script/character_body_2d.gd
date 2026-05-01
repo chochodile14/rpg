@@ -8,7 +8,9 @@ func _ready():
 	add_to_group("Player")
 	print("Groupes du joueur :", get_groups())
 
-func _physics_process(delta: float) -> void:
+
+
+func _physics_process(_delta: float) -> void:
 	var imput_dir = Vector2.ZERO
 	if Input.is_action_pressed("mouvement_droit"):
 		imput_dir.x += 1
@@ -26,12 +28,13 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.stop()
 	self.velocity = imput_dir
 	move_and_slide()
-	#position = position.clamp(Vector2.ZERO, screen_size)
 	
 	if velocity.x != 0:
 		$AnimatedSprite2D.animation = "walk"
 		$AnimatedSprite2D.flip_h = velocity.x < 0
-		
+
+
+
 func start_turn():
 	target_scale = 1.1
 	

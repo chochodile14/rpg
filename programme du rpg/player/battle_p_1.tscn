@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bkr2rmwturtj2" path="res://art/pixel_hand_2-removebg-preview.png" id="2_5jqhn"]
 
 [sub_resource type="Animation" id="Animation_tfs5t"]
-length = 0.001
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -12,10 +12,10 @@ tracks/0/path = NodePath("base:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.0995952, 0.200711, 0.297265),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(100, 100, 100, 1), Color(100, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_bjyci"]
@@ -45,7 +45,8 @@ _data = {
 [node name="base" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(1050.75, 160)
-scale = Vector2(-4.303, 3.848)
+rotation = 3.14159
+scale = Vector2(4.303, -3.848)
 texture = ExtResource("1_gdlbw")
 
 [node name="turn" type="Sprite2D" parent="."]
