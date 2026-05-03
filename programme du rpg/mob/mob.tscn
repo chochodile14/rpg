@@ -1,7 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://bioiiawcbv3s2"]
 
-[ext_resource type="Script" uid="uid://chw38dcmm84lx" path="res://script/mob.gd" id="1_dy6sc"]
+[ext_resource type="Script" uid="uid://ks4xc7mqqd7i" path="res://mob.gd" id="1_6jlfs"]
 [ext_resource type="Texture2D" uid="uid://wnqjg41y1ie6" path="res://art/monstre.png" id="2_nokgg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6jlfs"]
+radius = 30.0
+height = 96.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nokgg"]
 atlas = ExtResource("2_nokgg")
@@ -65,27 +69,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nokgg"]
-radius = 35.0
-height = 102.0
+[node name="mod" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_6jlfs")
 
-[node name="mob" type="CharacterBody2D"]
-visibility_layer = 3
-collision_layer = 2
-collision_mask = 3
-motion_mode = 1
-wall_min_slide_angle = 0.0
-script = ExtResource("1_dy6sc")
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(12, 2)
+shape = SubResource("CapsuleShape2D_6jlfs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_ieysi")
 animation = &"walk"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(14, 4)
-shape = SubResource("CapsuleShape2D_nokgg")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
@@ -94,4 +92,5 @@ debug_enabled = true
 wait_time = 0.5
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

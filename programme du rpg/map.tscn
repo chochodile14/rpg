@@ -24,6 +24,5 @@ position = Vector2(230, -11)
 position = Vector2(603, 315)
 gizmo_extents = 4000.0
 
-[node name="mob" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_e0an3")]
+[node name="mob" parent="." instance=ExtResource("3_e0an3")]
 position = Vector2(250, 109)
-player = NodePath("../character_beta")

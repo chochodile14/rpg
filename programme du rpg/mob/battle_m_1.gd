@@ -1,6 +1,5 @@
 extends Node2D
 
-
 @onready var _focus = $turn
 @onready var progress_bar = $pv
 @onready var hurt = $hurt

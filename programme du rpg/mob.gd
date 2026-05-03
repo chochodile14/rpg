@@ -1,9 +1,7 @@
-extends CharacterBody2D
+extends RigidBody2D
 
-
-func _on_rigid_body_2d_body_entered(body: Player) -> void:
-	print("1")
-	get_tree().change_scene_to_file("res://battle.tscn")
+func _on_area_2d_body_entered(body: Node2D) -> void:
+		get_tree().change_scene_to_file("res://battle.tscn")
 
 
 

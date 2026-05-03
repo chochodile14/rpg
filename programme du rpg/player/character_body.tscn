@@ -166,7 +166,6 @@ radius = 16.0
 height = 54.0
 
 [node name="character_beta" type="CharacterBody2D"]
-collision_mask = 3
 script = ExtResource("1_l2fv6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
