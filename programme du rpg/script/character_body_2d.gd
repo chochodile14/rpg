@@ -1,37 +1,35 @@
-class_name Player extends CharacterBody2D
+extends CharacterBody2D
+class_name Player 
+
 @export var speed = 400 
-var screen_size 
 @export var target_scale =1
+
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
+var screen_size 
+
 #func _ready() -> void:
 	#screen_size = get_viewport_rect().size
+
 func _ready():
 	add_to_group("Player")
 	print("Groupes du joueur :", get_groups())
 
 
-
 func _physics_process(_delta: float) -> void:
-	var imput_dir = Vector2.ZERO
-	if Input.is_action_pressed("mouvement_droit"):
-		imput_dir.x += 1
-	if Input.is_action_pressed("mouvement_gauche"):
-		imput_dir.x -= 1
-	if Input.is_action_pressed("mouvement_haut"):
-		imput_dir.y -= 1
-	if Input.is_action_pressed("mouvement_bas"):
-		imput_dir.y += 1
+	var input_dir = Input.get_vector("mouvement_gauche","mouvement_droit", "mouvement_haut", "mouvement_bas").normalized()  * speed
 	
-	if imput_dir.length() > 0:
-		imput_dir = imput_dir.normalized() * speed;
-		$AnimatedSprite2D.play()
+	if input_dir:
+		animated_sprite_2d.play()
 	else:
-		$AnimatedSprite2D.stop()
-	self.velocity = imput_dir
+		animated_sprite_2d.stop()
+		
+	velocity = input_dir
 	move_and_slide()
 	
 	if velocity.x != 0:
-		$AnimatedSprite2D.animation = "walk"
-		$AnimatedSprite2D.flip_h = velocity.x < 0
+		animated_sprite_2d.animation = "walk"
+		animated_sprite_2d.flip_h = velocity.x < 0
 
 
 

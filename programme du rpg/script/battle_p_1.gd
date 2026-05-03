@@ -1,5 +1,6 @@
 extends Node2D
 
+class_name BattlePlayer
 
 @onready var _focus = $turn
 @onready var progress_bar = $pv

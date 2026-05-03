@@ -1,9 +1,16 @@
 extends Node2D
 
-var player : Array = []
+var player : Array[BattlePlayer] = []
 var index : int = 0
+
+
 func _ready() -> void:
-	player = get_children()
+	for child in get_children():
+		if child is BattlePlayer:
+			player.append(child)
+	
+	
+	
 	for i in player.size():
 		player[i].position = Vector2(0 , i* 150)
 

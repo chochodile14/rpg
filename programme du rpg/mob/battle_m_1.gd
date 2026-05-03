@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name BattleEnnemy
+
 @onready var _focus = $turn
 @onready var progress_bar = $pv
 @onready var hurt = $hurt
