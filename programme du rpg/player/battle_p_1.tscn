@@ -1,64 +1,64 @@
-[gd_scene format=3 uid="uid://qj0o2lxpnqkf"]
+[gd_scene load_steps=7 format=3 uid="uid://qj0o2lxpnqkf"]
 
 [ext_resource type="Texture2D" uid="uid://dpokgj5tipgg2" path="res://art/character in battle.png" id="1_gdlbw"]
 [ext_resource type="Script" uid="uid://dkpam7x3ah3fb" path="res://script/battle_p_1.gd" id="1_j53o7"]
 [ext_resource type="Texture2D" uid="uid://bkr2rmwturtj2" path="res://art/pixel_hand_2-removebg-preview.png" id="2_5jqhn"]
 
-[sub_resource type="Animation" id="Animation_tfs5t"]
-length = 0.3
+[sub_resource type="Animation" id="Animation_j53o7"]
+resource_name = "atk"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("base:self_modulate")
+tracks/0/path = NodePath("base:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0995952, 0.200711, 0.297265),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(100, 100, 100, 1), Color(100, 0, 0, 1), Color(1, 1, 1, 1)]
+"values": [Vector2(1050.75, 160), Vector2(909, 149), Vector2(1042, 160.00002)]
 }
 
-[sub_resource type="Animation" id="Animation_bjyci"]
-resource_name = "hurt"
-length = 2.1
+[sub_resource type="Animation" id="Animation_t7ryi"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("base:self_modulate")
+tracks/0/path = NodePath("base:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.237531, 0.252403, 0.419822, 0.448716, 0.701118, 0.714291, 0.841342, 1.00876, 1.02979, 1.21846, 1.23333, 1.38736, 1.40075, 1.42965, 1.60822, 1.68205, 1.82227, 1.96228, 1.98969, 2.01073, 2.02188),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(18.8922, 18.8922, 18.8922, 1), Color(1, 1, 1, 1), Color(18.8922, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(18.8922, 18.8922, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 18.8922, 1), Color(1, 1, 1, 1), Color(18.8922, 18.8922, 18.8922, 1), Color(18.8922, 18.8922, 18.8922, 1), Color(18.8922, 18.8922, 18.8922, 1), Color(18.8922, 18.8922, 18.8922, 1), Color(18.8922, 18.8922, 18.8922, 1), Color(1.22191, 1.22191, 1.22191, 1), Color(18.8922, 18.8922, 18.8922, 1), Color(18.8922, 18.8922, 18.8922, 1), Color(18.8922, 18.8922, 18.8922, 1), Color(18.8922, 18.8922, 18.8922, 1), Color(18.8922, 18.8922, 18.8922, 1), Color(1.16249, 1.16249, 1.16249, 1)]
+"values": [Vector2(1050.75, 160)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yacii"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cm2ci"]
 _data = {
-&"RESET": SubResource("Animation_tfs5t"),
-&"hurt": SubResource("Animation_bjyci")
+&"RESET": SubResource("Animation_t7ryi"),
+&"atk": SubResource("Animation_j53o7")
 }
 
-[node name="battle_p_1" type="Node2D" unique_id=1209399072]
+[node name="battle_p_1" type="Node2D"]
 script = ExtResource("1_j53o7")
 
-[node name="base" type="Sprite2D" parent="." unique_id=736763863]
+[node name="base" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(1050.75, 160)
 rotation = 3.14159
 scale = Vector2(4.303, -3.848)
 texture = ExtResource("1_gdlbw")
 
-[node name="turn" type="Sprite2D" parent="." unique_id=162663241]
+[node name="turn" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(947, 147)
 rotation = 1.5708
 scale = Vector2(0.471222, 0.553582)
 texture = ExtResource("2_5jqhn")
 
-[node name="pv" type="ProgressBar" parent="." unique_id=95971494]
+[node name="pv" type="ProgressBar" parent="."]
 modulate = Color(0.235294, 0.886275, 0, 1)
 self_modulate = Color(1, 0.878431, 1, 1)
 offset_left = 984.75
@@ -68,5 +68,9 @@ offset_bottom = 42.0
 scale = Vector2(1.5, 1.5)
 value = 100.0
 
-[node name="hurt" type="AnimationPlayer" parent="." unique_id=1360521326]
-libraries/ = SubResource("AnimationLibrary_yacii")
+[node name="hurt" type="AnimationPlayer" parent="."]
+
+[node name="atk" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_cm2ci")
+}

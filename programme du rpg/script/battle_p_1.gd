@@ -5,7 +5,7 @@ class_name BattlePlayer
 @onready var _focus = $turn
 @onready var progress_bar = $pv
 @onready var hurt = $hurt
-
+@onready var atk = $atk
 @export var max_health: float = 7
 
 var health: float = 7:
@@ -28,3 +28,6 @@ func unfocus():
 	
 func take_damage(value):
 	health -= value
+
+func _on_ennemies_groupe_take_damage() -> void:
+	atk.play("atk")

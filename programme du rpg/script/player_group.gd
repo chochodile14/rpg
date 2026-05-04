@@ -27,4 +27,3 @@ func switch_focus(x,y):
 	print(player[x])
 	player[x].focus()
 	player[y].unfocus()
-	

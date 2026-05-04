@@ -7,6 +7,9 @@ class_name BattleEnnemy
 @onready var hurt = $hurt
 
 @export var max_health: float = 7
+func _ready() -> void:
+	if health == 0:
+		hide()
 
 var health: float = 7:
 	set(value):

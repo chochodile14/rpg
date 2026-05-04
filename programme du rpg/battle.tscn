@@ -44,7 +44,9 @@ text = "Defend"
 [node name="run" type="Button" parent="CanvasLayer/choice"]
 layout_mode = 2
 size_flags_vertical = 8
-disabled = true
 text = "Run"
 
 [connection signal="next_player" from="ennemies_groupe" to="player group" method="_on_ennemies_groupe_next_player"]
+[connection signal="take_damage" from="ennemies_groupe" to="player group" method="_on_ennemies_groupe_take_damage"]
+[connection signal="pressed" from="CanvasLayer/choice/atk" to="ennemies_groupe" method="_on_atk_pressed"]
+[connection signal="pressed" from="CanvasLayer/choice/run" to="ennemies_groupe" method="_on_run_pressed"]
