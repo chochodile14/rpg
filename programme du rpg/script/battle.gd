@@ -7,6 +7,10 @@ extends Node2D
 @onready var ennemies_groupe = $ennemies_groupe
 
 func _ready():
+	print("battle lancé")
+	$CanvasLayer/choice.show()
+	var c = $CanvasLayer/choice
+	c.show()
 	btn_light.pressed.connect(_on_light)
 	btn_heavy.pressed.connect(_on_heavy)
 	btn_ultimate.pressed.connect(_on_ultimate)

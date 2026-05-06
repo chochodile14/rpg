@@ -19,37 +19,33 @@ texture = ExtResource("1_7sfm4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="choice" type="VBoxContainer" parent="."]
+[node name="choice" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1087.0
-offset_top = 547.0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -160.0
+offset_top = -130.0
+offset_right = -10.0
+offset_bottom = -10.0
 grow_horizontal = 0
 grow_vertical = 0
-size_flags_horizontal = 8
-size_flags_vertical = 8
 
-[node name="light" type="Button" parent="choice"]
+[node name="light" type="Button" parent="CanvasLayer/choice"]
 layout_mode = 2
 size_flags_vertical = 8
-text = "Attack"
+text = "light"
 
-[node name="heavy" type="Button" parent="choice"]
+[node name="heavy" type="Button" parent="CanvasLayer/choice"]
 layout_mode = 2
 size_flags_vertical = 8
-text = "Defend"
+text = "heavy"
 
-[node name="ultimate" type="Button" parent="choice"]
+[node name="ultimate" type="Button" parent="CanvasLayer/choice"]
 layout_mode = 2
 size_flags_vertical = 8
-text = "Run"
+text = "ultimate"
 
 [connection signal="enemy_turn_done" from="ennemies_groupe" to="player group" method="_on_ennemies_groupe_enemy_turn_done"]
 [connection signal="next_player" from="ennemies_groupe" to="player group" method="_on_ennemies_groupe_next_player"]
-[connection signal="pressed" from="choice/light" to="ennemies_groupe" method="_on_atk_pressed"]
-[connection signal="pressed" from="choice/ultimate" to="ennemies_groupe" method="_on_run_pressed"]
