@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bv4yubv0w5x82"]
+[gd_scene load_steps=25 format=3 uid="uid://bv4yubv0w5x82"]
 
 [ext_resource type="Script" uid="uid://56gqpmrecwvk" path="res://script/character_body_2d.gd" id="1_l2fv6"]
 [ext_resource type="Texture2D" uid="uid://cxj0nq15obm6n" path="res://art/character.png" id="2_kovia"]
@@ -165,10 +165,10 @@ animations = [{
 radius = 16.0
 height = 54.0
 
-[node name="character_beta" type="CharacterBody2D" unique_id=1601364419]
+[node name="character_beta" type="CharacterBody2D"]
 script = ExtResource("1_l2fv6")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1893845942]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 3
 position = Vector2(298, 114)
 sprite_frames = SubResource("SpriteFrames_yur7t")
@@ -177,10 +177,10 @@ autoplay = "imobile"
 frame = 3
 frame_progress = 0.328967
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=226583933]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(296, 120)
 shape = SubResource("CapsuleShape2D_f3kxg")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=452803746]
+[node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(297, 121)
 zoom = Vector2(1.5, 1.5)

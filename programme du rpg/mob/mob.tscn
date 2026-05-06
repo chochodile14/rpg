@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bioiiawcbv3s2"]
+[gd_scene load_steps=12 format=3 uid="uid://bioiiawcbv3s2"]
 
 [ext_resource type="Script" uid="uid://ks4xc7mqqd7i" path="res://mob.gd" id="1_6jlfs"]
 [ext_resource type="Texture2D" uid="uid://wnqjg41y1ie6" path="res://art/monstre.png" id="2_nokgg"]
@@ -69,26 +69,26 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="mod" type="RigidBody2D" unique_id=533710805]
+[node name="mod" type="RigidBody2D"]
 gravity_scale = 0.0
 script = ExtResource("1_6jlfs")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=461383816]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1451544144]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(12, 2)
 shape = SubResource("CapsuleShape2D_6jlfs")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1425139465]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_ieysi")
 animation = &"walk"
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=659953999]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
 
-[node name="Timer" type="Timer" parent="." unique_id=266084408]
+[node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
 
