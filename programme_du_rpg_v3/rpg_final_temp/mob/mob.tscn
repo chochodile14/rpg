@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bioiiawcbv3s2"]
 
-[ext_resource type="Script" uid="uid://ks4xc7mqqd7i" path="res://mob.gd" id="1_6jlfs"]
+[ext_resource type="Script" uid="uid://ks4xc7mqqd7i" path="res://mob/mob.gd" id="1_6jlfs"]
 [ext_resource type="Texture2D" uid="uid://wnqjg41y1ie6" path="res://art/monstre.png" id="2_nokgg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6jlfs"]

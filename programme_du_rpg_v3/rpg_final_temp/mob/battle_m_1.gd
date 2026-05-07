@@ -7,7 +7,7 @@ class_name BattleEnnemy
 @onready var hurt = $hurt
 
 @export var max_health: float = 100
-@export var attack_damage: float = 1.0
+@export var attack_damage: float = 3.0
 
 var is_dying: bool = false  # Empêche double mort / double focus
 
