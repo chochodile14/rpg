@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr445gttfhtbh"]
+
+[ext_resource type="PackedScene" uid="uid://bv4yubv0w5x82" path="res://character_body.tscn" id="2_e0an3"]
+[ext_resource type="Texture2D" uid="uid://583hl3fhlpt3" path="res://art/map/map test.jpeg" id="2_p5pve"]
+
+[sub_resource type="GDScript" id="GDScript_wijl4"]
+script/source = "extends Node2D
+
+@export var player_character : player
+@export var ia_character : ia
+var curent_character 
+
+
+var game_over : bool = false
+
+func _ready() -> void:
+	next_turn()
+
+func next_turn ():
+	if game_over:
+		return
+		
+	if curent_character != null:
+		curent_character.end_turn()
+	
+	if curent_character == ia_character or curent_character== null:
+		curent_character = player_character
+	else:
+		curent_character = ia_character
+	print(player_character)
+	curent_character.start_turn()
+	
+	if curent_character.is_player:
+		pass
+		#definir ui
+	else:
+		#enlever ui 
+		var wait_time =randf_range(0.5, 1.5)
+		await get_tree().create_timer(wait_time).timeout
+		 #action de combat
+		await get_tree().create_timer(0.5).timeout
+		next_turn()
+
+func action_character_combat(action):
+	if player !=curent_character:
+		return
+	player_character.action_character_combat(action, ia_character)
+	#desactiver ui
+	await get_tree().create_timer(0.5).timeout
+	next_turn()
+
+func ia_dicide_combat_action():
+	pass
+
+	
+	
+"
+
+[node name="map" type="Node2D"]
+script = SubResource("GDScript_wijl4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 3
+offset_left = -433.0
+offset_top = -1154.0
+offset_right = 3995.0
+offset_bottom = 2041.0
+texture = ExtResource("2_p5pve")
+
+[node name="character_beta" parent="." instance=ExtResource("2_e0an3")]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(603, 315)
+gizmo_extents = 4000.0

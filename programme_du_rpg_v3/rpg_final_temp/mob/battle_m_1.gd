@@ -7,14 +7,17 @@ class_name BattleEnnemy
 @onready var hurt = $hurt
 
 @export var max_health: float = 100
-@export var attack_damage: float = 2.0
+@export var attack_damage: float = 1.0
+
+var is_dying: bool = false  # Empêche double mort / double focus
 
 var health: float = 100:
 	set(value):
 		health = clamp(value, 0, max_health)
 		_update_progress_bar()
-		_play_annimation()
-		if health <= 0:
+		if not is_dying:
+			_play_annimation()
+		if health <= 0 and not is_dying:
 			die()
 
 func _update_progress_bar():
@@ -24,15 +27,18 @@ func _play_annimation():
 	hurt.play("hurt")
 
 func focus():
-	_focus.show()
+	if not is_dying:
+		_focus.show()
 
 func unfocus():
 	_focus.hide()
 
 func take_damage(value):
-	health -= value
+	if not is_dying:
+		health -= value
 
 func die():
+	is_dying = true
 	_focus.hide()
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.6)

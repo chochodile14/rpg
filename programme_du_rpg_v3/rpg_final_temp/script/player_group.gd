@@ -9,39 +9,27 @@ func _ready() -> void:
 	for i in player.size():
 		player[i].position = Vector2(0, i * 150)
 	player[0].focus()
-	# Connecter le signal de victoire
 	var ennemies_node = get_parent().get_node("ennemies_groupe")
 	ennemies_node.battle_won.connect(_on_battle_won)
-	# Informe ennemies_groupe du joueur actif initial
 	ennemies_node.set_current_attacker(player[0])
 
-# Retourne le nombre de joueurs encore vivants
 func get_alive_count() -> int:
 	return player.filter(func(p): return is_instance_valid(p) and not p.is_dead).size()
 
 func _on_ennemies_groupe_next_player():
 	if battle_ending:
 		return
-	# Avance au joueur suivant vivant
 	var start = index
-	var found = false
 	var tries = 0
+	var found = false
 	while tries < player.size():
 		tries += 1
-		if index < player.size() - 1:
-			index += 1
-		else:
-			index = 0
+		index = (index + 1) % player.size()
 		if is_instance_valid(player[index]) and not player[index].is_dead:
 			found = true
 			break
-		if index == start:
-			break
-
 	if found:
-		var prev = (index - 1) if index > 0 else player.size() - 1
-		switch_focus(index, prev)
-		# Informe ennemies_groupe du nouveau joueur actif
+		switch_focus(index, start)
 		var ennemies_node = get_parent().get_node("ennemies_groupe")
 		ennemies_node.set_current_attacker(player[index])
 
@@ -51,30 +39,26 @@ func _on_ennemies_groupe_enemy_turn_done():
 	var enemies_node = get_parent().get_node("ennemies_groupe")
 	enemies_node.enemy_attacking = true
 
-	# Copie les listes au moment de l'attaque
-	var alive_enemies = enemies_node.ennemies.filter(func(e): return is_instance_valid(e))
-	var alive_players = player.filter(func(p): return is_instance_valid(p) and not p.is_dead)
-
+	var alive_enemies = enemies_node._get_alive_ennemies()
 	for enemy in alive_enemies:
-		# Recalcule les joueurs vivants à chaque attaque (un joueur peut mourir entre deux)
-		alive_players = player.filter(func(p): return is_instance_valid(p) and not p.is_dead)
-		if alive_players.size() > 0:
-			var target = alive_players[randi() % alive_players.size()]
-			await enemy.attack_animation(target)
-			await get_tree().create_timer(0.4).timeout
+		if battle_ending:
+			break
+		var alive_players = player.filter(func(p): return is_instance_valid(p) and not p.is_dead)
+		if alive_players.size() == 0:
+			break
+		var target = alive_players[randi() % alive_players.size()]
+		await enemy.attack_animation(target)
+		await get_tree().create_timer(0.3).timeout
 
 	enemies_node.enemy_attacking = false
 
-	# Vérifie défaite
-	var still_alive = player.filter(func(p): return is_instance_valid(p) and not p.is_dead)
-	if still_alive.size() == 0:
-		_on_battle_lost()
+	# Vérifie défaite — appel direct sans await pour éviter l'abandon silencieux
+	if get_alive_count() == 0:
+		_trigger_game_over()
 		return
 
-	# Repositionne l'index sur le premier joueur vivant
+	# Repart du premier joueur vivant pour le prochain tour
 	_reset_index_to_alive()
-
-	# Recharge le menu d'attaque pour le prochain tour
 	enemies_node.waiting_for_attack_choice = true
 	enemies_node.set_current_attacker(player[index])
 	enemies_node.emit_signal("request_attack_choice",
@@ -82,7 +66,6 @@ func _on_ennemies_groupe_enemy_turn_done():
 		enemies_node.heavy_cooldown == 0)
 
 func _reset_index_to_alive() -> void:
-	# Repart de l'index 0 pour le nouveau tour
 	for i in player.size():
 		if is_instance_valid(player[i]) and not player[i].is_dead:
 			var old = index
@@ -97,24 +80,29 @@ func _on_battle_won():
 	var alive_players = player.filter(func(p): return is_instance_valid(p) and not p.is_dead)
 	for p in alive_players:
 		p.play_win_animation()
+	# Attend la fin de l'animation puis retour map
 	await get_tree().create_timer(1.8).timeout
 	_return_to_map()
 
-func _on_battle_lost():
+# Séparation claire : _trigger_game_over() est synchrone, le await est dedans
+func _trigger_game_over() -> void:
 	if battle_ending:
 		return
 	battle_ending = true
+	_do_game_over()   # lance la coroutine proprement
+
+func _do_game_over() -> void:
 	await get_tree().create_timer(1.5).timeout
 	_return_to_map()
 
-func _return_to_map():
+func _return_to_map() -> void:
 	var mob_pos = Global.battle_mob_position
-	var spawn_pos = mob_pos + Vector2(-80, 0)
-	Global.player_spawn_position = spawn_pos
+	Global.player_spawn_position = mob_pos + Vector2(-80, 0)
 	get_tree().change_scene_to_file("res://map.tscn")
 
-func switch_focus(x, y):
-	if x >= 0 and x < player.size() and is_instance_valid(player[x]) and not player[x].is_dead:
+func switch_focus(x: int, y: int) -> void:
+	if x >= 0 and x < player.size() \
+			and is_instance_valid(player[x]) and not player[x].is_dead:
 		player[x].focus()
 	if y >= 0 and y < player.size() and is_instance_valid(player[y]):
 		player[y].unfocus()

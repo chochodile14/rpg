@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://qj0o2lxpnqkf"]
+[gd_scene load_steps=17 format=3 uid="uid://qj0o2lxpnqkf"]
 
 [ext_resource type="Texture2D" uid="uid://dpokgj5tipgg2" path="res://art/character in battle.png" id="1_gdlbw"]
 [ext_resource type="Script" uid="uid://dkpam7x3ah3fb" path="res://script/battle_p_1.gd" id="1_j53o7"]
@@ -57,7 +57,7 @@ tracks/0/path = NodePath("base:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1050.75, 160), Vector2(1050.75, 130), Vector2(1050.75, 160), Vector2(1050.75, 130), Vector2(1050.75, 160), Vector2(1050.75, 130), Vector2(1050.75, 160)]
@@ -77,6 +77,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_lose"]
 resource_name = "lose"
+length = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -84,7 +85,7 @@ tracks/0/path = NodePath("base:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0, 0.5, 1.0),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1050.75, 160), Vector2(1050.75, 200), Vector2(1050.75, 240)]
@@ -96,18 +97,18 @@ tracks/1/path = NodePath("base:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0, 0.5, 1.0),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.5, 0.5, 0.5, 0.5), Color(0.3, 0.3, 0.3, 0)]
+"values": [Color(1, 1, 1, 1), Color(0.5, 0.5, 0.5, 0.5), Color(0.3, 0.3, 0.3, 0.0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hurt"]
 _data = {
 &"RESET": SubResource("Animation_reset"),
 &"hurt": SubResource("Animation_hurt"),
-&"lose": SubResource("Animation_lose"),
-&"win": SubResource("Animation_win")
+&"win": SubResource("Animation_win"),
+&"lose": SubResource("Animation_lose")
 }
 
 [sub_resource type="Animation" id="Animation_atk_reset"]
@@ -179,7 +180,7 @@ tracks/0/path = NodePath("base:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.9, 1.1, 2),
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.9, 1.1, 2.0),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1050.75, 160), Vector2(1060.75, 145), Vector2(1040.75, 175), Vector2(1065.75, 140), Vector2(1035.75, 180), Vector2(800, 140), Vector2(800, 140), Vector2(1050.75, 160)]
@@ -191,7 +192,7 @@ tracks/1/path = NodePath("base:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.6, 0.9, 1.1, 1.5, 2),
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.6, 0.9, 1.1, 1.5, 2.0),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.3, 0.3, 5, 1), Color(1, 1, 1, 1), Color(0.3, 0.3, 5, 1), Color(0.3, 0.3, 5, 1), Color(5, 5, 0.5, 1), Color(5, 5, 0.5, 1), Color(1, 1, 1, 1)]
@@ -200,8 +201,8 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_atk"]
 _data = {
 &"RESET": SubResource("Animation_atk_reset"),
-&"atk_heavy": SubResource("Animation_atk_heavy"),
 &"atk_light": SubResource("Animation_atk_light"),
+&"atk_heavy": SubResource("Animation_atk_heavy"),
 &"atk_ultimate": SubResource("Animation_atk_ultimate")
 }
 

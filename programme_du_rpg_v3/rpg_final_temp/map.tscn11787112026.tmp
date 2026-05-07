@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr445gttfhtbh"]
+
+[ext_resource type="Script" uid="uid://bintf1lw5e26j" path="res://game_manager.gd" id="1_e0an3"]
+[ext_resource type="PackedScene" uid="uid://bv4yubv0w5x82" path="res://character_body.tscn" id="2_e0an3"]
+[ext_resource type="Texture2D" uid="uid://583hl3fhlpt3" path="res://art/map/map test.jpeg" id="2_p5pve"]
+
+[node name="map" type="Node2D" node_paths=PackedStringArray("player_character", "ia_character")]
+script = ExtResource("1_e0an3")
+player_character = NodePath("character_beta")
+ia_character = NodePath("mob2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 3
+offset_left = -433.0
+offset_top = -1154.0
+offset_right = 3995.0
+offset_bottom = 2041.0
+texture = ExtResource("2_p5pve")
+
+[node name="character_beta" parent="." instance=ExtResource("2_e0an3")]
+
+[node name="mob2" parent="." instance=ExtResource("2_e0an3")]
+position = Vector2(199, 11)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(603, 315)
+gizmo_extents = 4000.0
