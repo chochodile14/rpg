@@ -1,0 +1,17 @@
+res://mob/mob.tscn
+res://mob/battle_m_1.gd
+res://script/ennemies_groupe.gd
+res://map.tscn
+res://hub.tscn
+res://battle.tscn
+res://mob/battle_m_1.tscn
+res://mob/ennemies_groupe.tscn
+res://player/player_group.tscn
+res://player/character_body.tscn
+res://player/battle_p_1.tscn
+res://mob.gd
+res://script/battle_p_1.gd
+res://script/character_body_2d.gd
+res://script/player_group.gd
+res://script/battle.gd
+res://script/button.gd

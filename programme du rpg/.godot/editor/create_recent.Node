@@ -1,0 +1,12 @@
+Button
+Area2D
+RigidBody2D
+CollisionShape2D
+VBoxContainer
+CanvasLayer
+TextureRect
+AnimatedSprite2D
+CharacterBody2D
+Node2D
+Camera2D
+Marker2D
