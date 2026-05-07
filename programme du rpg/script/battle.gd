@@ -32,12 +32,12 @@ func _hide_buttons():
 
 func _on_light():
 	_hide_buttons()
-	ennemies_groupe.choose_attack(1.0)   # Attaque légère : 1 dégât
+	ennemies_groupe.choose_attack(5.0)   # Attaque légère : 1 dégât
 
 func _on_heavy():
 	_hide_buttons()
-	ennemies_groupe.choose_attack(3.0)   # Attaque lourde : 3 dégâts
+	ennemies_groupe.choose_attack(10.0)   # Attaque lourde : 3 dégâts
 
 func _on_ultimate():
 	_hide_buttons()
-	ennemies_groupe.choose_attack(6.0)   # Ultimate : 6 dégâts
+	ennemies_groupe.choose_attack(50.0)   # Ultimate : 6 dégâts

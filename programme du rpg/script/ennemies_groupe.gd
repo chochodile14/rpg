@@ -65,10 +65,10 @@ func _process(_delta):
 func choose_attack(damage: float) -> void:
 	# Appelé depuis le UI quand le joueur clique sur une attaque
 	pending_target = damage
-	if damage >= 6:
+	if damage >= 50:
 		ultimate_charge = 0   # reset l'ultime après utilisation
 	else:
-		ultimate_charge += 1  # charge l'ultime à chaque coup normal
+		ultimate_charge += 6  # charge l'ultime à chaque coup normal
 	waiting_for_attack_choice = false
  
 func _action(stack: Array):

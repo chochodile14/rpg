@@ -6,10 +6,10 @@ class_name BattleEnnemy
 @onready var progress_bar = $pv
 @onready var hurt = $hurt
 
-@export var max_health: float = 10
+@export var max_health: float = 100
 @export var attack_damage: float = 1.0
 
-var health: float = 10:
+var health: float = 100:
 	set(value):
 		health = clamp(value, 0, max_health)
 		_update_progress_bar()
