@@ -7,7 +7,7 @@ class_name BattleEnnemy
 @onready var hurt = $hurt
 
 @export var max_health: float = 100
-@export var attack_damage: float = 1.0
+@export var attack_damage: float = 2.0
 
 var health: float = 100:
 	set(value):

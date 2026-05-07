@@ -7,9 +7,9 @@ class_name BattlePlayer
 @onready var hurt_anim = $hurt
 @onready var atk_anim = $atk
 
-@export var max_health: float = 7
+@export var max_health: float = 20
 
-var health: float = 7:
+var health: float = 20:
 	set(value):
 		health = clamp(value, 0, max_health)
 		_update_progress_bar()
