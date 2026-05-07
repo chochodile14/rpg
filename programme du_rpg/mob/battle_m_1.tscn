@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://yvt1jga7a2s6"]
+
+[ext_resource type="Texture2D" uid="uid://nejubmy08bch" path="res://art/mob-removebg-preview.png" id="1_53bot"]
+[ext_resource type="Script" uid="uid://com5ujcrf86fw" path="res://mob/battle_m_1.gd" id="1_tfjny"]
+[ext_resource type="Texture2D" uid="uid://bkr2rmwturtj2" path="res://art/pixel_hand_2-removebg-preview.png" id="2_tfjny"]
+
+[sub_resource type="Animation" id="Animation_2ig0o"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.115234, 0.203499, 0.264793, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.847485, 0.847485, 0.847375, 1), Color(18.8922, 18.8922, 18.8922, 1), Color(10.2824, 0, 0.356863, 1), Color(1, 1, 1, 1), Color(100, 100, 0, 1), Color(0.796243, 0.796243, 0.796243, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yrqwn"]
+resource_name = "hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.128111, 0.231819, 0.341628, 0.469739, 0.573448, 0.634453, 0.762563, 0.866272),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1.10583, 1.10583, 1.10583, 1), Color(18.8922, 18.8922, 18.8922, 1), Color(2.96018, 0, 0, 1), Color(1.05149, 1.05149, 1.05149, 1), Color(18.8922, 18.8922, 18.8922, 1), Color(2.96018, 0, 0, 1), Color(1.05149, 1.05149, 1.05149, 1), Color(18.8922, 18.8922, 18.8922, 1), Color(2.96018, 0, 0, 1), Color(1.05149, 1.05149, 1.05149, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gyjgb"]
+_data = {
+&"RESET": SubResource("Animation_2ig0o"),
+&"hurt": SubResource("Animation_yrqwn")
+}
+
+[node name="battle m 1" type="Node2D"]
+script = ExtResource("1_tfjny")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.847485, 0.847485, 0.847375, 1)
+position = Vector2(118, 121)
+texture = ExtResource("1_53bot")
+
+[node name="turn" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(43, 122)
+rotation = 1.5708
+scale = Vector2(0.427586, 0.450904)
+texture = ExtResource("2_tfjny")
+
+[node name="pv" type="ProgressBar" parent="."]
+modulate = Color(1, 0, 0, 1)
+offset_left = 51.0
+offset_top = 4.0
+offset_right = 154.333
+offset_bottom = 31.0
+scale = Vector2(1.5, 1.5)
+value = 100.0
+
+[node name="hurt" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gyjgb")
+}

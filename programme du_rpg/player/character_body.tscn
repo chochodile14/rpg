@@ -129,7 +129,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"imobile",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -166,16 +166,16 @@ radius = 16.0
 height = 54.0
 
 [node name="character_beta" type="CharacterBody2D"]
-collision_mask = 3
 script = ExtResource("1_l2fv6")
-speed = null
-target_scale = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 3
 position = Vector2(298, 114)
 sprite_frames = SubResource("SpriteFrames_yur7t")
 animation = &"imobile"
+autoplay = "imobile"
+frame = 3
+frame_progress = 0.328967
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(296, 120)
