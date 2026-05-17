@@ -1,0 +1,55 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://ui/tuto_bubble.gd" id="1_bubble"]
+
+[node name="TutoBubble" type="CanvasLayer"]
+layer = 20
+script = ExtResource("1_bubble")
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -220.0
+offset_right = 320.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0.25, 0.85, 1.0, 1)
+horizontal_alignment = 1
+text = "Titre"
+
+[node name="Text" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+autowrap_mode = 2
+text = "Texte"
+
+[node name="ArrowHint" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(1.0, 0.9, 0.2, 1)
+horizontal_alignment = 1
+text = ""
+
+[node name="BtnOK" type="Button" parent="Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 44)
+theme_override_font_sizes/font_size = 20
+text = "Suivant ▶"
+
+[node name="Anim" type="AnimationPlayer" parent="Panel"]
+
+[connection signal="pressed" from="Panel/VBox/BtnOK" to="." method="_on_btn_ok_pressed"]

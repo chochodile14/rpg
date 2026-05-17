@@ -3,6 +3,7 @@ extends Node2D
 @onready var btn_light = $CanvasLayer/choice/light
 @onready var btn_heavy = $CanvasLayer/choice/heavy
 @onready var btn_ultimate = $CanvasLayer/choice/ultimate
+@onready var btn_exit = $CanvasLayer/choice/exit
 @onready var ennemies_groupe = $ennemies_groupe
 
 func _ready():
@@ -21,11 +22,13 @@ func _on_request_choice(can_ultimate: bool, can_heavy: bool):
 	btn_light.visible = true
 	btn_heavy.visible = true
 	btn_ultimate.visible = true
+	btn_exit.visible= true
 
 func _hide_buttons():
 	btn_light.visible = false
 	btn_heavy.visible = false
 	btn_ultimate.visible = false
+	btn_exit.visible= false
 
 func _on_light():
 	_hide_buttons()

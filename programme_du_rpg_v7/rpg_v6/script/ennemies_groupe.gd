@@ -1,5 +1,7 @@
 extends Node2D
 
+const DamageNumber = preload("res://ui/damage_number.tscn")
+
 var ennemies: Array = []
 var action_queue: Array = []
 var is_battling: bool = false
@@ -35,7 +37,6 @@ func _get_alive_ennemies() -> Array:
 	return ennemies.filter(func(e): return is_instance_valid(e) and not e.is_dying)
 
 func _process(_delta):
-	# Bloque TOUT si le combat tourne, les ennemis attaquent, ou on attend un choix
 	if is_battling or enemy_attacking or waiting_for_attack_choice:
 		return
 
@@ -72,14 +73,12 @@ func _process(_delta):
 		var alive_count = player_group.get_alive_count()
 
 		if action_queue.size() >= alive_count:
-			# Tous les joueurs ont choisi — on verrouille et on lance
 			is_battling = true
-			waiting_for_attack_choice = true  # bloque _process pendant le combat
+			waiting_for_attack_choice = true
 			var stack = action_queue.duplicate()
 			action_queue.clear()
 			_action(stack)
 		else:
-			# Il reste des joueurs à faire choisir
 			emit_signal("next_player")
 			waiting_for_attack_choice = true
 			emit_signal("request_attack_choice",
@@ -105,32 +104,31 @@ func choose_attack(damage: float, attack_type: String) -> void:
 
 func _action(stack: Array) -> void:
 	for entry in stack:
-		var target_idx = entry["target"]
-		var dmg    = entry["damage"]
-		var atk_type = entry.get("attack_type", "light")
-		var attacker = entry.get("attacker", null)
+		var target_idx  = entry["target"]
+		var dmg         = entry["damage"]
+		var atk_type    = entry.get("attack_type", "light")
+		var attacker    = entry.get("attacker", null)
 
-		# Animation du joueur attaquant
 		if is_instance_valid(attacker) and not attacker.is_dead:
 			await attacker.play_attack_animation(atk_type)
 		else:
 			await get_tree().create_timer(0.5).timeout
 
-		# Dégâts sur l'ennemi ciblé
 		if target_idx < ennemies.size() \
 				and is_instance_valid(ennemies[target_idx]) \
 				and not ennemies[target_idx].is_dying:
-			ennemies[target_idx].take_damage(dmg)
+			var enemy_node = ennemies[target_idx]
+			enemy_node.take_damage(dmg)
+			# Calcule la position écran de l'ennemi et affiche le chiffre
+			_spawn_damage_number(enemy_node, dmg, atk_type)
 
 		await get_tree().create_timer(0.3).timeout
 
-		# Recale le focus si l'ennemi ciblé vient de mourir
 		if index >= ennemies.size() \
 				or not is_instance_valid(ennemies[index]) \
 				or ennemies[index].is_dying:
 			_move_index_to_alive()
 
-		# Victoire ?
 		if _get_alive_ennemies().size() == 0:
 			is_battling = false
 			waiting_for_attack_choice = false
@@ -140,6 +138,23 @@ func _action(stack: Array) -> void:
 	is_battling = false
 	waiting_for_attack_choice = false
 	emit_signal("enemy_turn_done")
+
+# Spawne le chiffre dans le CanvasLayer de la scène parente
+func _spawn_damage_number(enemy_node: Node2D, dmg: float, atk_type: String) -> void:
+	# Trouve ou crée un CanvasLayer "DmgLayer" dans la scène racine
+	var root = get_tree().current_scene
+	var dmg_layer = root.get_node_or_null("DmgLayer")
+	if dmg_layer == null:
+		dmg_layer = CanvasLayer.new()
+		dmg_layer.name = "DmgLayer"
+		dmg_layer.layer = 5
+		root.add_child(dmg_layer)
+
+	var popup = DamageNumber.instantiate()
+	dmg_layer.add_child(popup)
+	# Convertit la position monde de l'ennemi en position écran
+	var screen_pos = get_viewport().get_screen_transform() * enemy_node.global_position
+	popup.setup(screen_pos, dmg, atk_type)
 
 func switch_focus(x: int, y: int) -> void:
 	if y >= 0 and y < ennemies.size() \

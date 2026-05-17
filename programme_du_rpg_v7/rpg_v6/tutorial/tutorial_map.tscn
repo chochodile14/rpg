@@ -1,0 +1,44 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://bv4yubv0w5x82" path="res://player/character_body.tscn" id="1_player"]
+[ext_resource type="Texture2D" uid="uid://583hl3fhlpt3" path="res://art/map/map test.jpeg" id="2_map"]
+[ext_resource type="PackedScene" uid="uid://bioiiawcbv3s2" path="res://mob/mob.tscn" id="3_mob"]
+[ext_resource type="PackedScene" path="res://ui/tuto_bubble.tscn" id="4_bubble"]
+[ext_resource type="Script" path="res://tutorial/tutorial_map.gd" id="5_script"]
+
+[node name="TutorialMap" type="Node2D"]
+script = ExtResource("5_script")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 3
+offset_left = -433.0
+offset_top = -1154.0
+offset_right = 3995.0
+offset_bottom = 2041.0
+texture = ExtResource("2_map")
+
+[node name="character_beta" parent="." instance=ExtResource("1_player")]
+position = Vector2(200, 300)
+
+[node name="mob_tuto" parent="." instance=ExtResource("3_mob")]
+position = Vector2(900, 300)
+
+[node name="TutoBubble" parent="." instance=ExtResource("4_bubble")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ArrowIndicator" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -40.0
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 48
+theme_override_colors/font_color = Color(1.0, 0.9, 0.1, 1)
+horizontal_alignment = 1
+text = "▶"
