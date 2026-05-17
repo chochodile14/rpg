@@ -1,13 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://dr445gttfhtbh"]
 
+[ext_resource type="Script" uid="uid://c1kmsxi42sv7w" path="res://script/map.gd" id="1_p5pve"]
 [ext_resource type="PackedScene" uid="uid://bv4yubv0w5x82" path="res://player/character_body.tscn" id="2_e0an3"]
 [ext_resource type="Texture2D" uid="uid://583hl3fhlpt3" path="res://art/map/map test.jpeg" id="2_p5pve"]
 [ext_resource type="PackedScene" uid="uid://bioiiawcbv3s2" path="res://mob/mob.tscn" id="3_e0an3"]
 
-[sub_resource type="GDScript" id="GDScript_wijl4"]
-
 [node name="map" type="Node2D"]
-script = SubResource("GDScript_wijl4")
+script = ExtResource("1_p5pve")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 3

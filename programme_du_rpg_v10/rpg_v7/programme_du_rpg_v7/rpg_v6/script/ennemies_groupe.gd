@@ -104,23 +104,35 @@ func choose_attack(damage: float, attack_type: String) -> void:
 
 func _action(stack: Array) -> void:
 	for entry in stack:
-		var target_idx  = entry["target"]
-		var dmg         = entry["damage"]
-		var atk_type    = entry.get("attack_type", "light")
-		var attacker    = entry.get("attacker", null)
+		var target_idx = entry["target"]
+		var base_dmg   = entry["damage"]
+		var atk_type   = entry.get("attack_type", "light")
+		var attacker   = entry.get("attacker", null)
 
+		# ── Calcule les dégâts finaux avec les stats du joueur ──────────────
+		var final_dmg = base_dmg
+		var is_crit   = false
 		if is_instance_valid(attacker) and not attacker.is_dead:
+			var pidx = attacker.player_index
+			# Bonus d'attaque
+			final_dmg += Global.get_atk_bonus(pidx)
+			# Coup critique ?
+			var crit_roll = randf()
+			if crit_roll < Global.get_crit_chance(pidx):
+				final_dmg *= 2.0
+				is_crit = true
+			# Animation
 			await attacker.play_attack_animation(atk_type)
 		else:
 			await get_tree().create_timer(0.5).timeout
 
+		# ── Applique les dégâts ──────────────────────────────────────────────
 		if target_idx < ennemies.size() \
 				and is_instance_valid(ennemies[target_idx]) \
 				and not ennemies[target_idx].is_dying:
 			var enemy_node = ennemies[target_idx]
-			enemy_node.take_damage(dmg)
-			# Calcule la position écran de l'ennemi et affiche le chiffre
-			_spawn_damage_number(enemy_node, dmg, atk_type)
+			enemy_node.take_damage(final_dmg)
+			_spawn_damage_number(enemy_node, final_dmg, atk_type if not is_crit else "crit")
 
 		await get_tree().create_timer(0.3).timeout
 
@@ -139,9 +151,7 @@ func _action(stack: Array) -> void:
 	waiting_for_attack_choice = false
 	emit_signal("enemy_turn_done")
 
-# Spawne le chiffre dans le CanvasLayer de la scène parente
 func _spawn_damage_number(enemy_node: Node2D, dmg: float, atk_type: String) -> void:
-	# Trouve ou crée un CanvasLayer "DmgLayer" dans la scène racine
 	var root = get_tree().current_scene
 	var dmg_layer = root.get_node_or_null("DmgLayer")
 	if dmg_layer == null:
@@ -149,10 +159,8 @@ func _spawn_damage_number(enemy_node: Node2D, dmg: float, atk_type: String) -> v
 		dmg_layer.name = "DmgLayer"
 		dmg_layer.layer = 5
 		root.add_child(dmg_layer)
-
 	var popup = DamageNumber.instantiate()
 	dmg_layer.add_child(popup)
-	# Convertit la position monde de l'ennemi en position écran
 	var screen_pos = get_viewport().get_screen_transform() * enemy_node.global_position
 	popup.setup(screen_pos, dmg, atk_type)
 

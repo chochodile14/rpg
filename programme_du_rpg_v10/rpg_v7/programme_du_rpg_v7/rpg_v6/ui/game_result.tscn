@@ -20,7 +20,7 @@ anchor_bottom = 1.0
 
 [node name="VBox" type="VBoxContainer" parent="CenterContainer"]
 alignment = 1
-theme_override_constants/separation = 30
+theme_override_constants/separation = 20
 
 [node name="TitleLabel" type="Label" parent="CenterContainer/VBox"]
 layout_mode = 2
@@ -44,5 +44,17 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 modulate = Color(1, 1, 1, 0)
+
+[node name="XpLabel" type="Label" parent="CenterContainer/VBox"]
+layout_mode = 2
+text = "+40 XP"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0.3, 1.0, 0.5, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+modulate = Color(1, 1, 1, 0)
+visible = false
 
 [node name="Particles" type="Node2D" parent="."]

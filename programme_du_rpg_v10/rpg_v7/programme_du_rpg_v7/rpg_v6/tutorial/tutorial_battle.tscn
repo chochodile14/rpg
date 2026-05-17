@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bletxdxh6mj8u"]
+[gd_scene load_steps=8 format=3 uid="uid://bletxdxh6mj8u"]
 
 [ext_resource type="Texture2D" uid="uid://b1g7hkpwfuled" path="res://art/battleback1_0.png" id="1_7sfm4"]
 [ext_resource type="Script" uid="uid://cdowk15nekydw" path="res://tutorial/tutorial_battle.gd" id="1_tbscript"]
@@ -8,25 +8,25 @@
 [ext_resource type="PackedScene" path="res://ui/game_result.tscn" id="6_result"]
 [ext_resource type="PackedScene" path="res://ui/tuto_bubble.tscn" id="7_bubble"]
 
-[node name="Node2D" type="Node2D" unique_id=980548310]
+[node name="Node2D" type="Node2D"]
 script = ExtResource("1_tbscript")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=116618536]
+[node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1147.0
 offset_bottom = 647.0
 texture = ExtResource("1_7sfm4")
 
-[node name="ennemies_groupe" parent="." unique_id=283152718 instance=ExtResource("2_oxp8w")]
+[node name="ennemies_groupe" parent="." instance=ExtResource("2_oxp8w")]
 
-[node name="player group" parent="." unique_id=1451658517 instance=ExtResource("3_7sfm4")]
+[node name="player group" parent="." instance=ExtResource("3_7sfm4")]
 
-[node name="TutoBubble" parent="." unique_id=1751391974 instance=ExtResource("7_bubble")]
+[node name="TutoBubble" parent="." instance=ExtResource("7_bubble")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=264429948]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="GameResult" parent="CanvasLayer" unique_id=1718156914 instance=ExtResource("6_result")]
+[node name="GameResult" parent="CanvasLayer" instance=ExtResource("6_result")]
 
-[node name="Highlight" type="ColorRect" parent="CanvasLayer" unique_id=1260082607]
+[node name="Highlight" type="ColorRect" parent="CanvasLayer"]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,7 +34,7 @@ anchor_bottom = 1.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.5)
 
-[node name="choice" type="VBoxContainer" parent="CanvasLayer" unique_id=1221880502]
+[node name="choice" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -47,26 +47,26 @@ offset_bottom = -10.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="light" type="Button" parent="CanvasLayer/choice" unique_id=317980034]
+[node name="light" type="Button" parent="CanvasLayer/choice"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "Light [5 dmg]"
 
-[node name="heavy" type="Button" parent="CanvasLayer/choice" unique_id=1810545929]
+[node name="heavy" type="Button" parent="CanvasLayer/choice"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "Heavy [10 dmg]"
 
-[node name="ultimate" type="Button" parent="CanvasLayer/choice" unique_id=1860337076]
+[node name="ultimate" type="Button" parent="CanvasLayer/choice"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "Ultimate[50 dmg]"
 
-[node name="exit" type="Button" parent="CanvasLayer/choice" unique_id=1919106917]
+[node name="exit" type="Button" parent="CanvasLayer/choice"]
 layout_mode = 2
 text = "Quitter"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1352629897]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_6t8i5")
 autoplay = true
 bus = &"music"
