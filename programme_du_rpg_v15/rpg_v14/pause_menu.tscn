@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://cjhmbt2lrpqc6"]
+
+[ext_resource type="FontFile" uid="uid://crre5antcpq43" path="res://art/fonts/firstorder.ttf" id="1_hdmo1"]
+[ext_resource type="Script" uid="uid://ccocjaufo85gx" path="res://pause_menu.gd" id="1_nwcfo"]
+[ext_resource type="PackedScene" uid="uid://ob2qv1hjune" path="res://settings.tscn" id="3_05uyy"]
+
+[sub_resource type="GDScript" id="GDScript_05uyy"]
+script/source = "extends Button
+
+
+
+
+
+func _on_pressed() -> void:
+	pass # Replace with function body.
+"
+
+[node name="PauseMenu" type="Control" unique_id=692343603]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nwcfo")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1593738241]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=72946686]
+layout_mode = 2
+
+[node name="resume" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2008046588]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hdmo1")
+text = "Resume"
+script = SubResource("GDScript_05uyy")
+
+[node name="settigs" type="Button" parent="MarginContainer/VBoxContainer" unique_id=622548652]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hdmo1")
+text = "Settings"
+
+[node name="quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1131673074]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hdmo1")
+text = "quit"
+
+[node name="settings" parent="." unique_id=565499012 instance=ExtResource("3_05uyy")]
+layout_mode = 1
+offset_left = -239.0
+offset_top = -101.0
+offset_right = -239.0
+offset_bottom = -101.0
+scale = Vector2(0.5, 0.5)
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/resume" to="MarginContainer/VBoxContainer/resume" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/settigs" to="." method="_on_settigs_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

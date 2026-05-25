@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dr445gttfhtbh"]
+
+[ext_resource type="Script" uid="uid://c1kmsxi42sv7w" path="res://script/map.gd" id="1_p5pve"]
+[ext_resource type="PackedScene" uid="uid://bv4yubv0w5x82" path="res://player/character_body.tscn" id="2_e0an3"]
+[ext_resource type="Texture2D" uid="uid://583hl3fhlpt3" path="res://art/map/map test.jpeg" id="2_p5pve"]
+[ext_resource type="PackedScene" uid="uid://bioiiawcbv3s2" path="res://mob/mob.tscn" id="3_e0an3"]
+[ext_resource type="AudioStream" uid="uid://b0leywc40falm" path="res://audio/musique varier/music-medieval-chocho.ogg" id="5_urblq"]
+[ext_resource type="PackedScene" uid="uid://cjhmbt2lrpqc6" path="res://pause_menu.tscn" id="6_iw27f"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_p5pve"]
+vertices = PackedVector2Array(153.21875, 959.53906, 397.2422, 850.3828, 502.09375, 846.40625, 497.20313, 905.21094, 213.75781, 1071.3984, 163.11719, 1074.4297, -143.25781, -23.09375, 837.25, -31.898438, 824.7422, 145.03906, 630.4219, 125.90625, -125.703125, 220.90625, 216.6875, 217.90625, 635.4922, 224.57031, 382.77344, 238.54688, 230.29688, 648.3828, 111.40625, 903.59375, 75.53125, 907.8125, 68.57031, 744.6094, -30.6875, 748.5781, -28.257813, 664.40625, 105.15625, 956.64844, 1031.6484, 1088.8672, 1044.2891, 1272.2188, 218.77344, 1289.7813, 732, 1084.8672, 732, 983.1328, 622.7422, 973.2031, 617.75, 914.3203)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(10, 6, 9, 11), PackedInt32Array(11, 9, 12, 13), PackedInt32Array(14, 11, 13, 1), PackedInt32Array(15, 16, 17), PackedInt32Array(17, 18, 19, 14), PackedInt32Array(0, 20, 15), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(25, 24, 23, 4, 26), PackedInt32Array(27, 26, 4, 3), PackedInt32Array(17, 14, 1, 0, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-135, 231, 207, 228, 220, 639, -38, 655, -41, 759, 59, 755, 66, 919, 100, 915, 94, 966, 144, 969, 154, 1085, 204, 1082, 209, 1300, 1055, 1282, 1041, 1079, 742, 1075, 742, 974, 632, 964, 627, 905, 508, 896, 513, 836, 407, 840, 393, 248, 646, 234, 641, 137, 834, 156, 848, -42, -154, -33)])
+
+[node name="map" type="Node2D" unique_id=1784599699]
+script = ExtResource("1_p5pve")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=93082228]
+texture_filter = 3
+offset_left = -433.0
+offset_top = -1154.0
+offset_right = 3995.0
+offset_bottom = 2041.0
+texture = ExtResource("2_p5pve")
+
+[node name="character_beta" parent="." unique_id=1611766621 instance=ExtResource("2_e0an3")]
+position = Vector2(230, -11)
+
+[node name="PauseMenu" parent="character_beta" unique_id=692343603 instance=ExtResource("6_iw27f")]
+visible = false
+offset_left = -29.0
+offset_top = -25.0
+offset_right = -29.0
+offset_bottom = -25.0
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=63390429]
+position = Vector2(603, 315)
+gizmo_extents = 4000.0
+
+[node name="mob" parent="." unique_id=1234938404 instance=ExtResource("3_e0an3")]
+position = Vector2(652, 149)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=386200547]
+navigation_polygon = SubResource("NavigationPolygon_p5pve")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1619947070]
+stream = ExtResource("5_urblq")
+autoplay = true
+bus = &"music"
+parameters/looping = false

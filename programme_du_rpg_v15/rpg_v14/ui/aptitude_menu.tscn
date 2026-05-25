@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://by2n2pw6a0pkl"]
+
+[ext_resource type="Script" uid="uid://dr3bf5dnxsufx" path="res://ui/aptitude_menu.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://crre5antcpq43" path="res://art/fonts/firstorder.ttf" id="2_fxskp"]
+
+[node name="AptitudeMenu" type="CanvasLayer" unique_id=1719091796]
+layer = 15
+script = ExtResource("1_script")
+
+[node name="Panel" type="Panel" parent="." unique_id=1284221114]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 30.0
+offset_right = -40.0
+offset_bottom = -30.0
+
+[node name="VBox" type="VBoxContainer" parent="Panel" unique_id=2093872751]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = -12.0
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Panel/VBox" unique_id=1024584305]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.1, 1)
+theme_override_fonts/font = ExtResource("2_fxskp")
+theme_override_font_sizes/font_size = 22
+text = "Menu d'aptitude"
+horizontal_alignment = 1
+
+[node name="XpBar" type="HBoxContainer" parent="Panel/VBox" unique_id=134459054]
+layout_mode = 2
+
+[node name="XpLabel" type="Label" parent="Panel/VBox/XpBar" unique_id=509443046]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fxskp")
+theme_override_font_sizes/font_size = 14
+text = "XP : 0 / 100  ( Niveau 1 )"
+
+[node name="Bar" type="ProgressBar" parent="Panel/VBox/XpBar" unique_id=275438814]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayersBox" type="HBoxContainer" parent="Panel/VBox" unique_id=281923300]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="HotkeyLabel" type="Label" parent="Panel/VBox" unique_id=1746667378]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.55, 0.55, 1)
+theme_override_fonts/font = ExtResource("2_fxskp")
+theme_override_font_sizes/font_size = 12
+text = "💡 Tab = rouvrir ce menu depuis la map  |  Ctrl+Shift+X = +9999 XP (test)"
+horizontal_alignment = 1
+
+[node name="CloseBtn" type="Button" parent="Panel/VBox" unique_id=1149614647]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 18
+text = "Continuer →"

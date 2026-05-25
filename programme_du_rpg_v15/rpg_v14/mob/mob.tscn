@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://bioiiawcbv3s2"]
+
+[ext_resource type="Script" uid="uid://ks4xc7mqqd7i" path="res://mob/mob.gd" id="1_6jlfs"]
+[ext_resource type="Texture2D" uid="uid://wnqjg41y1ie6" path="res://art/monstre.png" id="2_nokgg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_body"]
+radius = 30.0
+height = 96.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atk0"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(0, 456, 116, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atk1"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(116, 456, 116, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atk2"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(232, 456, 116, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_walk0"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(0, 333, 93, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_walk1"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(93, 333, 93, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_walk2"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(186, 333, 93, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_walk3"]
+atlas = ExtResource("2_nokgg")
+region = Rect2(279, 333, 93, 111)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mob"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atk2")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_walk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_walk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_walk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_walk3")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_detect"]
+radius = 220.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_contact"]
+radius = 38.0
+height = 100.0
+
+[node name="mod" type="RigidBody2D" unique_id=1804651273]
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_6jlfs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1911374155]
+shape = SubResource("CapsuleShape2D_body")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=825913138]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_mob")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="AlertLabel" type="Label" parent="." unique_id=847823643]
+visible = false
+z_index = 10
+offset_left = -8.0
+offset_top = -105.0
+offset_right = -8.0
+offset_bottom = -105.0
+theme_override_colors/font_color = Color(1, 0.9, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 42
+text = "!"
+
+[node name="DetectionZone" type="Area2D" parent="." unique_id=1810791544]
+collision_layer = 0
+
+[node name="DetectionShape" type="CollisionShape2D" parent="DetectionZone" unique_id=1552487962]
+shape = SubResource("CircleShape2D_detect")
+debug_color = Color(1, 0.3, 0, 0.1)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2000539017]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1118533919]
+shape = SubResource("CapsuleShape2D_contact")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=195858620]
+
+[node name="NavTimer" type="Timer" parent="." unique_id=2049280054]
+wait_time = 0.3
+autostart = true
+
+[connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

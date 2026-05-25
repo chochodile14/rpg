@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b0leywc40falm"
+path="res://.godot/imported/music-medieval-chocho.ogg-6429f24fee8ed0cc1c2130ca7371ef3c.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/musique varier/music-medieval-chocho.ogg"
+dest_files=["res://.godot/imported/music-medieval-chocho.ogg-6429f24fee8ed0cc1c2130ca7371ef3c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

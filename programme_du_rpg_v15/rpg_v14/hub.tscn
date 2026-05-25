@@ -1,0 +1,243 @@
+[gd_scene format=3 uid="uid://qdl1o1fy4y1m"]
+
+[ext_resource type="AudioStream" uid="uid://yl6hn5n3wlnt" path="res://audio/musique varier/menu-sacha-2.2.ogg" id="1_l10or"]
+
+[sub_resource type="GDScript" id="GDScript_qlmhu"]
+script/source = "extends CanvasLayer
+
+
+func _ready() -> void:
+	pass
+
+
+
+
+func _on_option_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://settings.tscn\")
+
+
+func _on_start_pressed() -> void:
+	$AnimationPlayer.play(\"transition\")
+	await get_tree().create_timer(4).timeout
+	get_tree().change_scene_to_file(\"res://map.tscn\")
+
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_credits_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_tutorial_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://tutorial/tutorial_map.tscn\")
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l10or"]
+bg_color = Color(0.5159611, 0.72656167, 1.919964, 1)
+border_width_left = 7
+border_width_right = 7
+border_color = Color(0.8, 0.47200003, 0.7508, 1)
+border_blend = true
+corner_detail = 20
+shadow_color = Color(0.23529412, 0.15294118, 0.15294118, 0.6)
+shadow_size = 8
+shadow_offset = Vector2(5.83, 7.115)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjueh"]
+bg_color = Color(1.473006, 0.3294601, 0.5490209, 1)
+skew = Vector2(0.075, 0.015)
+border_color = Color(0.7080229, 0.8419911, 0.7249201, 1)
+corner_detail = 1
+shadow_color = Color(0.45882353, 0, 0, 0.6)
+shadow_size = 9
+shadow_offset = Vector2(3.795, 3.875)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7r13"]
+bg_color = Color(0.017442245, 0.015265878, 0.3917298, 1)
+skew = Vector2(0.2, 0.11)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.055452645, 0.3583791, 0.44309586, 1)
+border_blend = true
+shadow_size = 9
+shadow_offset = Vector2(3.76, 5.79)
+
+[sub_resource type="GDScript" id="GDScript_l10or"]
+script/source = "extends Button
+
+
+
+func _ready():
+	pass
+
+#func _on_button_pressed() -> void:
+#	self.hide()
+#	get_tree().change_scene_to_file(\"res://map.tscn\")
+
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="Animation" id="Animation_hjueh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("transition:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.289)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("transition:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -670)]
+}
+
+[sub_resource type="Animation" id="Animation_l10or"]
+resource_name = "transition"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("transition:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.289), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("transition:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.4333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -670), Vector2(-26, -11)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w7r13"]
+_data = {
+&"RESET": SubResource("Animation_hjueh"),
+&"transition": SubResource("Animation_l10or")
+}
+
+[node name="hub" type="CanvasLayer" unique_id=1930257843]
+script = SubResource("GDScript_qlmhu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=474117826]
+offset_right = 1153.0
+offset_bottom = 651.0
+color = Color(1.0053849, 0.67799866, 0.77558374, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1697101124]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = -128.0
+offset_right = 57.312134
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.73, 1.73)
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 28
+
+[node name="start" type="Button" parent="VBoxContainer" unique_id=2032733078]
+self_modulate = Color(0.16862746, 0.92156863, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_l10or")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hjueh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w7r13")
+text = "Start"
+script = SubResource("GDScript_l10or")
+
+[node name="option" type="Button" parent="VBoxContainer" unique_id=1126072868]
+self_modulate = Color(0.16862746, 0.92156863, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_l10or")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hjueh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w7r13")
+text = "Settings"
+script = SubResource("GDScript_l10or")
+
+[node name="credits" type="Button" parent="VBoxContainer" unique_id=1748551397]
+self_modulate = Color(0.16862746, 0.92156863, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_l10or")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hjueh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w7r13")
+text = "Credits"
+script = SubResource("GDScript_l10or")
+
+[node name="tutorial" type="Button" parent="VBoxContainer" unique_id=999274646]
+self_modulate = Color(0.3, 1, 0.6, 1)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_l10or")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hjueh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w7r13")
+text = " Tutoriel"
+script = SubResource("GDScript_l10or")
+
+[node name="exit" type="Button" parent="VBoxContainer" unique_id=1943941195]
+self_modulate = Color(0.16862746, 0.92156863, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_l10or")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hjueh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w7r13")
+text = "Exit"
+script = SubResource("GDScript_l10or")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1443819826]
+stream = ExtResource("1_l10or")
+autoplay = true
+bus = &"music"
+parameters/looping = true
+
+[node name="transition" type="ColorRect" parent="." unique_id=1150544322]
+offset_top = -670.0
+offset_right = 1190.0
+offset_bottom = 1.5
+color = Color(0, 0, 0, 0.289)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1221465713]
+libraries/ = SubResource("AnimationLibrary_w7r13")
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/option" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]

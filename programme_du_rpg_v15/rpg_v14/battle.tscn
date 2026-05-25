@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://h8wvikmrfw42"]
+
+[ext_resource type="Texture2D" uid="uid://b1g7hkpwfuled" path="res://art/battleback1_0.png" id="1_7sfm4"]
+[ext_resource type="Script" uid="uid://d0hp6hwcis1sn" path="res://script/battle.gd" id="1_i431l"]
+[ext_resource type="PackedScene" uid="uid://dvvlq15ha218e" path="res://mob/ennemies_groupe.tscn" id="2_oxp8w"]
+[ext_resource type="PackedScene" uid="uid://del62hgxlfxd4" path="res://player/player_group.tscn" id="3_7sfm4"]
+[ext_resource type="AudioStream" uid="uid://uajbqhle5kfv" path="res://audio/battle/rpg.ogg" id="5_6t8i5"]
+[ext_resource type="PackedScene" uid="uid://bfsaaev66xhq8" path="res://ui/game_result.tscn" id="6_result"]
+
+[node name="Node2D" type="Node2D" unique_id=863588396]
+script = ExtResource("1_i431l")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=736674546]
+offset_right = 1147.0
+offset_bottom = 647.0
+texture = ExtResource("1_7sfm4")
+
+[node name="ennemies_groupe" parent="." unique_id=1870466107 instance=ExtResource("2_oxp8w")]
+
+[node name="player group" parent="." unique_id=120486024 instance=ExtResource("3_7sfm4")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=14923778]
+
+[node name="GameResult" parent="CanvasLayer" unique_id=1909750759 instance=ExtResource("6_result")]
+
+[node name="UltBar" type="VBoxContainer" parent="CanvasLayer" unique_id=1423821311]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -72.0
+offset_right = 340.0
+offset_bottom = -12.0
+grow_vertical = 0
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/UltBar" unique_id=248192572]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_font_sizes/font_size = 16
+text = "⚡ Ultimate  0 / 10"
+
+[node name="BarBg" type="PanelContainer" parent="CanvasLayer/UltBar" unique_id=1785796015]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+
+[node name="Bar" type="ProgressBar" parent="CanvasLayer/UltBar/BarBg" unique_id=332499957]
+layout_mode = 2
+show_percentage = false
+
+[node name="Flash" type="ColorRect" parent="CanvasLayer/UltBar" unique_id=790194445]
+visible = false
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0.9, 0.1, 0)
+
+[node name="choice" type="VBoxContainer" parent="CanvasLayer" unique_id=1710771569]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -130.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="light" type="Button" parent="CanvasLayer/choice" unique_id=1375850330]
+layout_mode = 2
+size_flags_vertical = 8
+text = "light"
+
+[node name="heavy" type="Button" parent="CanvasLayer/choice" unique_id=600946780]
+layout_mode = 2
+size_flags_vertical = 8
+text = "heavy"
+
+[node name="ultimate" type="Button" parent="CanvasLayer/choice" unique_id=1745727451]
+layout_mode = 2
+size_flags_vertical = 8
+text = "ultimate"
+
+[node name="exit" type="Button" parent="CanvasLayer/choice" unique_id=1036808408]
+layout_mode = 2
+text = "exit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=149267975]
+stream = ExtResource("5_6t8i5")
+autoplay = true
+bus = &"music"
+parameters/looping = true
+
+[connection signal="enemy_turn_done" from="ennemies_groupe" to="player group" method="_on_ennemies_groupe_enemy_turn_done"]
+[connection signal="next_player" from="ennemies_groupe" to="player group" method="_on_ennemies_groupe_next_player"]
+[connection signal="pressed" from="CanvasLayer/choice/exit" to="." method="_on_exit_pressed"]
