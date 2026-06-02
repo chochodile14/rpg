@@ -1,8 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://qj0o2lxpnqkf"]
+[gd_scene format=3 uid="uid://qj0o2lxpnqkf"]
 
 [ext_resource type="Texture2D" uid="uid://dpokgj5tipgg2" path="res://art/character in battle.png" id="1_gdlbw"]
 [ext_resource type="Script" uid="uid://dkpam7x3ah3fb" path="res://script/battle_p_1.gd" id="1_j53o7"]
 [ext_resource type="Texture2D" uid="uid://bkr2rmwturtj2" path="res://art/pixel_hand_2-removebg-preview.png" id="2_5jqhn"]
+[ext_resource type="AudioStream" uid="uid://0aiugx5uu8fi" path="res://audio/musique varier/sfx/driken5482-retro-hurt-2-236675.mp3" id="4_puf4w"]
+[ext_resource type="AudioStream" uid="uid://clgh6v85xhk3s" path="res://audio/musique varier/sfx/alice_soundz-fall1-224054.mp3" id="5_qnwqa"]
+[ext_resource type="AudioStream" uid="uid://dfa8lffy21ews" path="res://audio/musique varier/sfx/alice_soundz-punch_h_05-224063.mp3" id="6_su1dd"]
+[ext_resource type="AudioStream" uid="uid://bsjxu8q75o5o2" path="res://audio/musique varier/sfx/yodguard-scorpion-claw-attack-2-482516.mp3" id="7_5yi7y"]
+[ext_resource type="AudioStream" uid="uid://bk8vfnacxckne" path="res://audio/musique varier/sfx/yodguard-powerful-bear-attack-with-roar-1-482524.mp3" id="8_murn8"]
 
 [sub_resource type="Animation" id="Animation_reset"]
 length = 0.001
@@ -47,6 +52,33 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(3, 0.2, 0.2, 1), Color(1, 1, 1, 1), Color(3, 0.2, 0.2, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_lose"]
+resource_name = "lose"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("base:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1050.75, 160), Vector2(1050.75, 200), Vector2(1050.75, 240)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("base:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.5, 0.5, 0.5, 0.5), Color(0.3, 0.3, 0.3, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_win"]
 resource_name = "win"
 length = 1.2
@@ -57,7 +89,7 @@ tracks/0/path = NodePath("base:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1050.75, 160), Vector2(1050.75, 130), Vector2(1050.75, 160), Vector2(1050.75, 130), Vector2(1050.75, 160), Vector2(1050.75, 130), Vector2(1050.75, 160)]
@@ -75,40 +107,12 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(0.3, 3, 0.3, 1), Color(1, 1, 1, 1), Color(0.3, 3, 0.3, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_lose"]
-resource_name = "lose"
-length = 1.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("base:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.0),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1050.75, 160), Vector2(1050.75, 200), Vector2(1050.75, 240)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("base:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.0),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.5, 0.5, 0.5, 0.5), Color(0.3, 0.3, 0.3, 0.0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hurt"]
 _data = {
 &"RESET": SubResource("Animation_reset"),
 &"hurt": SubResource("Animation_hurt"),
-&"win": SubResource("Animation_win"),
-&"lose": SubResource("Animation_lose")
+&"lose": SubResource("Animation_lose"),
+&"win": SubResource("Animation_win")
 }
 
 [sub_resource type="Animation" id="Animation_atk_reset"]
@@ -124,22 +128,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1050.75, 160)]
-}
-
-[sub_resource type="Animation" id="Animation_atk_light"]
-resource_name = "atk_light"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("base:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.18, 0.35, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1050.75, 160), Vector2(920, 149), Vector2(920, 149), Vector2(1050.75, 160)]
 }
 
 [sub_resource type="Animation" id="Animation_atk_heavy"]
@@ -170,6 +158,22 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(2, 1.2, 0.2, 1), Color(2, 1.2, 0.2, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_atk_light"]
+resource_name = "atk_light"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("base:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.18, 0.35, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1050.75, 160), Vector2(920, 149), Vector2(920, 149), Vector2(1050.75, 160)]
+}
+
 [sub_resource type="Animation" id="Animation_atk_ultimate"]
 resource_name = "atk_ultimate"
 length = 2.0
@@ -180,7 +184,7 @@ tracks/0/path = NodePath("base:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.9, 1.1, 2.0),
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.9, 1.1, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1050.75, 160), Vector2(1060.75, 145), Vector2(1040.75, 175), Vector2(1065.75, 140), Vector2(1035.75, 180), Vector2(800, 140), Vector2(800, 140), Vector2(1050.75, 160)]
@@ -192,7 +196,7 @@ tracks/1/path = NodePath("base:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.6, 0.9, 1.1, 1.5, 2.0),
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.6, 0.9, 1.1, 1.5, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.3, 0.3, 5, 1), Color(1, 1, 1, 1), Color(0.3, 0.3, 5, 1), Color(0.3, 0.3, 5, 1), Color(5, 5, 0.5, 1), Color(5, 5, 0.5, 1), Color(1, 1, 1, 1)]
@@ -201,29 +205,29 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_atk"]
 _data = {
 &"RESET": SubResource("Animation_atk_reset"),
-&"atk_light": SubResource("Animation_atk_light"),
 &"atk_heavy": SubResource("Animation_atk_heavy"),
+&"atk_light": SubResource("Animation_atk_light"),
 &"atk_ultimate": SubResource("Animation_atk_ultimate")
 }
 
-[node name="battle_p_1" type="Node2D"]
+[node name="battle_p_1" type="Node2D" unique_id=1580687003]
 script = ExtResource("1_j53o7")
 
-[node name="base" type="Sprite2D" parent="."]
+[node name="base" type="Sprite2D" parent="." unique_id=742869463]
 texture_filter = 1
 position = Vector2(1050.75, 160)
 rotation = 3.14159
 scale = Vector2(4.303, -3.848)
 texture = ExtResource("1_gdlbw")
 
-[node name="turn" type="Sprite2D" parent="."]
+[node name="turn" type="Sprite2D" parent="." unique_id=593886638]
 visible = false
 position = Vector2(947, 147)
 rotation = 1.5708
 scale = Vector2(0.471222, 0.553582)
 texture = ExtResource("2_5jqhn")
 
-[node name="pv" type="ProgressBar" parent="."]
+[node name="pv" type="ProgressBar" parent="." unique_id=1930849097]
 modulate = Color(0.235294, 0.886275, 0, 1)
 self_modulate = Color(1, 0.878431, 1, 1)
 offset_left = 984.75
@@ -233,12 +237,28 @@ offset_bottom = 42.0
 scale = Vector2(1.5, 1.5)
 value = 100.0
 
-[node name="hurt" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_hurt")
-}
+[node name="hurt" type="AnimationPlayer" parent="." unique_id=207366038]
+libraries/ = SubResource("AnimationLibrary_hurt")
 
-[node name="atk" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_atk")
-}
+[node name="atk" type="AnimationPlayer" parent="." unique_id=912363597]
+libraries/ = SubResource("AnimationLibrary_atk")
+
+[node name="SFX_PlayerHurt" type="AudioStreamPlayer" parent="." unique_id=1848481245]
+stream = ExtResource("4_puf4w")
+bus = &"sfx"
+
+[node name="SFX_PlayerDie" type="AudioStreamPlayer" parent="." unique_id=211395198]
+stream = ExtResource("5_qnwqa")
+bus = &"sfx"
+
+[node name="SFX_Punch" type="AudioStreamPlayer" parent="." unique_id=1781502546]
+stream = ExtResource("6_su1dd")
+bus = &"sfx"
+
+[node name="SFX_Heavy" type="AudioStreamPlayer" parent="." unique_id=861226022]
+stream = ExtResource("7_5yi7y")
+bus = &"sfx"
+
+[node name="SFX_Ultimate" type="AudioStreamPlayer" parent="." unique_id=1701203456]
+stream = ExtResource("8_murn8")
+bus = &"sfx"

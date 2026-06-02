@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://yvt1jga7a2s6"]
+[gd_scene format=3 uid="uid://yvt1jga7a2s6"]
 
+[ext_resource type="Script" uid="uid://b4c4f88ss7dk0" path="res://script/battle_m_1.gd" id="1_2ig0o"]
 [ext_resource type="Texture2D" uid="uid://nejubmy08bch" path="res://art/mob-removebg-preview.png" id="1_53bot"]
-[ext_resource type="Script" uid="uid://com5ujcrf86fw" path="res://mob/battle_m_1.gd" id="1_tfjny"]
 [ext_resource type="Texture2D" uid="uid://bkr2rmwturtj2" path="res://art/pixel_hand_2-removebg-preview.png" id="2_tfjny"]
+[ext_resource type="AudioStream" uid="uid://c8tqjwhwk30fu" path="res://audio/musique varier/sfx/alice_soundz-kick_h_08-224057.mp3" id="4_gyjgb"]
+[ext_resource type="AudioStream" uid="uid://ctp85r2joo8fh" path="res://audio/musique varier/sfx/data_pion-sfx28-attack-338386.mp3" id="5_d20bo"]
+[ext_resource type="AudioStream" uid="uid://cicvbttdkqfdn" path="res://audio/musique varier/sfx/alice_soundz-kick_m_05-224065.mp3" id="6_gyjgb"]
 
 [sub_resource type="Animation" id="Animation_2ig0o"]
 length = 0.3
@@ -40,22 +43,22 @@ _data = {
 &"hurt": SubResource("Animation_yrqwn")
 }
 
-[node name="battle m 1" type="Node2D"]
-script = ExtResource("1_tfjny")
+[node name="battle m 1" type="Node2D" unique_id=870151365]
+script = ExtResource("1_2ig0o")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1323090999]
 self_modulate = Color(0.847485, 0.847485, 0.847375, 1)
 position = Vector2(118, 121)
 texture = ExtResource("1_53bot")
 
-[node name="turn" type="Sprite2D" parent="."]
+[node name="turn" type="Sprite2D" parent="." unique_id=1381347916]
 visible = false
 position = Vector2(43, 122)
 rotation = 1.5708
 scale = Vector2(0.427586, 0.450904)
 texture = ExtResource("2_tfjny")
 
-[node name="pv" type="ProgressBar" parent="."]
+[node name="pv" type="ProgressBar" parent="." unique_id=900760863]
 modulate = Color(1, 0, 0, 1)
 offset_left = 51.0
 offset_top = 4.0
@@ -64,7 +67,17 @@ offset_bottom = 31.0
 scale = Vector2(1.5, 1.5)
 value = 100.0
 
-[node name="hurt" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_gyjgb")
-}
+[node name="hurt" type="AnimationPlayer" parent="." unique_id=2109755947]
+libraries/ = SubResource("AnimationLibrary_gyjgb")
+
+[node name="SFX_MonsterHurt" type="AudioStreamPlayer" parent="." unique_id=1681172033]
+stream = ExtResource("4_gyjgb")
+bus = &"SFX"
+
+[node name="SFX_MonsterDie" type="AudioStreamPlayer" parent="." unique_id=786058953]
+stream = ExtResource("5_d20bo")
+bus = &"SFX"
+
+[node name="SFX_MonsterAtk" type="AudioStreamPlayer" parent="." unique_id=238298314]
+stream = ExtResource("6_gyjgb")
+bus = &"SFX"

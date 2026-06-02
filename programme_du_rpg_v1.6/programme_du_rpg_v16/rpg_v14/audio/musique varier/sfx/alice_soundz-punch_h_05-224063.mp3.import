@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dfa8lffy21ews"
+path="res://.godot/imported/alice_soundz-punch_h_05-224063.mp3-976e8ddc9dca62c9863d69c0888d945e.mp3str"
+
+[deps]
+
+source_file="res://audio/musique varier/sfx/alice_soundz-punch_h_05-224063.mp3"
+dest_files=["res://.godot/imported/alice_soundz-punch_h_05-224063.mp3-976e8ddc9dca62c9863d69c0888d945e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

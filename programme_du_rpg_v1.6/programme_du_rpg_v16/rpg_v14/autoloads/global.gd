@@ -1,4 +1,6 @@
 extends Node
+# ──   sauvegarde de slot  ─────────────────────────────────────────────────────
+var current_slot: int = 0
 
 # ── Position combat / map ─────────────────────────────────────────────────────
 var battle_mob_position: Vector2 = Vector2.ZERO
@@ -97,3 +99,55 @@ func spend_aptitude(player_idx: int, stat: String) -> bool:
 	aptitude_points[player_idx] -= 1
 	player_upgrades[player_idx][stat] += 1
 	return true
+
+
+
+# ── Système de sauvegarde ─────────────────────────────────────────────────────
+# Les saves sont dans user://saves/slot_N.json  (N = 0, 1, 2)
+
+func save_game(slot: int) -> void:
+	var data := {
+		"total_xp":          total_xp,
+		"player_levels":      player_levels,
+		"aptitude_points":    aptitude_points,
+		"player_upgrades":    player_upgrades,
+		"spawn_position":     [player_spawn_position.x,
+								 player_spawn_position.y],
+		"save_date":          Time.get_datetime_string_from_system(),
+	}
+	DirAccess.make_dir_absolute("user://saves")
+	var path := "user://saves/slot_%d.json" % slot
+	var f := FileAccess.open(path, FileAccess.WRITE)
+	f.store_string(JSON.stringify(data))
+	f.close()
+
+func load_game(slot: int) -> bool:
+	var path := "user://saves/slot_%d.json" % slot
+	if not FileAccess.file_exists(path):
+		return false
+	var f := FileAccess.open(path, FileAccess.READ)
+	var data = JSON.parse_string(f.get_as_text())
+	f.close()
+	if data == null: return false
+	total_xp          = data["total_xp"]
+	player_levels.assign(data["player_levels"])
+	aptitude_points.assign(data["aptitude_points"])
+	player_upgrades.assign(data["player_upgrades"]) 
+	var sp            = data["spawn_position"]
+	player_spawn_position = Vector2(sp[0], sp[1])
+	return true
+
+func get_slot_info(slot: int) -> Dictionary:
+	## Retourne {} si le slot est vide, sinon les métadonnées.
+	var path := "user://saves/slot_%d.json" % slot
+	if not FileAccess.file_exists(path):
+		return {}
+	var f := FileAccess.open(path, FileAccess.READ)
+	var data = JSON.parse_string(f.get_as_text())
+	f.close()
+	if data == null: return {}
+	return {
+		"level":  data["player_levels"][0],
+		"date":   data["save_date"],
+		"xp":     data["total_xp"],
+	}

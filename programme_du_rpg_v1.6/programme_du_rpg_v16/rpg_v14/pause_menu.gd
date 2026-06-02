@@ -41,3 +41,14 @@ func _on_quit_pressed() -> void:
 func show_main_buttons() -> void:
 	settings_panel.hide()
 	buttons.show()          # ← REAFFICHE les boutons
+
+func _on_save_pressed() -> void:
+	# Sauvegarde la position actuelle du joueur
+	var player_node = get_tree().current_scene.get_node_or_null("character_beta")
+	if player_node:
+		Global.player_spawn_position = player_node.global_position
+	Global.save_game(Global.current_slot)
+	# Feedback visuel (optionnel)
+	$MarginContainer/VBoxContainer/save.text = "✓ Sauvegardé !"
+	await get_tree().create_timer(1.5).timeout
+	$MarginContainer/VBoxContainer/save.text = "Sauvegarder"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dckk4vslrnkb"
+path="res://.godot/imported/freesound_community-menu-sound-1-98856.mp3-602fbe812d9aa0ddbe593407d81d438e.mp3str"
+
+[deps]
+
+source_file="res://audio/musique varier/sfx/freesound_community-menu-sound-1-98856.mp3"
+dest_files=["res://.godot/imported/freesound_community-menu-sound-1-98856.mp3-602fbe812d9aa0ddbe593407d81d438e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

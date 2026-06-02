@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ht8oru114r62"
+path="res://.godot/imported/dragon-studio-menu-open-433000.mp3-f5700a3528f21d8016af6b7cb0e52c20.mp3str"
+
+[deps]
+
+source_file="res://audio/musique varier/sfx/dragon-studio-menu-open-433000.mp3"
+dest_files=["res://.godot/imported/dragon-studio-menu-open-433000.mp3-f5700a3528f21d8016af6b7cb0e52c20.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

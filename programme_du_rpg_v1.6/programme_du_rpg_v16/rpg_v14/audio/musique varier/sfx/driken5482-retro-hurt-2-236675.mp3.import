@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0aiugx5uu8fi"
+path="res://.godot/imported/driken5482-retro-hurt-2-236675.mp3-79aa520e4179c9594d42aa2609da83c9.mp3str"
+
+[deps]
+
+source_file="res://audio/musique varier/sfx/driken5482-retro-hurt-2-236675.mp3"
+dest_files=["res://.godot/imported/driken5482-retro-hurt-2-236675.mp3-79aa520e4179c9594d42aa2609da83c9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

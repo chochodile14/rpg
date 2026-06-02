@@ -1,0 +1,215 @@
+[gd_scene format=3 uid="uid://croh8jmt4vvyw"]
+
+[ext_resource type="Script" uid="uid://bxfikojpm7xve" path="res://ui/save_slots.gd" id="1_0fbet"]
+[ext_resource type="FontFile" uid="uid://crre5antcpq43" path="res://art/fonts/firstorder.ttf" id="font_1"]
+[ext_resource type="AudioStream" uid="uid://dckk4vslrnkb" path="res://audio/musique varier/sfx/freesound_community-menu-sound-1-98856.mp3" id="sfx_click"]
+[ext_resource type="AudioStream" uid="uid://dyleu2ajcnrkj" path="res://audio/musique varier/sfx/freesound_community-menu-selection-102220.mp3" id="sfx_hover"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slot_normal"]
+bg_color = Color(0.05, 0.035, 0.015, 0.5)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0.35, 0.25, 0.1, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slot_pressed"]
+bg_color = Color(0.08, 0.055, 0.02, 0.8)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0.5, 0.36, 0.14, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slot_hover"]
+bg_color = Color(0.12, 0.08, 0.03, 0.7)
+border_width_left = 3
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0.72, 0.52, 0.22, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_normal"]
+bg_color = Color(0.04, 0.03, 0.02, 0)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.25, 0.1, 0.7)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pressed"]
+bg_color = Color(0.06, 0.04, 0.02, 0.7)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5, 0.36, 0.14, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hover"]
+bg_color = Color(0.1, 0.07, 0.03, 0.5)
+border_width_left = 4
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.72, 0.52, 0.22, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 4
+
+[node name="SaveSlots" type="Control" unique_id=756255443]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0fbet")
+
+[node name="BgOverlay" type="ColorRect" parent="." unique_id=1040440787]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.012, 0.008, 0.004, 0.82)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1970980591]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 160.0
+offset_right = 500.0
+offset_bottom = 620.0
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=1190510335]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.65, 0.38, 1)
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 22
+text = "— Choisir une sauvegarde —"
+
+[node name="OrnamentRect" type="ColorRect" parent="VBoxContainer" unique_id=1718027214]
+custom_minimum_size = Vector2(280, 1)
+layout_mode = 2
+color = Color(0.4, 0.28, 0.1, 0.5)
+
+[node name="SlotsBox" type="HBoxContainer" parent="VBoxContainer" unique_id=1169187148]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 14
+
+[node name="Slot0" type="Button" parent="VBoxContainer/SlotsBox" unique_id=2024978433]
+self_modulate = Color(0.85, 0.72, 0.45, 1)
+custom_minimum_size = Vector2(170, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.82, 0.65, 0.38, 1)
+theme_override_colors/font_hover_color = Color(1, 0.88, 0.55, 1)
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_slot_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_slot_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_slot_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_slot_normal")
+text = "text"
+
+[node name="Slot1" type="Button" parent="VBoxContainer/SlotsBox" unique_id=1675966633]
+self_modulate = Color(0.85, 0.72, 0.45, 1)
+custom_minimum_size = Vector2(170, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.82, 0.65, 0.38, 1)
+theme_override_colors/font_hover_color = Color(1, 0.88, 0.55, 1)
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_slot_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_slot_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_slot_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_slot_normal")
+text = "text"
+
+[node name="Slot2" type="Button" parent="VBoxContainer/SlotsBox" unique_id=1342909051]
+self_modulate = Color(0.85, 0.72, 0.45, 1)
+custom_minimum_size = Vector2(170, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.82, 0.65, 0.38, 1)
+theme_override_colors/font_hover_color = Color(1, 0.88, 0.55, 1)
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_slot_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_slot_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_slot_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_slot_normal")
+text = "text"
+
+[node name="SepRect1" type="ColorRect" parent="VBoxContainer" unique_id=1037601383]
+custom_minimum_size = Vector2(200, 1)
+layout_mode = 2
+color = Color(0.28, 0.19, 0.07, 0.4)
+
+[node name="Back" type="Button" parent="VBoxContainer" unique_id=1051140550]
+self_modulate = Color(0.85, 0.72, 0.45, 1)
+custom_minimum_size = Vector2(300, 52)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.82, 0.65, 0.38, 1)
+theme_override_colors/font_hover_color = Color(1, 0.88, 0.55, 1)
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_normal")
+text = "Retour"
+
+[node name="delete" type="Button" parent="VBoxContainer" unique_id=861875467]
+self_modulate = Color(0.85, 0.72, 0.45, 1)
+custom_minimum_size = Vector2(300, 52)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.82, 0.65, 0.38, 1)
+theme_override_colors/font_hover_color = Color(1, 0.88, 0.55, 1)
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_normal")
+text = "Supprimer une save"
+
+[node name="SFX_Click" type="AudioStreamPlayer" parent="." unique_id=669430634]
+stream = ExtResource("sfx_click")
+bus = &"SFX"
+
+[node name="SFX_Hover" type="AudioStreamPlayer" parent="." unique_id=721248018]
+stream = ExtResource("sfx_hover")
+bus = &"SFX"
+
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/delete" to="." method="_on_delete_pressed"]
