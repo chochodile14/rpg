@@ -98,15 +98,18 @@ func _on_btn_exit(btn: Button) -> void:
 
 
 func _on_start_pressed() -> void:
+	sfx_click_player.play()
 	sfx_open_player.play()
 	var panel = SaveSlotsScene.instantiate()
 	add_child(panel)         # s'affiche par-dessus le menu
 
 func _on_option_pressed() -> void:
+	sfx_click_player.play()
 	sfx_open_player.play()
 	get_tree().change_scene_to_file(\"res://settings.tscn\")
 
 func _on_tutorial_pressed() -> void:
+	sfx_click_player.play()
 	sfx_open_player.play()
 	get_tree().change_scene_to_file(\"res://tutorial/tutorial_map.tscn\")
 
