@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-
+var sprint_toggle = false
+var state = "IDLE"
 @export var speed = 400 
-@export var target_scale = 1
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+#@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():
 	add_to_group("Player")
@@ -15,25 +15,33 @@ func _ready():
 		Global.player_spawn_position = Vector2.ZERO  # reset après usage
 
 func _physics_process(_delta: float) -> void:
-	var input_dir = Input.get_vector("mouvement_gauche","mouvement_droit", "mouvement_haut", "mouvement_bas").normalized() * speed
+	var input_dir = Input.get_vector("mouvement_gauche","mouvement_droit", "mouvement_haut", "mouvement_bas")
+	if Input.is_action_just_pressed("sprint toggle"):
+		sprint_toggle =! sprint_toggle
 	
-	if input_dir:
-		animated_sprite_2d.play()
+	if input_dir == Vector2.ZERO:
+		sprint_toggle = false
+		state = "IDLE"
 	else:
-		animated_sprite_2d.stop()
-		
-	velocity = input_dir
-	move_and_slide()
+		if sprint_toggle:
+			state = "RUN"
+		else:
+			state = "WALK"
 	
-	if velocity.x != 0:
-		animated_sprite_2d.animation = "walk"
-		animated_sprite_2d.flip_h = velocity.x < 0
-
-func start_turn():
-	target_scale = 1.1
 	
-func end_turn():
-	target_scale = 0.9
-
-func is_player():
-	pass
+	match state:
+		"IDLE":
+			
+			$AnimatedSprite2D.play("idle")
+		"WALK":
+			speed = 400
+			velocity = input_dir * speed
+			$AnimatedSprite2D.play("walk")
+			
+			move_and_slide()
+		"RUN":
+			$AnimatedSprite2D.play("run")
+			speed = 600
+			velocity = input_dir * speed
+			
+			move_and_slide()
