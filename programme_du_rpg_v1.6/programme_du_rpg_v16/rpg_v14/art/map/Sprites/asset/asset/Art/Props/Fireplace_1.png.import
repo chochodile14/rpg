@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cx8jym2n2dtai"
-path="res://.godot/imported/Fireplace_1.png-1d41c3bfc6aac35d41f24d85a35134b1.ctex"
+path="res://.godot/imported/Fireplace_1.png-e3664cf62189cd65d88c58f593314847.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Props/Fireplace_1.png"
-dest_files=["res://.godot/imported/Fireplace_1.png-1d41c3bfc6aac35d41f24d85a35134b1.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Props/Fireplace_1.png"
+dest_files=["res://.godot/imported/Fireplace_1.png-e3664cf62189cd65d88c58f593314847.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://77ro0ppk32ig"
-path="res://.godot/imported/Door_1.png-31a3a9784dcaacc5f906c97f0fd77cdb.ctex"
+path="res://.godot/imported/Door_1.png-39031a58fdc4ac9f6bc3ec34d96f68b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Buildings/Animations/Door_1.png"
-dest_files=["res://.godot/imported/Door_1.png-31a3a9784dcaacc5f906c97f0fd77cdb.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Buildings/Animations/Door_1.png"
+dest_files=["res://.godot/imported/Door_1.png-39031a58fdc4ac9f6bc3ec34d96f68b7.ctex"]
 
 [params]
 

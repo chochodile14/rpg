@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+var state = "WALK"
 var dialogue_open = false
 var player_in_range = false
 var dialogue_index = 0
@@ -23,7 +23,7 @@ var waypoints = [
 ]
 var target_index := 0
 const SPEED := 60.0
-
+var saved_position: Vector2 = Vector2.ZERO
 func _ready():
 	position = waypoints[0]  # <- on démarre PILE sur le 1er point
 	target_index = 1
@@ -34,18 +34,38 @@ func next_dialogue():
 	dialogue_index += 1
 
 func _physics_process(delta):
-	var target = waypoints[target_index]
-	var dir_vec = target - position
-	var dist = dir_vec.length()
+	
+	
+	match state :
+		"WALK":
+			var target = waypoints[target_index]
+			var dir_vec = target - position
+			var dist = dir_vec.length()
 
-	if dist < SPEED * delta:
-		position = target
-		target_index = (target_index + 1) % waypoints.size()
-	else:
-		velocity = dir_vec.normalized() * SPEED
-		move_and_slide()
-
-	_update_animation(dir_vec)
+			if dist < SPEED * delta:
+				position = target
+				target_index = (target_index + 1) % waypoints.size()
+			else:
+				velocity = dir_vec.normalized() * SPEED
+				_update_animation(dir_vec)
+				move_and_slide()
+		
+		"STUN":
+			velocity = Vector2.ZERO
+			$AnimatedSprite2D.stop()
+			move_and_slide()
+			if dialogue_open == true:
+				next_dialogue()
+				if dialogue_index < dialogue.size():
+					$CanvasLayer/DialogueBox/Dialogue.text = dialogue[dialogue_index]
+				else:
+					$CanvasLayer.visible = false
+					dialogue_open = false
+					dialogue_index = 0
+			else:
+				dialogue_open = true
+				saved_position = global_position
+				talk_to_PNJ()
 
 func _update_animation(dir_vec: Vector2):
 	if abs(dir_vec.x) > abs(dir_vec.y):
@@ -58,17 +78,7 @@ func _update_animation(dir_vec: Vector2):
 
 func _process(delta: float) -> void:
 	if player_in_range and Input.is_action_just_pressed("interaction"):
-		if dialogue_open == true:
-			next_dialogue()
-			if dialogue_index < dialogue.size():
-				$CanvasLayer/DialogueBox/Dialogue.text = dialogue[dialogue_index]
-			else:
-				$CanvasLayer.visible = false
-				dialogue_open = false
-				dialogue_index = 0
-		else:
-			dialogue_open = true
-			talk_to_PNJ()
+		state = "STUN"
 
 
 
@@ -99,3 +109,4 @@ func _on_suivant_pressed() -> void:
 		$CanvasLayer/DialogueBox/Dialogue.text = dialogue[dialogue_index]
 	else:
 		$CanvasLayer.visible = false
+		state = "WALK"

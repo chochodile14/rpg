@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mg2drn40tbdl"
-path="res://.godot/imported/Crate_Large_Empty.png-87040ee5a1beaf8401c6db99117dd6b3.ctex"
+path="res://.godot/imported/Crate_Large_Empty.png-201b375780b3dec911e5001df90dda6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Props/Crate_Large_Empty.png"
-dest_files=["res://.godot/imported/Crate_Large_Empty.png-87040ee5a1beaf8401c6db99117dd6b3.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Props/Crate_Large_Empty.png"
+dest_files=["res://.godot/imported/Crate_Large_Empty.png-201b375780b3dec911e5001df90dda6d.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvumv6d0mal3t"
-path="res://.godot/imported/Beginning Fields.png-85f576bdf849c691b94b9f7aac965da8.ctex"
+path="res://.godot/imported/Beginning Fields.png-5bfb006966d1202a11bc186a4bbd3c1b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Tiled/Tilemaps/Beginning Fields.png"
-dest_files=["res://.godot/imported/Beginning Fields.png-85f576bdf849c691b94b9f7aac965da8.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Tiled/Tilemaps/Beginning Fields.png"
+dest_files=["res://.godot/imported/Beginning Fields.png-5bfb006966d1202a11bc186a4bbd3c1b.ctex"]
 
 [params]
 

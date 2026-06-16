@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dd3w0xdluillt"
-path="res://.godot/imported/Character_Slash.png-6649d4513a139db390cf9d4cb95dd791.ctex"
+path="res://.godot/imported/Character_Slash.png-ac7b91dd560124f2019cd6d61d1a9f22.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Characters/Main Character/Character_Slash.png"
-dest_files=["res://.godot/imported/Character_Slash.png-6649d4513a139db390cf9d4cb95dd791.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Characters/Main Character/Character_Slash.png"
+dest_files=["res://.godot/imported/Character_Slash.png-ac7b91dd560124f2019cd6d61d1a9f22.ctex"]
 
 [params]
 

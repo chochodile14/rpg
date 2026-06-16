@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://2b0kiv3nh0o7"]
+[gd_scene load_steps=18 format=3 uid="uid://2b0kiv3nh0o7"]
 
-[ext_resource type="Texture2D" uid="uid://bi8vl5iijwhja" path="res://art/map/Woolly Lands FREE pack/Woolly Lands FREE pack/Sprite Player/1 Sprite woman walk.png" id="1_f50pn"]
+[ext_resource type="Texture2D" uid="uid://bi8vl5iijwhja" path="res://art/map/Woolly Lands FREE pack/pack asset/Sprite Player/1 Sprite woman walk.png" id="1_f50pn"]
 [ext_resource type="Script" uid="uid://d4kcvcmxdcco4" path="res://script/png.gd" id="1_ij6vw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ij6vw"]
@@ -113,20 +113,20 @@ height = 27.0
 radius = 29.0
 height = 58.0
 
-[node name="pnj" type="CharacterBody2D" unique_id=181712004]
+[node name="pnj" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_ij6vw")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1671069149]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 20
 
-[node name="DialogueBox" type="Panel" parent="CanvasLayer" unique_id=1102076694]
+[node name="DialogueBox" type="Panel" parent="CanvasLayer"]
 offset_left = 412.0
 offset_top = 103.0
 offset_right = 743.0
 offset_bottom = 208.0
 
-[node name="Dialogue" type="Label" parent="CanvasLayer/DialogueBox" unique_id=672206504]
+[node name="Dialogue" type="Label" parent="CanvasLayer/DialogueBox"]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 8.0
@@ -135,7 +135,7 @@ offset_bottom = 182.0
 scale = Vector2(0.5, 0.5)
 autowrap_mode = 2
 
-[node name="suivant" type="Button" parent="CanvasLayer/DialogueBox" unique_id=1779343091]
+[node name="suivant" type="Button" parent="CanvasLayer/DialogueBox"]
 layout_mode = 0
 offset_left = 282.0
 offset_top = 69.0
@@ -143,20 +143,20 @@ offset_right = 327.0
 offset_bottom = 100.0
 text = "Next"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1372334937]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(301, 142)
 sprite_frames = SubResource("SpriteFrames_ebjds")
 animation = &"walk_left"
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=845097889]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(295.5, 145.5)
 shape = SubResource("CapsuleShape2D_3yaqu")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1350143248]
+[node name="Area2D" type="Area2D" parent="."]
 position = Vector2(1.5, 1.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2120424817]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 light_mask = 2
 visibility_layer = 2
 position = Vector2(295, 146)

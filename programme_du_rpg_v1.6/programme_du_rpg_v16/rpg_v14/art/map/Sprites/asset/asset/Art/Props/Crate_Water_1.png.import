@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://24t4c4ssr20m"
-path="res://.godot/imported/Crate_Water_1.png-22fc77fcfb6c72e661a63e3a19739e42.ctex"
+path="res://.godot/imported/Crate_Water_1.png-4e8a005811bc2885aa7bbe6125e06138.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Props/Crate_Water_1.png"
-dest_files=["res://.godot/imported/Crate_Water_1.png-22fc77fcfb6c72e661a63e3a19739e42.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Props/Crate_Water_1.png"
+dest_files=["res://.godot/imported/Crate_Water_1.png-4e8a005811bc2885aa7bbe6125e06138.ctex"]
 
 [params]
 

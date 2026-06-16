@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3jtu555mbacc"
-path="res://.godot/imported/Bush_Emerald_3.png-7d288a75c26a9f68b43671f7d1eb6f14.ctex"
+path="res://.godot/imported/Bush_Emerald_3.png-9b44fb059c7f710d0fb606b49f164ac9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Trees and Bushes/Bush_Emerald_3.png"
-dest_files=["res://.godot/imported/Bush_Emerald_3.png-7d288a75c26a9f68b43671f7d1eb6f14.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Trees and Bushes/Bush_Emerald_3.png"
+dest_files=["res://.godot/imported/Bush_Emerald_3.png-9b44fb059c7f710d0fb606b49f164ac9.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bfru6miebcq44"
-path="res://.godot/imported/Table_Medium_1.png-149d880501348d8f0470402ccbc8e5ac.ctex"
+path="res://.godot/imported/Table_Medium_1.png-a61ccfe27c87fce0b8c01c9f3670015d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Props/Table_Medium_1.png"
-dest_files=["res://.godot/imported/Table_Medium_1.png-149d880501348d8f0470402ccbc8e5ac.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Props/Table_Medium_1.png"
+dest_files=["res://.godot/imported/Table_Medium_1.png-a61ccfe27c87fce0b8c01c9f3670015d.ctex"]
 
 [params]
 

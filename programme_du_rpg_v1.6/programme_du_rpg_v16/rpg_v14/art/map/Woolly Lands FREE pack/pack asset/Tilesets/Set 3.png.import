@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://byen2t2uedj8u"
-path="res://.godot/imported/Set 3.png-a34f1daf9d5a2fcb32230dd61eb0198d.ctex"
+path="res://.godot/imported/Set 3.png-472789e89963381598c5bbd3cfe1c85c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Woolly Lands FREE pack/Woolly Lands FREE pack/Tilesets/Set 3.png"
-dest_files=["res://.godot/imported/Set 3.png-a34f1daf9d5a2fcb32230dd61eb0198d.ctex"]
+source_file="res://art/map/Woolly Lands FREE pack/pack asset/Tilesets/Set 3.png"
+dest_files=["res://.godot/imported/Set 3.png-472789e89963381598c5bbd3cfe1c85c.ctex"]
 
 [params]
 

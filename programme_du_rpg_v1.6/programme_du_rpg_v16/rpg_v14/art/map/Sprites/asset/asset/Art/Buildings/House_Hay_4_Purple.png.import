@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://wjuccuvevqxg"
-path="res://.godot/imported/House_Hay_4_Purple.png-2741b4418ef1134853352a21f06ba02e.ctex"
+path="res://.godot/imported/House_Hay_4_Purple.png-8ddaf4eb61a319680c4dbe16a1dafb9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Buildings/House_Hay_4_Purple.png"
-dest_files=["res://.godot/imported/House_Hay_4_Purple.png-2741b4418ef1134853352a21f06ba02e.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Buildings/House_Hay_4_Purple.png"
+dest_files=["res://.godot/imported/House_Hay_4_Purple.png-8ddaf4eb61a319680c4dbe16a1dafb9f.ctex"]
 
 [params]
 

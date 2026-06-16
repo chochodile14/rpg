@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbkrip85dwday"
-path="res://.godot/imported/Bench_3.png-3388c1013a7185923a3c50afdb3091de.ctex"
+path="res://.godot/imported/Bench_3.png-f0241c150041f1c44f0fe6014a0ebea7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Props/Bench_3.png"
-dest_files=["res://.godot/imported/Bench_3.png-3388c1013a7185923a3c50afdb3091de.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Props/Bench_3.png"
+dest_files=["res://.godot/imported/Bench_3.png-f0241c150041f1c44f0fe6014a0ebea7.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d4f8xywe8hy6a"
-path="res://.godot/imported/Rock_Brown_6.png-7b34b75e09e39f9dd795c64f3d575add.ctex"
+path="res://.godot/imported/Rock_Brown_6.png-663b2c1ba826cfd688472fc7ff1b1202.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Rocks/Rock_Brown_6.png"
-dest_files=["res://.godot/imported/Rock_Brown_6.png-7b34b75e09e39f9dd795c64f3d575add.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Rocks/Rock_Brown_6.png"
+dest_files=["res://.godot/imported/Rock_Brown_6.png-663b2c1ba826cfd688472fc7ff1b1202.ctex"]
 
 [params]
 

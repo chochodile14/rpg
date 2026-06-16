@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ci156h3r4hpgy"
-path="res://.godot/imported/Sack_3.png-5076468fe6e92c8d8416ce3dbfdce06e.ctex"
+path="res://.godot/imported/Sack_3.png-18057253afaaa77e66b2056e0acc7335.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Props/Sack_3.png"
-dest_files=["res://.godot/imported/Sack_3.png-5076468fe6e92c8d8416ce3dbfdce06e.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Props/Sack_3.png"
+dest_files=["res://.godot/imported/Sack_3.png-18057253afaaa77e66b2056e0acc7335.ctex"]
 
 [params]
 

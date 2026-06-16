@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bv0hgek2cqbew"
-path="res://.godot/imported/Character_Idle.png-3cefdafbb2e0c9128d9c8a34dfdf82c3.ctex"
+path="res://.godot/imported/Character_Idle.png-5afa3ffd0c832518648194001ab9cef6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Characters/Main Character/Character_Idle.png"
-dest_files=["res://.godot/imported/Character_Idle.png-3cefdafbb2e0c9128d9c8a34dfdf82c3.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Characters/Main Character/Character_Idle.png"
+dest_files=["res://.godot/imported/Character_Idle.png-5afa3ffd0c832518648194001ab9cef6.ctex"]
 
 [params]
 

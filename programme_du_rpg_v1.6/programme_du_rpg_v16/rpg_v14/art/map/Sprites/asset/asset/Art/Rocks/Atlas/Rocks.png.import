@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://nf26sr7wpq5w"
-path="res://.godot/imported/Rocks.png-373b3b12dfedc92581df64cdc7c60928.ctex"
+path="res://.godot/imported/Rocks.png-cc57fb3c36241c334c35642721857ad8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Rocks/Atlas/Rocks.png"
-dest_files=["res://.godot/imported/Rocks.png-373b3b12dfedc92581df64cdc7c60928.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Rocks/Atlas/Rocks.png"
+dest_files=["res://.godot/imported/Rocks.png-cc57fb3c36241c334c35642721857ad8.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6qopboon5fm4"
-path="res://.godot/imported/Chopped_Tree_1.png-87ccab9e7244dc125ac3551ea3791164.ctex"
+path="res://.godot/imported/Chopped_Tree_1.png-d832a6ab9dc0121f3e9cff5c8d1ef76b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Props/Chopped_Tree_1.png"
-dest_files=["res://.godot/imported/Chopped_Tree_1.png-87ccab9e7244dc125ac3551ea3791164.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Props/Chopped_Tree_1.png"
+dest_files=["res://.godot/imported/Chopped_Tree_1.png-d832a6ab9dc0121f3e9cff5c8d1ef76b.ctex"]
 
 [params]
 

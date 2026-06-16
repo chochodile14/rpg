@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://wiwyy2owq7f"
-path="res://.godot/imported/Items.png-f09b37104d528bbf7d32c965f8ac9952.ctex"
+path="res://.godot/imported/Items.png-3ab50519726a6eb69c755c51859c26d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Woolly Lands FREE pack/Woolly Lands FREE pack/Objects/Items.png"
-dest_files=["res://.godot/imported/Items.png-f09b37104d528bbf7d32c965f8ac9952.ctex"]
+source_file="res://art/map/Woolly Lands FREE pack/pack asset/Objects/Items.png"
+dest_files=["res://.godot/imported/Items.png-3ab50519726a6eb69c755c51859c26d8.ctex"]
 
 [params]
 

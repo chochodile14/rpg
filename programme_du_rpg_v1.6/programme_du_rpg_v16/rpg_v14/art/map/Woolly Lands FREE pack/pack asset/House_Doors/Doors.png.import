@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bwm5qt85y433k"
-path="res://.godot/imported/Doors.png-b78ab9878fa378ba3af838d8e3c462a6.ctex"
+path="res://.godot/imported/Doors.png-2db3edeaacfe1ae795584c4518f29fa1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Woolly Lands FREE pack/Woolly Lands FREE pack/House_Doors/Doors.png"
-dest_files=["res://.godot/imported/Doors.png-b78ab9878fa378ba3af838d8e3c462a6.ctex"]
+source_file="res://art/map/Woolly Lands FREE pack/pack asset/House_Doors/Doors.png"
+dest_files=["res://.godot/imported/Doors.png-2db3edeaacfe1ae795584c4518f29fa1.ctex"]
 
 [params]
 

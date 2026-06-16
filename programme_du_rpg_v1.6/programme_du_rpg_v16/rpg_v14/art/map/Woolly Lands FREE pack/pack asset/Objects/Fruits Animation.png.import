@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d11mqywj7m2dj"
-path="res://.godot/imported/Fruits Animation.png-198a4d925f6b7d4b694422f6a9b8b9fe.ctex"
+path="res://.godot/imported/Fruits Animation.png-cc9729be597e2c2dbd66aff1adb3948b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Woolly Lands FREE pack/Woolly Lands FREE pack/Objects/Fruits Animation.png"
-dest_files=["res://.godot/imported/Fruits Animation.png-198a4d925f6b7d4b694422f6a9b8b9fe.ctex"]
+source_file="res://art/map/Woolly Lands FREE pack/pack asset/Objects/Fruits Animation.png"
+dest_files=["res://.godot/imported/Fruits Animation.png-cc9729be597e2c2dbd66aff1adb3948b.ctex"]
 
 [params]
 

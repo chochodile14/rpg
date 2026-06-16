@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cf4ppx3vge2q0"
-path="res://.godot/imported/CityWall_Gate_1.png-d45c6dce9a522afe3eb7390108425184.ctex"
+path="res://.godot/imported/CityWall_Gate_1.png-878c65defaf54c84b3487da58b2bdf37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Buildings/CityWall_Gate_1.png"
-dest_files=["res://.godot/imported/CityWall_Gate_1.png-d45c6dce9a522afe3eb7390108425184.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Buildings/CityWall_Gate_1.png"
+dest_files=["res://.godot/imported/CityWall_Gate_1.png-878c65defaf54c84b3487da58b2bdf37.ctex"]
 
 [params]
 

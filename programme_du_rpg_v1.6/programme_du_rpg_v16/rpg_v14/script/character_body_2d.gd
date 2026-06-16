@@ -37,11 +37,11 @@ func _physics_process(_delta: float) -> void:
 			speed = 400
 			velocity = input_dir * speed
 			$AnimatedSprite2D.play("walk")
-			
+			$AnimatedSprite2D.flip_h = input_dir.x < 0
 			move_and_slide()
 		"RUN":
 			$AnimatedSprite2D.play("run")
 			speed = 600
 			velocity = input_dir * speed
-			
+			$AnimatedSprite2D.flip_h = input_dir.x < 0
 			move_and_slide()

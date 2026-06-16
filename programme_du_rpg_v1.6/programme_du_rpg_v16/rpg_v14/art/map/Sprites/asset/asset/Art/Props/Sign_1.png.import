@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cu1dri7ng5bvv"
-path="res://.godot/imported/Sign_1.png-38be2d970a4a50dc652c7dfaeec46964.ctex"
+path="res://.godot/imported/Sign_1.png-8aa8b4f7da5657a1ad607be38e1afd57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Props/Sign_1.png"
-dest_files=["res://.godot/imported/Sign_1.png-38be2d970a4a50dc652c7dfaeec46964.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Props/Sign_1.png"
+dest_files=["res://.godot/imported/Sign_1.png-8aa8b4f7da5657a1ad607be38e1afd57.ctex"]
 
 [params]
 

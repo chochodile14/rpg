@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqxns1m3qwhws"
-path="res://.godot/imported/Campfire.png-8ca76261a5341e2b35988e83648471a2.ctex"
+path="res://.godot/imported/Campfire.png-8568e7dc915e59eefcb90c0ce0de660d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Props/Animation/Campfire.png"
-dest_files=["res://.godot/imported/Campfire.png-8ca76261a5341e2b35988e83648471a2.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Props/Animation/Campfire.png"
+dest_files=["res://.godot/imported/Campfire.png-8568e7dc915e59eefcb90c0ce0de660d.ctex"]
 
 [params]
 

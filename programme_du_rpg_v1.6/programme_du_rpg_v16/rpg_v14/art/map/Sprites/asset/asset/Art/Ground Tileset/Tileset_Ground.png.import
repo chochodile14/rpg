@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4cwywhu5iars"
-path="res://.godot/imported/Tileset_Ground.png-be6fd5d8af5de305c8aee5703a3a028e.ctex"
+path="res://.godot/imported/Tileset_Ground.png-496f07bf448eac804843592e9be774fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Ground Tileset/Tileset_Ground.png"
-dest_files=["res://.godot/imported/Tileset_Ground.png-be6fd5d8af5de305c8aee5703a3a028e.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Ground Tileset/Tileset_Ground.png"
+dest_files=["res://.godot/imported/Tileset_Ground.png-496f07bf448eac804843592e9be774fb.ctex"]
 
 [params]
 

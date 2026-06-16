@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8dxbuwvlo8he"
-path="res://.godot/imported/Trees.png-d60e31fc2981b808f6dd0b80f987596b.ctex"
+uid="uid://dfenvculo3xc4"
+path="res://.godot/imported/game boy.png-320bd38dd7e10227c888f7518df7e179.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Woolly Lands FREE pack/pack asset/Trees/Trees.png"
-dest_files=["res://.godot/imported/Trees.png-d60e31fc2981b808f6dd0b80f987596b.ctex"]
+source_file="res://art/map/game boy.png"
+dest_files=["res://.godot/imported/game boy.png-320bd38dd7e10227c888f7518df7e179.ctex"]
 
 [params]
 

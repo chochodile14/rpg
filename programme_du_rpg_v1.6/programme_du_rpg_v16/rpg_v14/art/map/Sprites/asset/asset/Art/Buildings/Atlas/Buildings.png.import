@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dabwsqal6kk5k"
-path="res://.godot/imported/Buildings.png-a38cdd4502bf5fc1fcf15abf5abbe51c.ctex"
+path="res://.godot/imported/Buildings.png-365d6693203195e7f1a48a6d5c67fb4b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Buildings/Atlas/Buildings.png"
-dest_files=["res://.godot/imported/Buildings.png-a38cdd4502bf5fc1fcf15abf5abbe51c.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Buildings/Atlas/Buildings.png"
+dest_files=["res://.godot/imported/Buildings.png-365d6693203195e7f1a48a6d5c67fb4b.ctex"]
 
 [params]
 

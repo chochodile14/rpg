@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bi8vl5iijwhja"
-path="res://.godot/imported/1 Sprite woman walk.png-d1155af00b2b14b2f278fb1768418411.ctex"
+path="res://.godot/imported/1 Sprite woman walk.png-13a4ef91ccb072c1892f4f862c692cd7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Woolly Lands FREE pack/Woolly Lands FREE pack/Sprite Player/1 Sprite woman walk.png"
-dest_files=["res://.godot/imported/1 Sprite woman walk.png-d1155af00b2b14b2f278fb1768418411.ctex"]
+source_file="res://art/map/Woolly Lands FREE pack/pack asset/Sprite Player/1 Sprite woman walk.png"
+dest_files=["res://.godot/imported/1 Sprite woman walk.png-13a4ef91ccb072c1892f4f862c692cd7.ctex"]
 
 [params]
 

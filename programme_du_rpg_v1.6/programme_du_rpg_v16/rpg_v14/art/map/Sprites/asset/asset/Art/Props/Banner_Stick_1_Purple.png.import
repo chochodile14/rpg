@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bk5mw57pmulen"
-path="res://.godot/imported/Banner_Stick_1_Purple.png-88798cfbcfe170b22e1eff52d190eec2.ctex"
+path="res://.godot/imported/Banner_Stick_1_Purple.png-eebc04bffab1a701ad44875af21229d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Props/Banner_Stick_1_Purple.png"
-dest_files=["res://.godot/imported/Banner_Stick_1_Purple.png-88798cfbcfe170b22e1eff52d190eec2.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Props/Banner_Stick_1_Purple.png"
+dest_files=["res://.godot/imported/Banner_Stick_1_Purple.png-eebc04bffab1a701ad44875af21229d7.ctex"]
 
 [params]
 

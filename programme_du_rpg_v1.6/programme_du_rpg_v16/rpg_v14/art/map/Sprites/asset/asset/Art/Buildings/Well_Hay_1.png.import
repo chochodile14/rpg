@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdv4agvurm83m"
-path="res://.godot/imported/Well_Hay_1.png-13d9e3e8166f47a8d9d67dcee909cd47.ctex"
+path="res://.godot/imported/Well_Hay_1.png-d847e35420f9dff4d88af9516d4c246d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/map/Sprites/The Fan-tasy Tileset (Free) 1.5.1/The Fan-tasy Tileset (Free)/Art/Buildings/Well_Hay_1.png"
-dest_files=["res://.godot/imported/Well_Hay_1.png-13d9e3e8166f47a8d9d67dcee909cd47.ctex"]
+source_file="res://art/map/Sprites/asset/asset/Art/Buildings/Well_Hay_1.png"
+dest_files=["res://.godot/imported/Well_Hay_1.png-d847e35420f9dff4d88af9516d4c246d.ctex"]
 
 [params]
 
