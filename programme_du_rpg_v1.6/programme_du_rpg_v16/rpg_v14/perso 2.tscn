@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bqyk36imulmd6"]
+
+[ext_resource type="Texture2D" uid="uid://bljh2n0uh7fk7" path="res://art/map/Sprites/Mavis_Godot_Assets/attack_style/attack_style_03.png" id="1_ihts3"]
+[ext_resource type="Texture2D" uid="uid://cdpy4grrwwxla" path="res://art/map/Sprites/Mavis_Godot_Assets/attack_basic/attack_basic_06.png" id="2_0yx8f"]
+[ext_resource type="Texture2D" uid="uid://dw38hh8wp1opj" path="res://art/map/Sprites/Mavis_Godot_Assets/idle/idle_07.png" id="3_bm1tq"]
+[ext_resource type="Texture2D" uid="uid://cqhouo58dcksq" path="res://art/map/Sprites/Mavis_Godot_Assets/idle/idle_06.png" id="4_t5um1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opx8i"]
+atlas = ExtResource("2_0yx8f")
+region = Rect2(0, 0, 73, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0id72"]
+atlas = ExtResource("2_0yx8f")
+region = Rect2(70, 0, 88, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfhla"]
+atlas = ExtResource("3_bm1tq")
+region = Rect2(0, 0, 62, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yxrc"]
+atlas = ExtResource("3_bm1tq")
+region = Rect2(62, 0, 86, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nchm"]
+atlas = ExtResource("2_0yx8f")
+region = Rect2(164, 0, 82, 76)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g8pro"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ihts3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opx8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0id72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfhla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yxrc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t5um1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nchm")
+}],
+"loop": true,
+"name": &"test",
+"speed": 4.25
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2038032033]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1203433246]
+position = Vector2(433, 184)
+sprite_frames = SubResource("SpriteFrames_g8pro")
+animation = &"test"

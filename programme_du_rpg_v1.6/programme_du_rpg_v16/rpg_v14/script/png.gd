@@ -53,20 +53,16 @@ func _physics_process(delta):
 		"STUN":
 			velocity = Vector2.ZERO
 			$AnimatedSprite2D.stop()
+			$AnimatedSprite2D.play("idle")
 			move_and_slide()
-			if dialogue_open == true:
-				next_dialogue()
-				if dialogue_index < dialogue.size():
-					$CanvasLayer/DialogueBox/Dialogue.text = dialogue[dialogue_index]
-				else:
-					$CanvasLayer.visible = false
-					dialogue_open = false
-					dialogue_index = 0
+			
+			if dialogue_index < dialogue.size():
+				$CanvasLayer/DialogueBox/Dialogue.text = dialogue[dialogue_index]
 			else:
-				dialogue_open = true
-				saved_position = global_position
-				talk_to_PNJ()
-
+				$CanvasLayer.visible = false
+				dialogue_open = false
+				dialogue_index = 0
+			
 func _update_animation(dir_vec: Vector2):
 	if abs(dir_vec.x) > abs(dir_vec.y):
 		sprite.play("walk_left")
@@ -78,7 +74,13 @@ func _update_animation(dir_vec: Vector2):
 
 func _process(delta: float) -> void:
 	if player_in_range and Input.is_action_just_pressed("interaction"):
-		state = "STUN"
+		if dialogue_open == true:
+				next_dialogue()
+		else:
+				dialogue_open = true
+				saved_position = global_position
+				talk_to_PNJ()
+				state = "STUN"
 
 
 
@@ -101,6 +103,7 @@ func _on_area_2d_body_exited(body: CharacterBody2D) -> void:
 		$CanvasLayer.visible = false
 		dialogue_open = false
 		dialogue_index = 0
+		state = "WALK"
 
 
 func _on_suivant_pressed() -> void:

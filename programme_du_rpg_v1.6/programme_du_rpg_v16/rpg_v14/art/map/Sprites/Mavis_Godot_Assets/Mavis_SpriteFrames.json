@@ -1,0 +1,237 @@
+{
+  "resource_type": "SpriteFrames",
+  "animations": [
+    {
+      "name": "idle",
+      "frames": [
+        {
+          "file": "idle/idle_01.png"
+        },
+        {
+          "file": "idle/idle_02.png"
+        },
+        {
+          "file": "idle/idle_03.png"
+        },
+        {
+          "file": "idle/idle_04.png"
+        },
+        {
+          "file": "idle/idle_05.png"
+        },
+        {
+          "file": "idle/idle_06.png"
+        },
+        {
+          "file": "idle/idle_07.png"
+        },
+        {
+          "file": "idle/idle_08.png"
+        },
+        {
+          "file": "idle/idle_09.png"
+        },
+        {
+          "file": "idle/idle_10.png"
+        },
+        {
+          "file": "idle/idle_11.png"
+        },
+        {
+          "file": "idle/idle_12.png"
+        }
+      ]
+    },
+    {
+      "name": "walk",
+      "frames": [
+        {
+          "file": "walk/walk_01.png"
+        },
+        {
+          "file": "walk/walk_02.png"
+        },
+        {
+          "file": "walk/walk_03.png"
+        },
+        {
+          "file": "walk/walk_04.png"
+        },
+        {
+          "file": "walk/walk_05.png"
+        },
+        {
+          "file": "walk/walk_06.png"
+        },
+        {
+          "file": "walk/walk_07.png"
+        },
+        {
+          "file": "walk/walk_08.png"
+        },
+        {
+          "file": "walk/walk_09.png"
+        },
+        {
+          "file": "walk/walk_10.png"
+        },
+        {
+          "file": "walk/walk_11.png"
+        },
+        {
+          "file": "walk/walk_12.png"
+        }
+      ]
+    },
+    {
+      "name": "attack_basic",
+      "frames": [
+        {
+          "file": "attack_basic/attack_basic_01.png"
+        },
+        {
+          "file": "attack_basic/attack_basic_02.png"
+        },
+        {
+          "file": "attack_basic/attack_basic_03.png"
+        },
+        {
+          "file": "attack_basic/attack_basic_04.png"
+        },
+        {
+          "file": "attack_basic/attack_basic_05.png"
+        },
+        {
+          "file": "attack_basic/attack_basic_06.png"
+        },
+        {
+          "file": "attack_basic/attack_basic_07.png"
+        },
+        {
+          "file": "attack_basic/attack_basic_08.png"
+        },
+        {
+          "file": "attack_basic/attack_basic_09.png"
+        },
+        {
+          "file": "attack_basic/attack_basic_10.png"
+        },
+        {
+          "file": "attack_basic/attack_basic_11.png"
+        },
+        {
+          "file": "attack_basic/attack_basic_12.png"
+        },
+        {
+          "file": "attack_basic/attack_basic_13.png"
+        },
+        {
+          "file": "attack_basic/attack_basic_14.png"
+        },
+        {
+          "file": "attack_basic/attack_basic_15.png"
+        },
+        {
+          "file": "attack_basic/attack_basic_16.png"
+        }
+      ]
+    },
+    {
+      "name": "attack_style",
+      "frames": [
+        {
+          "file": "attack_style/attack_style_01.png"
+        },
+        {
+          "file": "attack_style/attack_style_02.png"
+        },
+        {
+          "file": "attack_style/attack_style_03.png"
+        },
+        {
+          "file": "attack_style/attack_style_04.png"
+        },
+        {
+          "file": "attack_style/attack_style_05.png"
+        },
+        {
+          "file": "attack_style/attack_style_06.png"
+        },
+        {
+          "file": "attack_style/attack_style_07.png"
+        },
+        {
+          "file": "attack_style/attack_style_08.png"
+        },
+        {
+          "file": "attack_style/attack_style_09.png"
+        },
+        {
+          "file": "attack_style/attack_style_10.png"
+        },
+        {
+          "file": "attack_style/attack_style_11.png"
+        },
+        {
+          "file": "attack_style/attack_style_12.png"
+        },
+        {
+          "file": "attack_style/attack_style_13.png"
+        },
+        {
+          "file": "attack_style/attack_style_14.png"
+        },
+        {
+          "file": "attack_style/attack_style_15.png"
+        },
+        {
+          "file": "attack_style/attack_style_16.png"
+        }
+      ]
+    },
+    {
+      "name": "skill_dawn",
+      "frames": [
+        {
+          "file": "skill_dawn/skill_dawn_01.png"
+        },
+        {
+          "file": "skill_dawn/skill_dawn_02.png"
+        },
+        {
+          "file": "skill_dawn/skill_dawn_03.png"
+        },
+        {
+          "file": "skill_dawn/skill_dawn_04.png"
+        },
+        {
+          "file": "skill_dawn/skill_dawn_05.png"
+        },
+        {
+          "file": "skill_dawn/skill_dawn_06.png"
+        },
+        {
+          "file": "skill_dawn/skill_dawn_07.png"
+        },
+        {
+          "file": "skill_dawn/skill_dawn_08.png"
+        },
+        {
+          "file": "skill_dawn/skill_dawn_09.png"
+        },
+        {
+          "file": "skill_dawn/skill_dawn_10.png"
+        },
+        {
+          "file": "skill_dawn/skill_dawn_11.png"
+        },
+        {
+          "file": "skill_dawn/skill_dawn_12.png"
+        },
+        {
+          "file": "skill_dawn/skill_dawn_13.png"
+        }
+      ]
+    }
+  ]
+}

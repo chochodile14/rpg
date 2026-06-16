@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://bksp1xycp7d5y"]
+
+[ext_resource type="Texture2D" uid="uid://dlb8lkqkowrix" path="res://art/map/Sprites/pnj marchand.png" id="1_djs4c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8f470"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(0, 645, 280, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idq28"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(280, 645, 280, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn2mi"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(560, 645, 280, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5lp4"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(840, 645, 280, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an5ab"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(0, 19, 280, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8k3o"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(280, 19, 280, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l12ok"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(0, 332, 280, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njo62"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(280, 332, 280, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5ma0"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(560, 332, 280, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hps4"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(840, 332, 280, 313)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_niq0h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8f470")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idq28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn2mi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5lp4")
+}],
+"loop": true,
+"name": &"walk down",
+"speed": 4.25
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an5ab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8k3o")
+}],
+"loop": true,
+"name": &"walk left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l12ok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njo62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5ma0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hps4")
+}],
+"loop": true,
+"name": &"walk up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e42wc"]
+radius = 22.0
+height = 64.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_040je"]
+radius = 94.0
+height = 190.0
+
+[node name="pnj marchand" type="CharacterBody2D" unique_id=1589523735]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=545526356]
+
+[node name="DialogueBox" type="Panel" parent="CanvasLayer" unique_id=772766429]
+offset_left = 412.0
+offset_top = 103.0
+offset_right = 743.0
+offset_bottom = 208.0
+
+[node name="Dialogue" type="Label" parent="CanvasLayer/DialogueBox" unique_id=396316230]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 8.0
+offset_right = 639.0
+offset_bottom = 182.0
+scale = Vector2(0.5, 0.5)
+autowrap_mode = 2
+
+[node name="achat" type="Button" parent="CanvasLayer/DialogueBox" unique_id=1135501785]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 69.0
+offset_right = 327.0
+offset_bottom = 100.0
+text = "achat
+"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=589441203]
+texture_filter = 1
+position = Vector2(723.30927, 260.36145)
+scale = Vector2(0.29064813, 0.29064804)
+sprite_frames = SubResource("SpriteFrames_niq0h")
+animation = &"walk down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=886128280]
+position = Vector2(709, 269)
+shape = SubResource("CapsuleShape2D_e42wc")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=74971903]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1849538269]
+position = Vector2(706, 268)
+shape = SubResource("CapsuleShape2D_040je")
