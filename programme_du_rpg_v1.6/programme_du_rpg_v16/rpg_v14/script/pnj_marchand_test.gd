@@ -4,6 +4,7 @@ var state = "WALK"
 var dialogue_open = false
 var player_in_range = false
 var dialogue_index = 0
+
 var dialogue = [
 	"Bonjour voyageur! Les routes sont longues et les poches bien vide. Mais 
 	MOI ALDRIC VENNEBROC A CE QUI VOUS FAUT!!",
@@ -48,7 +49,8 @@ func _physics_process(delta):
 			var target = waypoints[target_index]
 			var dir_vec = target - position
 			var dist = dir_vec.length()
-
+			$CanvasLayer/DialogueBox/test.visible = false
+			$CanvasLayer/DialogueBox/achat.visible = false
 			if dist < SPEED * delta:
 				position = target
 				target_index = (target_index + 1) % waypoints.size()
@@ -84,10 +86,15 @@ func _process(delta: float) -> void:
 		if dialogue_open == true:
 				next_dialogue()
 		else:
-				dialogue_open = true
-				saved_position = global_position
-				talk_to_PNJ()
-				state = "STUN"
+			dialogue_open = true
+			saved_position = global_position
+			talk_to_PNJ()
+			state = "STUN"
+			if dialogue_index == 2:
+				$CanvasLayer/DialogueBox/achat.visible = true
+				$CanvasLayer/DialogueBox/test.visible = true
+				
+
 
 
 
