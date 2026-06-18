@@ -3,8 +3,14 @@ extends CharacterBody2D
 var state = "WALK"
 var dialogue_open = false
 var player_in_range = false
+var shop_open = false
 var dialogue_index = 0
-
+var total_price = 0
+var shop_item = {
+	"sword" : 60,
+	"potion": 20,
+	"bouclier" : 80,
+}
 var dialogue = [
 	"Bonjour voyageur! Les routes sont longues et les poches bien vide. Mais 
 	MOI ALDRIC VENNEBROC A CE QUI VOUS FAUT!!",
@@ -37,6 +43,8 @@ func _ready():
 	target_index = 1
 	$CanvasLayer/DialogueBox/Dialogue.text = dialogue[0]
 	$CanvasLayer.visible = false
+	$shopbox.visible = false
+	$CanvasLayer/DialogueBox/achat.visible = false
 	dialogue_index = 0
 func next_dialogue():
 	dialogue_index += 1
@@ -49,8 +57,6 @@ func _physics_process(delta):
 			var target = waypoints[target_index]
 			var dir_vec = target - position
 			var dist = dir_vec.length()
-			$CanvasLayer/DialogueBox/test.visible = false
-			$CanvasLayer/DialogueBox/achat.visible = false
 			if dist < SPEED * delta:
 				position = target
 				target_index = (target_index + 1) % waypoints.size()
@@ -64,14 +70,19 @@ func _physics_process(delta):
 			$AnimatedSprite2D.stop()
 			$AnimatedSprite2D.play("idle")
 			move_and_slide()
+			$shopbox.visible = false
 			
 			if dialogue_index < dialogue.size():
+				$CanvasLayer.visible = true
 				$CanvasLayer/DialogueBox/Dialogue.text = dialogue[dialogue_index]
 			else:
 				$CanvasLayer.visible = false
 				dialogue_open = false
 				dialogue_index = 0
+		"SHOP":
 			
+			$shopbox.visible = true
+			$CanvasLayer.visible = false
 func _update_animation(dir_vec: Vector2):
 	if abs(dir_vec.x) > abs(dir_vec.y):
 		sprite.play("walk left")
@@ -85,14 +96,15 @@ func _process(delta: float) -> void:
 	if player_in_range and Input.is_action_just_pressed("interaction"):
 		if dialogue_open == true:
 				next_dialogue()
+				if dialogue_index == 2:
+					$CanvasLayer/DialogueBox/achat.visible = true
 		else:
+			$CanvasLayer/DialogueBox/achat.visible = false
 			dialogue_open = true
 			saved_position = global_position
 			talk_to_PNJ()
 			state = "STUN"
-			if dialogue_index == 2:
-				$CanvasLayer/DialogueBox/achat.visible = true
-				$CanvasLayer/DialogueBox/test.visible = true
+			
 				
 
 
@@ -127,3 +139,26 @@ func _on_suivant_pressed() -> void:
 	else:
 		$CanvasLayer.visible = false
 		state = "WALK"
+
+
+func _on_achat_pressed() -> void:
+	state = "SHOP"
+
+
+func _on_acheter_pressed() -> void:
+	if $shopbox/DialogueBox/sword.button_pressed:
+		print("sword")
+	if $shopbox/DialogueBox/potion.button_pressed:
+		print("potion")
+	if $shopbox/DialogueBox/shield.button_pressed:
+		print("shield")
+	$CanvasLayer/DialogueBox/achat.visible = false
+	if Global.gold >= total_price:
+		Global.gold -= total_price
+		print("achat reussit", "il te reste", Global.gold)
+	else:
+		print("pas asser d'or")
+
+
+func _on_parler_pressed() -> void:
+	state = "STUN"

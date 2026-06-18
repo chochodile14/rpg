@@ -1,4 +1,7 @@
 extends Node
+
+#---------Monnaie du jeu a deffinir plus tard ----------------------------------
+var gold = 100
 # ──   sauvegarde de slot  ─────────────────────────────────────────────────────
 var current_slot: int = 0
 

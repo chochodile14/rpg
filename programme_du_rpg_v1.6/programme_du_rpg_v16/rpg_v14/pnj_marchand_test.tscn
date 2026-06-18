@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bksp1xycp7d5y"]
+[gd_scene load_steps=17 format=3 uid="uid://bksp1xycp7d5y"]
 
 [ext_resource type="Script" uid="uid://dys53ydyv8k8u" path="res://script/pnj_marchand_test.gd" id="1_8f470"]
 [ext_resource type="Texture2D" uid="uid://dlb8lkqkowrix" path="res://art/map/Sprites/pnj marchand.png" id="1_djs4c"]
@@ -114,18 +114,82 @@ height = 64.0
 radius = 94.0
 height = 190.0
 
-[node name="pnj marchand" type="CharacterBody2D" unique_id=1685092271]
+[node name="pnj marchand" type="CharacterBody2D"]
 script = ExtResource("1_8f470")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1218513426]
+[node name="shopbox" type="CanvasLayer" parent="."]
+layer = 13
 
-[node name="DialogueBox" type="Panel" parent="CanvasLayer" unique_id=1397336942]
+[node name="DialogueBox" type="Panel" parent="shopbox"]
 offset_left = 412.0
 offset_top = 103.0
 offset_right = 743.0
 offset_bottom = 208.0
 
-[node name="Dialogue" type="Label" parent="CanvasLayer/DialogueBox" unique_id=1176959716]
+[node name="Label" type="Label" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 4.0
+offset_right = 192.0
+offset_bottom = 27.0
+
+[node name="SpinBox" type="SpinBox" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 66.0
+offset_right = 102.5625
+offset_bottom = 100.0
+
+[node name="acheter" type="Button" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 73.0
+offset_right = 295.0
+offset_bottom = 104.0
+text = "buy"
+
+[node name="parler" type="Button" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 73.0
+offset_right = 243.0
+offset_bottom = 104.0
+text = "talk"
+
+[node name="sword" type="CheckBox" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 16.0
+offset_right = 114.0
+offset_bottom = 47.0
+text = "sword 60g"
+
+[node name="potion" type="CheckBox" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 15.0
+offset_right = 222.0
+offset_bottom = 46.0
+text = "potion 20g"
+
+[node name="shield" type="CheckBox" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 18.0
+offset_right = 330.0
+offset_bottom = 49.0
+text = "shield 80g"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="DialogueBox" type="Panel" parent="CanvasLayer"]
+offset_left = 412.0
+offset_top = 103.0
+offset_right = 743.0
+offset_bottom = 208.0
+
+[node name="Dialogue" type="Label" parent="CanvasLayer/DialogueBox"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 9.0
@@ -134,24 +198,16 @@ offset_bottom = 183.0
 scale = Vector2(0.5, 0.5)
 autowrap_mode = 2
 
-[node name="achat" type="Button" parent="CanvasLayer/DialogueBox" unique_id=697098176]
+[node name="achat" type="Button" parent="CanvasLayer/DialogueBox"]
 layout_mode = 0
-offset_left = 197.0
-offset_top = 12.0
-offset_right = 248.0
-offset_bottom = 43.0
+offset_left = 228.0
+offset_top = 68.0
+offset_right = 279.0
+offset_bottom = 99.0
 text = "achat
 "
 
-[node name="test" type="Button" parent="CanvasLayer/DialogueBox" unique_id=59062421]
-layout_mode = 0
-offset_left = 49.0
-offset_top = 14.0
-offset_right = 90.0
-offset_bottom = 45.0
-text = "Test"
-
-[node name="suivant" type="Button" parent="CanvasLayer/DialogueBox" unique_id=1340422487]
+[node name="suivant" type="Button" parent="CanvasLayer/DialogueBox"]
 layout_mode = 0
 offset_left = 282.0
 offset_top = 69.0
@@ -159,7 +215,7 @@ offset_right = 327.0
 offset_bottom = 100.0
 text = "Next"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=512811413]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(713.80927, 270.98108)
 scale = Vector2(0.2227911, 0.222791)
@@ -168,17 +224,20 @@ animation = &"idle"
 frame = 1
 frame_progress = 0.31770468
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=225981620]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(703, 279)
 shape = SubResource("CapsuleShape2D_e42wc")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=486550438]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1777973041]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 light_mask = 2
 visibility_layer = 2
 position = Vector2(703, 279)
 shape = SubResource("CapsuleShape2D_040je")
 
+[connection signal="pressed" from="shopbox/DialogueBox/acheter" to="." method="_on_acheter_pressed"]
+[connection signal="pressed" from="shopbox/DialogueBox/parler" to="." method="_on_parler_pressed"]
+[connection signal="pressed" from="CanvasLayer/DialogueBox/achat" to="." method="_on_achat_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
