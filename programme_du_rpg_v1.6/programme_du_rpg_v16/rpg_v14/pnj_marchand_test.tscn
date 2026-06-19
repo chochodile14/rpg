@@ -121,8 +121,8 @@ script = ExtResource("1_8f470")
 layer = 13
 
 [node name="DialogueBox" type="Panel" parent="shopbox"]
-offset_left = 412.0
-offset_top = 103.0
+offset_left = 398.0
+offset_top = 54.0
 offset_right = 743.0
 offset_bottom = 208.0
 
@@ -133,27 +133,27 @@ offset_top = 4.0
 offset_right = 192.0
 offset_bottom = 27.0
 
-[node name="SpinBox" type="SpinBox" parent="shopbox/DialogueBox"]
+[node name="swordspin" type="SpinBox" parent="shopbox/DialogueBox"]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 66.0
-offset_right = 102.5625
-offset_bottom = 100.0
+offset_left = 8.0
+offset_top = 50.0
+offset_right = 94.5625
+offset_bottom = 84.0
 
 [node name="acheter" type="Button" parent="shopbox/DialogueBox"]
 layout_mode = 0
-offset_left = 258.0
-offset_top = 73.0
-offset_right = 295.0
-offset_bottom = 104.0
+offset_left = 287.0
+offset_top = 111.0
+offset_right = 324.0
+offset_bottom = 142.0
 text = "buy"
 
 [node name="parler" type="Button" parent="shopbox/DialogueBox"]
 layout_mode = 0
-offset_left = 205.0
-offset_top = 73.0
-offset_right = 243.0
-offset_bottom = 104.0
+offset_left = 235.0
+offset_top = 113.0
+offset_right = 273.0
+offset_bottom = 144.0
 text = "talk"
 
 [node name="sword" type="CheckBox" parent="shopbox/DialogueBox"]
@@ -162,7 +162,6 @@ offset_left = 7.0
 offset_top = 16.0
 offset_right = 114.0
 offset_bottom = 47.0
-text = "sword 60g"
 
 [node name="potion" type="CheckBox" parent="shopbox/DialogueBox"]
 layout_mode = 0
@@ -179,6 +178,20 @@ offset_top = 18.0
 offset_right = 330.0
 offset_bottom = 49.0
 text = "shield 80g"
+
+[node name="potionspin" type="SpinBox" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 49.0
+offset_right = 208.5625
+offset_bottom = 83.0
+
+[node name="shieldspin" type="SpinBox" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 49.0
+offset_right = 316.5625
+offset_bottom = 83.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false

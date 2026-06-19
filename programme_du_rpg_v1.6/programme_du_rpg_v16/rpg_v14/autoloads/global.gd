@@ -1,7 +1,12 @@
 extends Node
-
+#---------inventaire -----------------------------------------------------------
+var inventory = {
+	"potion": 0,
+	"sword" : 0,
+	"shield" : 0,
+}
 #---------Monnaie du jeu a deffinir plus tard ----------------------------------
-var gold = 100
+var gold = 250
 # ──   sauvegarde de slot  ─────────────────────────────────────────────────────
 var current_slot: int = 0
 

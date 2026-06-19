@@ -7,9 +7,20 @@ var shop_open = false
 var dialogue_index = 0
 var total_price = 0
 var shop_item = {
-	"sword" : 60,
-	"potion": 20,
-	"bouclier" : 80,
+	"sword" : {
+		"price": 60,
+		"name": "sword"
+	},
+	"potion": {
+		"prince": 20,
+		"name": "potion"
+		
+	},
+	"bouclier" : {
+		"prince": 80,
+		"name": "shield"
+		
+	}, 
 }
 var dialogue = [
 	"Bonjour voyageur! Les routes sont longues et les poches bien vide. Mais 
@@ -80,8 +91,8 @@ func _physics_process(delta):
 				dialogue_open = false
 				dialogue_index = 0
 		"SHOP":
-			
 			$shopbox.visible = true
+			$shopbox/DialogueBox/sword.text = shop_item["sword"]["name"] + " - " + str(shop_item["sword"]["price"] + " or")
 			$CanvasLayer.visible = false
 func _update_animation(dir_vec: Vector2):
 	if abs(dir_vec.x) > abs(dir_vec.y):
@@ -93,6 +104,7 @@ func _update_animation(dir_vec: Vector2):
 		
 
 func _process(delta: float) -> void:
+	await get_tree().create_timer(1.5).timeout
 	if player_in_range and Input.is_action_just_pressed("interaction"):
 		if dialogue_open == true:
 				next_dialogue()
@@ -146,18 +158,23 @@ func _on_achat_pressed() -> void:
 
 
 func _on_acheter_pressed() -> void:
+	total_price = 0
 	if $shopbox/DialogueBox/sword.button_pressed:
-		print("sword")
+		total_price += 60 * $shopbox/DialogueBox/swordspin.value
 	if $shopbox/DialogueBox/potion.button_pressed:
-		print("potion")
+		total_price += 20 * $shopbox/DialogueBox/potionspin.value
 	if $shopbox/DialogueBox/shield.button_pressed:
-		print("shield")
+		total_price += 80 * $shopbox/DialogueBox/shieldspin.value
 	$CanvasLayer/DialogueBox/achat.visible = false
 	if Global.gold >= total_price:
+		Global.inventory["shield"] += $shopbox/DialogueBox/shieldspin.value
+		Global.inventory["sword"] += $shopbox/DialogueBox/swordspin.value
+		Global.inventory["potion"] += $shopbox/DialogueBox/potionspin.value
 		Global.gold -= total_price
-		print("achat reussit", "il te reste", Global.gold)
+		print("achat reussit", "il te reste :", Global.gold)
+		print("tu as dans ton inventaire ", Global.inventory)
 	else:
-		print("pas asser d'or")
+		print("pas asser d'or","il te reste :", Global.gold)
 
 
 func _on_parler_pressed() -> void:
