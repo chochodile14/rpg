@@ -12,12 +12,12 @@ var shop_item = {
 		"name": "sword"
 	},
 	"potion": {
-		"prince": 20,
+		"price": 20,
 		"name": "potion"
 		
 	},
-	"bouclier" : {
-		"prince": 80,
+	"shield" : {
+		"price": 80,
 		"name": "shield"
 		
 	}, 
@@ -92,7 +92,9 @@ func _physics_process(delta):
 				dialogue_index = 0
 		"SHOP":
 			$shopbox.visible = true
-			$shopbox/DialogueBox/sword.text = shop_item["sword"]["name"] + " - " + str(shop_item["sword"]["price"] + " or")
+			$shopbox/DialogueBox/potion.text = shop_item["potion"]["name"] + " - " + str(shop_item["potion"]["price"]) + " or"
+			$shopbox/DialogueBox/shield.text = shop_item["shield"]["name"] + " - " + str(shop_item["shield"]["price"]) + " or"
+			$shopbox/DialogueBox/sword.text = shop_item["sword"]["name"] + " - " + str(shop_item["sword"]["price"]) + " or"
 			$CanvasLayer.visible = false
 func _update_animation(dir_vec: Vector2):
 	if abs(dir_vec.x) > abs(dir_vec.y):
@@ -118,9 +120,6 @@ func _process(delta: float) -> void:
 			state = "STUN"
 			
 				
-
-
-
 
 func talk_to_PNJ():
 	if dialogue_open :
@@ -173,9 +172,12 @@ func _on_acheter_pressed() -> void:
 		Global.gold -= total_price
 		print("achat reussit", "il te reste :", Global.gold)
 		print("tu as dans ton inventaire ", Global.inventory)
+		$shopbox/DialogueBox/swordspin.value = 0
+		$shopbox/DialogueBox/shieldspin.value = 0
+		$shopbox/DialogueBox/potionspin.value = 0
+		total_price = 0
 	else:
 		print("pas asser d'or","il te reste :", Global.gold)
-
 
 func _on_parler_pressed() -> void:
 	state = "STUN"

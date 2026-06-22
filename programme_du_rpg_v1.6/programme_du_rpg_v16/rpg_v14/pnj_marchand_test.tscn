@@ -123,7 +123,7 @@ layer = 13
 [node name="DialogueBox" type="Panel" parent="shopbox"]
 offset_left = 398.0
 offset_top = 54.0
-offset_right = 743.0
+offset_right = 859.0
 offset_bottom = 208.0
 
 [node name="Label" type="Label" parent="shopbox/DialogueBox"]
@@ -142,18 +142,18 @@ offset_bottom = 84.0
 
 [node name="acheter" type="Button" parent="shopbox/DialogueBox"]
 layout_mode = 0
-offset_left = 287.0
-offset_top = 111.0
-offset_right = 324.0
-offset_bottom = 142.0
+offset_left = 415.0
+offset_top = 115.0
+offset_right = 452.0
+offset_bottom = 146.0
 text = "buy"
 
 [node name="parler" type="Button" parent="shopbox/DialogueBox"]
 layout_mode = 0
-offset_left = 235.0
-offset_top = 113.0
-offset_right = 273.0
-offset_bottom = 144.0
+offset_left = 367.0
+offset_top = 115.0
+offset_right = 405.0
+offset_bottom = 146.0
 text = "talk"
 
 [node name="sword" type="CheckBox" parent="shopbox/DialogueBox"]
@@ -165,33 +165,31 @@ offset_bottom = 47.0
 
 [node name="potion" type="CheckBox" parent="shopbox/DialogueBox"]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 15.0
-offset_right = 222.0
-offset_bottom = 46.0
-text = "potion 20g"
+offset_left = 164.0
+offset_top = 17.0
+offset_right = 274.0
+offset_bottom = 48.0
 
 [node name="shield" type="CheckBox" parent="shopbox/DialogueBox"]
 layout_mode = 0
-offset_left = 224.0
-offset_top = 18.0
-offset_right = 330.0
-offset_bottom = 49.0
-text = "shield 80g"
+offset_left = 328.0
+offset_top = 20.0
+offset_right = 434.0
+offset_bottom = 51.0
 
 [node name="potionspin" type="SpinBox" parent="shopbox/DialogueBox"]
 layout_mode = 0
-offset_left = 122.0
-offset_top = 49.0
-offset_right = 208.5625
-offset_bottom = 83.0
+offset_left = 174.0
+offset_top = 51.0
+offset_right = 260.5625
+offset_bottom = 85.0
 
 [node name="shieldspin" type="SpinBox" parent="shopbox/DialogueBox"]
 layout_mode = 0
-offset_left = 230.0
-offset_top = 49.0
-offset_right = 316.5625
-offset_bottom = 83.0
+offset_left = 334.0
+offset_top = 51.0
+offset_right = 420.5625
+offset_bottom = 85.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
