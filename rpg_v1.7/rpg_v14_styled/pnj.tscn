@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bi8vl5iijwhja" path="res://art/map/Woolly Lands FREE pack/pack asset/Sprite Player/1 Sprite woman walk.png" id="1_f50pn"]
 [ext_resource type="Script" uid="uid://d4kcvcmxdcco4" path="res://script/png.gd" id="1_ij6vw"]
+[ext_resource type="FontFile" uid="uid://crre5antcpq43" path="res://art/fonts/firstorder.ttf" id="font_1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pcvj2"]
 atlas = ExtResource("1_f50pn")
@@ -132,6 +133,62 @@ height = 27.0
 radius = 29.0
 height = 58.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.086, 0.067, 0.039, 0.97)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.78, 0.59, 0.23, 0.55)
+corner_radius_top_left = 0
+corner_radius_top_right = 8
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 8
+corner_detail = 4
+expand_margin_left = 0.0
+expand_margin_top = 0.0
+expand_margin_right = 0.0
+expand_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+bg_color = Color(0.086, 0.067, 0.039, 0.0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.55, 0.40, 0.15, 0.7)
+corner_radius_top_left = 0
+corner_radius_top_right = 4
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 4
+corner_detail = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.78, 0.59, 0.23, 0.18)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.78, 0.59, 0.23, 1.0)
+corner_radius_top_left = 0
+corner_radius_top_right = 4
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 4
+corner_detail = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+bg_color = Color(0.78, 0.59, 0.23, 0.30)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.91, 0.73, 0.36, 1.0)
+corner_radius_top_left = 0
+corner_radius_top_right = 4
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 4
+corner_detail = 3
+
 [node name="pnj" type="CharacterBody2D" unique_id=957045931]
 scale = Vector2(2, 2)
 script = ExtResource("1_ij6vw")
@@ -140,27 +197,59 @@ script = ExtResource("1_ij6vw")
 layer = 20
 
 [node name="DialogueBox" type="Panel" parent="CanvasLayer" unique_id=1089234584]
-offset_left = 412.0
-offset_top = 103.0
-offset_right = 743.0
-offset_bottom = 208.0
+offset_left = 120.0
+offset_top = 480.0
+offset_right = 1040.0
+offset_bottom = 620.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="NomPNJ" type="Label" parent="CanvasLayer/DialogueBox" unique_id=9010001]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 8.0
+offset_right = 700.0
+offset_bottom = 32.0
+text = "Habitante de l'Empire"
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 9
+theme_override_colors/font_color = Color(0.54, 0.41, 0.16, 1.0)
+
+[node name="SepLine" type="ColorRect" parent="CanvasLayer/DialogueBox" unique_id=9010002]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 35.0
+offset_right = 882.0
+offset_bottom = 36.0
+color = Color(0.78, 0.59, 0.23, 0.25)
 
 [node name="Dialogue" type="Label" parent="CanvasLayer/DialogueBox" unique_id=1433911354]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 8.0
-offset_right = 639.0
-offset_bottom = 182.0
-scale = Vector2(0.5, 0.5)
+offset_left = 18.0
+offset_top = 44.0
+offset_right = 882.0
+offset_bottom = 118.0
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.91, 0.82, 0.58, 1.0)
 autowrap_mode = 2
+
 
 [node name="suivant" type="Button" parent="CanvasLayer/DialogueBox" unique_id=1016479404]
 layout_mode = 0
-offset_left = 282.0
-offset_top = 69.0
-offset_right = 327.0
-offset_bottom = 100.0
+offset_left = 806.0
+offset_top = 112.0
+offset_right = 900.0
+offset_bottom = 134.0
 text = "Next"
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 9
+theme_override_colors/font_color = Color(0.78, 0.59, 0.23, 1.0)
+theme_override_colors/font_hover_color = Color(0.91, 0.73, 0.36, 1.0)
+theme_override_colors/font_pressed_color = Color(1.0, 0.88, 0.55, 1.0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_normal")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=192228906]
 texture_filter = 1

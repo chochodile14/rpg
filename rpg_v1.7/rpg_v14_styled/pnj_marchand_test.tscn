@@ -1,0 +1,491 @@
+[gd_scene load_steps=17 format=3 uid="uid://bksp1xycp7d5y"]
+
+[ext_resource type="Script" uid="uid://dys53ydyv8k8u" path="res://script/pnj_marchand_test.gd" id="1_8f470"]
+[ext_resource type="Texture2D" uid="uid://dlb8lkqkowrix" path="res://art/map/Sprites/pnj marchand.png" id="1_djs4c"]
+[ext_resource type="FontFile" uid="uid://crre5antcpq43" path="res://art/fonts/firstorder.ttf" id="font_1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_niq0h"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(840, 640, 280, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8f470"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(0, 645, 280, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idq28"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(280, 645, 280, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn2mi"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(560, 645, 280, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5lp4"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(840, 645, 280, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an5ab"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(0, 19, 280, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8k3o"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(280, 19, 280, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l12ok"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(0, 332, 280, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njo62"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(280, 332, 280, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5ma0"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(560, 332, 280, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hps4"]
+atlas = ExtResource("1_djs4c")
+region = Rect2(840, 332, 280, 313)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_niq0h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_niq0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_niq0h")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8f470")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idq28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn2mi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5lp4")
+}],
+"loop": true,
+"name": &"walk down",
+"speed": 4.25
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an5ab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8k3o")
+}],
+"loop": true,
+"name": &"walk left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l12ok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njo62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5ma0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hps4")
+}],
+"loop": true,
+"name": &"walk up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e42wc"]
+radius = 22.0
+height = 64.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_040je"]
+radius = 94.0
+height = 190.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.086, 0.067, 0.039, 0.97)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.78, 0.59, 0.23, 0.55)
+corner_radius_top_left = 0
+corner_radius_top_right = 8
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 8
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shop"]
+bg_color = Color(0.072, 0.055, 0.030, 0.98)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.78, 0.59, 0.23, 0.65)
+corner_radius_top_left = 0
+corner_radius_top_right = 10
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 10
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+bg_color = Color(0.086, 0.067, 0.039, 0.0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.55, 0.40, 0.15, 0.7)
+corner_radius_top_left = 0
+corner_radius_top_right = 4
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 4
+corner_detail = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.78, 0.59, 0.23, 0.18)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.78, 0.59, 0.23, 1.0)
+corner_radius_top_left = 0
+corner_radius_top_right = 4
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 4
+corner_detail = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+bg_color = Color(0.78, 0.59, 0.23, 0.30)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.91, 0.73, 0.36, 1.0)
+corner_radius_top_left = 0
+corner_radius_top_right = 4
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 4
+corner_detail = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_buy_normal"]
+bg_color = Color(0.78, 0.59, 0.23, 0.18)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.53, 0.38, 0.10, 1.0)
+corner_radius_top_left = 0
+corner_radius_top_right = 4
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 4
+corner_detail = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_buy_hover"]
+bg_color = Color(0.78, 0.59, 0.23, 0.32)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.91, 0.73, 0.36, 1.0)
+corner_radius_top_left = 0
+corner_radius_top_right = 4
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 4
+corner_detail = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_buy_pressed"]
+bg_color = Color(0.91, 0.73, 0.36, 0.35)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1.0, 0.88, 0.55, 1.0)
+corner_radius_top_left = 0
+corner_radius_top_right = 4
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 4
+corner_detail = 3
+
+[node name="pnj marchand" type="CharacterBody2D"]
+script = ExtResource("1_8f470")
+
+[node name="shopbox" type="CanvasLayer" parent="."]
+layer = 13
+
+[node name="DialogueBox" type="Panel" parent="shopbox"]
+offset_left = 120.0
+offset_top = 350.0
+offset_right = 1040.0
+offset_bottom = 620.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_shop")
+
+[node name="TitreShop" type="Label" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 8.0
+offset_right = 500.0
+offset_bottom = 30.0
+text = "Inventaire du Marchand"
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.91, 0.73, 0.36, 1.0)
+
+[node name="SepLineShop" type="ColorRect" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 33.0
+offset_right = 882.0
+offset_bottom = 34.0
+color = Color(0.78, 0.59, 0.23, 0.3)
+
+[node name="Label" type="Label" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 42.0
+offset_right = 300.0
+offset_bottom = 62.0
+text = "Epee"
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.78, 0.59, 0.23, 0.9)
+
+[node name="LabelPotion" type="Label" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 42.0
+offset_right = 600.0
+offset_bottom = 62.0
+text = "Potion"
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.78, 0.59, 0.23, 0.9)
+
+[node name="LabelShield" type="Label" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 610.0
+offset_top = 42.0
+offset_right = 882.0
+offset_bottom = 62.0
+text = "Bouclier"
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.78, 0.59, 0.23, 0.9)
+
+[node name="sword" type="CheckBox" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 64.0
+offset_right = 295.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.91, 0.82, 0.58, 1.0)
+
+[node name="potion" type="CheckBox" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 64.0
+offset_right = 590.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.91, 0.82, 0.58, 1.0)
+
+[node name="shield" type="CheckBox" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 610.0
+offset_top = 64.0
+offset_right = 882.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.91, 0.82, 0.58, 1.0)
+
+[node name="swordspin" type="SpinBox" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 100.0
+offset_right = 285.0
+offset_bottom = 128.0
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.91, 0.82, 0.58, 1.0)
+
+[node name="potionspin" type="SpinBox" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 100.0
+offset_right = 580.0
+offset_bottom = 128.0
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.91, 0.82, 0.58, 1.0)
+
+[node name="shieldspin" type="SpinBox" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 610.0
+offset_top = 100.0
+offset_right = 882.0
+offset_bottom = 128.0
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.91, 0.82, 0.58, 1.0)
+
+[node name="SepLineFooter" type="ColorRect" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 135.0
+offset_right = 882.0
+offset_bottom = 136.0
+color = Color(0.78, 0.59, 0.23, 0.25)
+
+[node name="parler" type="Button" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 144.0
+offset_right = 820.0
+offset_bottom = 170.0
+text = "talk"
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 9
+theme_override_colors/font_color = Color(0.54, 0.41, 0.16, 1.0)
+theme_override_colors/font_hover_color = Color(0.78, 0.59, 0.23, 1.0)
+theme_override_colors/font_pressed_color = Color(0.91, 0.73, 0.36, 1.0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_normal")
+
+[node name="acheter" type="Button" parent="shopbox/DialogueBox"]
+layout_mode = 0
+offset_left = 830.0
+offset_top = 144.0
+offset_right = 900.0
+offset_bottom = 170.0
+text = "buy"
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 9
+theme_override_colors/font_color = Color(0.91, 0.73, 0.36, 1.0)
+theme_override_colors/font_hover_color = Color(1.0, 0.88, 0.55, 1.0)
+theme_override_colors/font_pressed_color = Color(1.0, 1.0, 0.7, 1.0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_buy_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_buy_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_buy_pressed")
+theme_override_styles/focus = SubResource("StyleBoxFlat_buy_normal")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="DialogueBox" type="Panel" parent="CanvasLayer"]
+offset_left = 120.0
+offset_top = 480.0
+offset_right = 1040.0
+offset_bottom = 620.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="NomMarchand" type="Label" parent="CanvasLayer/DialogueBox"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 6.0
+offset_right = 700.0
+offset_bottom = 26.0
+text = "Aldric Vennebroc  —  Marchand Itinerant"
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 9
+theme_override_colors/font_color = Color(0.54, 0.41, 0.16, 1.0)
+
+[node name="SepLine" type="ColorRect" parent="CanvasLayer/DialogueBox"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 30.0
+offset_right = 882.0
+offset_bottom = 31.0
+color = Color(0.78, 0.59, 0.23, 0.25)
+
+[node name="Dialogue" type="Label" parent="CanvasLayer/DialogueBox"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 38.0
+offset_right = 882.0
+offset_bottom = 112.0
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.91, 0.82, 0.58, 1.0)
+autowrap_mode = 2
+
+
+[node name="achat" type="Button" parent="CanvasLayer/DialogueBox"]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 110.0
+offset_right = 800.0
+offset_bottom = 133.0
+text = "achat
+"
+visible = false
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 9
+theme_override_colors/font_color = Color(0.91, 0.73, 0.36, 1.0)
+theme_override_colors/font_hover_color = Color(1.0, 0.88, 0.55, 1.0)
+theme_override_colors/font_pressed_color = Color(1.0, 1.0, 0.7, 1.0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_buy_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_buy_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_buy_pressed")
+theme_override_styles/focus = SubResource("StyleBoxFlat_buy_normal")
+
+[node name="suivant" type="Button" parent="CanvasLayer/DialogueBox"]
+layout_mode = 0
+offset_left = 808.0
+offset_top = 110.0
+offset_right = 900.0
+offset_bottom = 133.0
+text = "Next"
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 9
+theme_override_colors/font_color = Color(0.78, 0.59, 0.23, 1.0)
+theme_override_colors/font_hover_color = Color(0.91, 0.73, 0.36, 1.0)
+theme_override_colors/font_pressed_color = Color(1.0, 0.88, 0.55, 1.0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/focus = SubResource("StyleBoxFlat_btn_normal")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(713.80927, 270.98108)
+scale = Vector2(0.2227911, 0.222791)
+sprite_frames = SubResource("SpriteFrames_niq0h")
+animation = &"idle"
+frame = 1
+frame_progress = 0.31770468
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(703, 279)
+shape = SubResource("CapsuleShape2D_e42wc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(703, 279)
+shape = SubResource("CapsuleShape2D_040je")
+
+[connection signal="pressed" from="shopbox/DialogueBox/acheter" to="." method="_on_acheter_pressed"]
+[connection signal="pressed" from="shopbox/DialogueBox/parler" to="." method="_on_parler_pressed"]
+[connection signal="pressed" from="CanvasLayer/DialogueBox/achat" to="." method="_on_achat_pressed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
