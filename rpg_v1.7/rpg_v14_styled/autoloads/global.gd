@@ -115,6 +115,8 @@ func spend_aptitude(player_idx: int, stat: String) -> bool:
 
 func save_game(slot: int) -> void:
 	var data := {
+		"gold": total_gold,
+		"player_inventory": inventory,
 		"total_xp":          total_xp,
 		"player_levels":      player_levels,
 		"aptitude_points":    aptitude_points,
@@ -137,6 +139,8 @@ func load_game(slot: int) -> bool:
 	var data = JSON.parse_string(f.get_as_text())
 	f.close()
 	if data == null: return false
+	gold.string("player_gold")
+	inventory.string("player_inventory")
 	total_xp          = data["total_xp"]
 	player_levels.assign(data["player_levels"])
 	aptitude_points.assign(data["aptitude_points"])

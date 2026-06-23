@@ -1,12 +1,12 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://4catl8ooc7ix"]
 
-[ext_resource type="Script" path="res://ui/tuto_bubble.gd" id="1_bubble"]
+[ext_resource type="Script" uid="uid://bubv3fyr18lol" path="res://ui/tuto_bubble.gd" id="1_bubble"]
 
-[node name="TutoBubble" type="CanvasLayer"]
+[node name="TutoBubble" type="CanvasLayer" unique_id=975314051]
 layer = 20
 script = ExtResource("1_bubble")
 
-[node name="Panel" type="PanelContainer" parent="."]
+[node name="Panel" type="PanelContainer" parent="." unique_id=552772952]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -19,37 +19,36 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="VBox" type="VBoxContainer" parent="Panel"]
+[node name="VBox" type="VBoxContainer" parent="Panel" unique_id=247829157]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Title" type="Label" parent="Panel/VBox"]
+[node name="Title" type="Label" parent="Panel/VBox" unique_id=587530155]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.25, 0.85, 1, 1)
 theme_override_font_sizes/font_size = 26
-theme_override_colors/font_color = Color(0.25, 0.85, 1.0, 1)
-horizontal_alignment = 1
 text = "Titre"
+horizontal_alignment = 1
 
-[node name="Text" type="Label" parent="Panel/VBox"]
+[node name="Text" type="Label" parent="Panel/VBox" unique_id=1429570087]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
+text = "Texte"
 horizontal_alignment = 1
 autowrap_mode = 2
-text = "Texte"
 
-[node name="ArrowHint" type="Label" parent="Panel/VBox"]
+[node name="ArrowHint" type="Label" parent="Panel/VBox" unique_id=990986090]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.2, 1)
 theme_override_font_sizes/font_size = 32
-theme_override_colors/font_color = Color(1.0, 0.9, 0.2, 1)
 horizontal_alignment = 1
-text = ""
 
-[node name="BtnOK" type="Button" parent="Panel/VBox"]
-layout_mode = 2
+[node name="BtnOK" type="Button" parent="Panel/VBox" unique_id=1492490048]
 custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Suivant ▶"
 
-[node name="Anim" type="AnimationPlayer" parent="Panel"]
+[node name="Anim" type="AnimationPlayer" parent="Panel" unique_id=1358633054]
 
 [connection signal="pressed" from="Panel/VBox/BtnOK" to="." method="_on_btn_ok_pressed"]

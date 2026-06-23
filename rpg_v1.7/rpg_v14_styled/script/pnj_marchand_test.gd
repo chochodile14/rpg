@@ -22,6 +22,10 @@ var shop_item = {
 		
 	}, 
 }
+var achatText = [
+	"achat reussit il te reste : ",
+	
+]
 var dialogue = [
 	"Bonjour voyageur! Les routes sont longues et les poches bien vide. Mais 
 	MOI ALDRIC VENNEBROC A CE QUI VOUS FAUT!!",
@@ -53,6 +57,7 @@ func _ready():
 	position = waypoints[0]  # <- on démarre PILE sur le 1er point
 	target_index = 1
 	$CanvasLayer/DialogueBox/Dialogue.text = dialogue[0]
+	$shopbox/DialogueBoxShop/RessultatDachat.visible = false
 	$CanvasLayer.visible = false
 	$shopbox.visible = false
 	$CanvasLayer/DialogueBox/achat.visible = false
@@ -92,9 +97,9 @@ func _physics_process(delta):
 				dialogue_index = 0
 		"SHOP":
 			$shopbox.visible = true
-			$shopbox/DialogueBox/potion.text = shop_item["potion"]["name"] + " - " + str(shop_item["potion"]["price"]) + " or"
-			$shopbox/DialogueBox/shield.text = shop_item["shield"]["name"] + " - " + str(shop_item["shield"]["price"]) + " or"
-			$shopbox/DialogueBox/sword.text = shop_item["sword"]["name"] + " - " + str(shop_item["sword"]["price"]) + " or"
+			$shopbox/DialogueBoxShop/potion.text = shop_item["potion"]["name"] + " - " + str(shop_item["potion"]["price"]) + " or"
+			$shopbox/DialogueBoxShop/shield.text = shop_item["shield"]["name"] + " - " + str(shop_item["shield"]["price"]) + " or"
+			$shopbox/DialogueBoxShop/sword.text = shop_item["sword"]["name"] + " - " + str(shop_item["sword"]["price"]) + " or"
 			$CanvasLayer.visible = false
 func _update_animation(dir_vec: Vector2):
 	if abs(dir_vec.x) > abs(dir_vec.y):
@@ -118,8 +123,7 @@ func _process(delta: float) -> void:
 			saved_position = global_position
 			talk_to_PNJ()
 			state = "STUN"
-			
-				
+
 
 func talk_to_PNJ():
 	if dialogue_open :
@@ -138,6 +142,7 @@ func _on_area_2d_body_exited(body: CharacterBody2D) -> void:
 	if body.is_in_group("Player"):
 		player_in_range = false
 		$CanvasLayer.visible = false
+		$shopbox.visible = false
 		dialogue_open = false
 		dialogue_index = 0
 		state = "WALK"
@@ -158,23 +163,26 @@ func _on_achat_pressed() -> void:
 
 func _on_acheter_pressed() -> void:
 	total_price = 0
-	if $shopbox/DialogueBox/sword.button_pressed:
-		total_price += 60 * $shopbox/DialogueBox/swordspin.value
-	if $shopbox/DialogueBox/potion.button_pressed:
-		total_price += 20 * $shopbox/DialogueBox/potionspin.value
-	if $shopbox/DialogueBox/shield.button_pressed:
-		total_price += 80 * $shopbox/DialogueBox/shieldspin.value
+	if $shopbox/DialogueBoxShop/sword.button_pressed:
+		total_price += 60 * $shopbox/DialogueBoxShop/swordspin.value
+	if $shopbox/DialogueBoxShop/potion.button_pressed:
+		total_price += 20 * $shopbox/DialogueBoxShop/potionspin.value
+	if $shopbox/DialogueBoxShop/shield.button_pressed:
+		total_price += 80 * $shopbox/DialogueBoxShop/shieldspin.value
 	$CanvasLayer/DialogueBox/achat.visible = false
 	if Global.gold >= total_price:
-		Global.inventory["shield"] += $shopbox/DialogueBox/shieldspin.value
-		Global.inventory["sword"] += $shopbox/DialogueBox/swordspin.value
-		Global.inventory["potion"] += $shopbox/DialogueBox/potionspin.value
+		Global.inventory["shield"] += $shopbox/DialogueBoxShop/shieldspin.value
+		Global.inventory["sword"] += $shopbox/DialogueBoxShop/swordspin.value
+		Global.inventory["potion"] += $shopbox/DialogueBoxShop/potionspin.value
 		Global.gold -= total_price
+		$shopbox/DialogueBoxShop/RessultatDachat.visible = true
+		$AnimationPlayer.play("show_message")
+		$shopbox/DialogueBoxShop/RessultatDachat.text = achatText[0] + str(Global.gold) + " or"
 		print("achat reussit", "il te reste :", Global.gold)
 		print("tu as dans ton inventaire ", Global.inventory)
-		$shopbox/DialogueBox/swordspin.value = 0
-		$shopbox/DialogueBox/shieldspin.value = 0
-		$shopbox/DialogueBox/potionspin.value = 0
+		$shopbox/DialogueBoxShop/swordspin.value = 0
+		$shopbox/DialogueBoxShop/shieldspin.value = 0
+		$shopbox/DialogueBoxShop/potionspin.value = 0
 		total_price = 0
 	else:
 		print("pas asser d'or","il te reste :", Global.gold)
