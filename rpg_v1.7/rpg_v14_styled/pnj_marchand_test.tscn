@@ -203,20 +203,57 @@ height = 64.0
 radius = 94.0
 height = 190.0
 
+[sub_resource type="Animation" id="Animation_idq28"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RessultatDachat:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.012617188, 0.012617188, 0.012617188, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sn2mi"]
+resource_name = "show_message"
+length = 1.5333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RessultatDachat:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g5lp4"]
+_data = {
+&"RESET": SubResource("Animation_idq28"),
+&"show_message": SubResource("Animation_sn2mi")
+}
+
 [node name="pnj marchand" type="CharacterBody2D" unique_id=1359189757]
 script = ExtResource("1_8f470")
 
 [node name="shopbox" type="CanvasLayer" parent="." unique_id=1494598460]
 layer = 13
 
-[node name="DialogueBox" type="Panel" parent="shopbox" unique_id=1825741985]
+[node name="DialogueBoxShop" type="Panel" parent="shopbox" unique_id=1825741985]
 offset_left = 120.0
 offset_top = 350.0
 offset_right = 1040.0
 offset_bottom = 620.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_shop")
 
-[node name="TitreShop" type="Label" parent="shopbox/DialogueBox" unique_id=873189968]
+[node name="TitreShop" type="Label" parent="shopbox/DialogueBoxShop" unique_id=873189968]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 8.0
@@ -227,7 +264,7 @@ theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 11
 text = "Inventaire du Marchand"
 
-[node name="SepLineShop" type="ColorRect" parent="shopbox/DialogueBox" unique_id=1898980678]
+[node name="SepLineShop" type="ColorRect" parent="shopbox/DialogueBoxShop" unique_id=1898980678]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 33.0
@@ -235,7 +272,7 @@ offset_right = 882.0
 offset_bottom = 34.0
 color = Color(0.78, 0.59, 0.23, 0.3)
 
-[node name="Label" type="Label" parent="shopbox/DialogueBox" unique_id=223847267]
+[node name="Label" type="Label" parent="shopbox/DialogueBoxShop" unique_id=223847267]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 42.0
@@ -246,7 +283,7 @@ theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 20
 text = "Epee"
 
-[node name="LabelPotion" type="Label" parent="shopbox/DialogueBox" unique_id=80481747]
+[node name="LabelPotion" type="Label" parent="shopbox/DialogueBoxShop" unique_id=80481747]
 layout_mode = 0
 offset_left = 310.0
 offset_top = 42.0
@@ -257,7 +294,7 @@ theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 20
 text = "Potion"
 
-[node name="LabelShield" type="Label" parent="shopbox/DialogueBox" unique_id=1142009889]
+[node name="LabelShield" type="Label" parent="shopbox/DialogueBoxShop" unique_id=1142009889]
 layout_mode = 0
 offset_left = 610.0
 offset_top = 42.0
@@ -268,7 +305,7 @@ theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 20
 text = "Bouclier"
 
-[node name="sword" type="CheckBox" parent="shopbox/DialogueBox" unique_id=56973531]
+[node name="sword" type="CheckBox" parent="shopbox/DialogueBoxShop" unique_id=56973531]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 64.0
@@ -278,7 +315,7 @@ theme_override_colors/font_color = Color(0.91, 0.82, 0.58, 1)
 theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 15
 
-[node name="potion" type="CheckBox" parent="shopbox/DialogueBox" unique_id=134660725]
+[node name="potion" type="CheckBox" parent="shopbox/DialogueBoxShop" unique_id=134660725]
 layout_mode = 0
 offset_left = 310.0
 offset_top = 64.0
@@ -288,7 +325,7 @@ theme_override_colors/font_color = Color(0.91, 0.82, 0.58, 1)
 theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 15
 
-[node name="shield" type="CheckBox" parent="shopbox/DialogueBox" unique_id=193555296]
+[node name="shield" type="CheckBox" parent="shopbox/DialogueBoxShop" unique_id=193555296]
 layout_mode = 0
 offset_left = 610.0
 offset_top = 64.0
@@ -298,28 +335,28 @@ theme_override_colors/font_color = Color(0.91, 0.82, 0.58, 1)
 theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 15
 
-[node name="swordspin" type="SpinBox" parent="shopbox/DialogueBox" unique_id=1955359302]
+[node name="swordspin" type="SpinBox" parent="shopbox/DialogueBoxShop" unique_id=1955359302]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 100.0
 offset_right = 285.0
 offset_bottom = 128.0
 
-[node name="potionspin" type="SpinBox" parent="shopbox/DialogueBox" unique_id=1441644689]
+[node name="potionspin" type="SpinBox" parent="shopbox/DialogueBoxShop" unique_id=1441644689]
 layout_mode = 0
 offset_left = 310.0
 offset_top = 100.0
 offset_right = 580.0
 offset_bottom = 128.0
 
-[node name="shieldspin" type="SpinBox" parent="shopbox/DialogueBox" unique_id=691638141]
+[node name="shieldspin" type="SpinBox" parent="shopbox/DialogueBoxShop" unique_id=691638141]
 layout_mode = 0
 offset_left = 610.0
 offset_top = 100.0
 offset_right = 882.0
 offset_bottom = 128.0
 
-[node name="SepLineFooter" type="ColorRect" parent="shopbox/DialogueBox" unique_id=376853881]
+[node name="SepLineFooter" type="ColorRect" parent="shopbox/DialogueBoxShop" unique_id=376853881]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 135.0
@@ -327,7 +364,7 @@ offset_right = 882.0
 offset_bottom = 136.0
 color = Color(0.78, 0.59, 0.23, 0.25)
 
-[node name="parler" type="Button" parent="shopbox/DialogueBox" unique_id=602831476]
+[node name="parler" type="Button" parent="shopbox/DialogueBoxShop" unique_id=602831476]
 layout_mode = 0
 offset_left = 720.0
 offset_top = 144.0
@@ -344,7 +381,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 theme_override_styles/focus = SubResource("StyleBoxFlat_btn_normal")
 text = "talk"
 
-[node name="acheter" type="Button" parent="shopbox/DialogueBox" unique_id=1916221498]
+[node name="acheter" type="Button" parent="shopbox/DialogueBoxShop" unique_id=1916221498]
 layout_mode = 0
 offset_left = 830.0
 offset_top = 144.0
@@ -360,6 +397,16 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_buy_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_buy_hover")
 theme_override_styles/focus = SubResource("StyleBoxFlat_buy_normal")
 text = "buy"
+
+[node name="RessultatDachat" type="Label" parent="shopbox/DialogueBoxShop" unique_id=889895395]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 189.0
+offset_right = 496.0
+offset_bottom = 244.0
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+theme_override_font_sizes/font_size = 20
+text = "tetst"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=443030999]
 
@@ -395,7 +442,7 @@ offset_left = 18.0
 offset_top = 38.0
 offset_right = 882.0
 offset_bottom = 112.0
-theme_override_colors/font_color = Color(0.91, 0.82, 0.58, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 20
 autowrap_mode = 2
@@ -457,8 +504,12 @@ visibility_layer = 2
 position = Vector2(703, 279)
 shape = SubResource("CapsuleShape2D_040je")
 
-[connection signal="pressed" from="shopbox/DialogueBox/parler" to="." method="_on_parler_pressed"]
-[connection signal="pressed" from="shopbox/DialogueBox/acheter" to="." method="_on_acheter_pressed"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=760803683]
+root_node = NodePath("../shopbox/DialogueBoxShop")
+libraries/ = SubResource("AnimationLibrary_g5lp4")
+
+[connection signal="pressed" from="shopbox/DialogueBoxShop/parler" to="." method="_on_parler_pressed"]
+[connection signal="pressed" from="shopbox/DialogueBoxShop/acheter" to="." method="_on_acheter_pressed"]
 [connection signal="pressed" from="CanvasLayer/DialogueBox/achat" to="." method="_on_achat_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

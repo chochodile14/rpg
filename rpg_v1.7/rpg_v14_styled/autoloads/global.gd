@@ -115,7 +115,7 @@ func spend_aptitude(player_idx: int, stat: String) -> bool:
 
 func save_game(slot: int) -> void:
 	var data := {
-		"gold": total_gold,
+#		"gold": total_gold,
 		"player_inventory": inventory,
 		"total_xp":          total_xp,
 		"player_levels":      player_levels,
