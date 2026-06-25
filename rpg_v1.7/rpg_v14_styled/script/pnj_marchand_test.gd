@@ -24,7 +24,7 @@ var shop_item = {
 }
 var achatText = [
 	"achat reussit il te reste : ",
-	
+	"vous n'avez pas assé d'or vous possedez : ",
 ]
 var dialogue = [
 	"Bonjour voyageur! Les routes sont longues et les poches bien vide. Mais 
@@ -111,13 +111,13 @@ func _update_animation(dir_vec: Vector2):
 		
 
 func _process(delta: float) -> void:
-	await get_tree().create_timer(1.5).timeout
 	if player_in_range and Input.is_action_just_pressed("interaction"):
 		if dialogue_open == true:
 				next_dialogue()
 				if dialogue_index == 2:
 					$CanvasLayer/DialogueBox/achat.visible = true
 		else:
+			await get_tree().create_timer(0.75 ).timeout
 			$CanvasLayer/DialogueBox/achat.visible = false
 			dialogue_open = true
 			saved_position = global_position
@@ -176,7 +176,7 @@ func _on_acheter_pressed() -> void:
 		Global.inventory["potion"] += $shopbox/DialogueBoxShop/potionspin.value
 		Global.gold -= total_price
 		$shopbox/DialogueBoxShop/RessultatDachat.visible = true
-		$AnimationPlayer.play("show_message")
+		$AnimationPlayer.play("show message")
 		$shopbox/DialogueBoxShop/RessultatDachat.text = achatText[0] + str(Global.gold) + " or"
 		print("achat reussit", "il te reste :", Global.gold)
 		print("tu as dans ton inventaire ", Global.inventory)
@@ -186,6 +186,9 @@ func _on_acheter_pressed() -> void:
 		total_price = 0
 	else:
 		print("pas asser d'or","il te reste :", Global.gold)
+		$shopbox/DialogueBoxShop/RessultatDachat.visible = true
+		$AnimationPlayer.play("show message")
+		$shopbox/DialogueBoxShop/RessultatDachat.text = achatText[1] + str(Global.gold) + " or"
 
 func _on_parler_pressed() -> void:
 	state = "STUN"

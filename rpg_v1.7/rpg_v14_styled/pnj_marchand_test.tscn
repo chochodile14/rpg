@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bksp1xycp7d5y"]
+[gd_scene load_steps=29 format=3 uid="uid://bksp1xycp7d5y"]
 
 [ext_resource type="Script" uid="uid://dys53ydyv8k8u" path="res://script/pnj_marchand_test.gd" id="1_8f470"]
 [ext_resource type="Texture2D" uid="uid://dlb8lkqkowrix" path="res://art/map/Sprites/pnj marchand.png" id="1_djs4c"]
@@ -145,7 +145,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_niq0h")
 }],
-"loop": 1,
+"loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -162,7 +162,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g5lp4")
 }],
-"loop": 1,
+"loop": true,
 "name": &"walk down",
 "speed": 4.25
 }, {
@@ -173,7 +173,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c8k3o")
 }],
-"loop": 1,
+"loop": true,
 "name": &"walk left",
 "speed": 5.0
 }, {
@@ -190,7 +190,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6hps4")
 }],
-"loop": 1,
+"loop": true,
 "name": &"walk up",
 "speed": 5.0
 }]
@@ -204,6 +204,22 @@ radius = 94.0
 height = 190.0
 
 [sub_resource type="Animation" id="Animation_idq28"]
+resource_name = "show message"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RessultatDachat:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sn2mi"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -215,45 +231,29 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.012617188, 0.012617188, 0.012617188, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_sn2mi"]
-resource_name = "show_message"
-length = 1.5333333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("RessultatDachat:theme_override_colors/font_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5333333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g5lp4"]
 _data = {
-&"RESET": SubResource("Animation_idq28"),
-&"show_message": SubResource("Animation_sn2mi")
+&"RESET": SubResource("Animation_sn2mi"),
+&"show message": SubResource("Animation_idq28")
 }
 
-[node name="pnj marchand" type="CharacterBody2D" unique_id=1359189757]
+[node name="pnj marchand" type="CharacterBody2D"]
 script = ExtResource("1_8f470")
 
-[node name="shopbox" type="CanvasLayer" parent="." unique_id=1494598460]
+[node name="shopbox" type="CanvasLayer" parent="."]
 layer = 13
 
-[node name="DialogueBoxShop" type="Panel" parent="shopbox" unique_id=1825741985]
+[node name="DialogueBoxShop" type="Panel" parent="shopbox"]
 offset_left = 120.0
 offset_top = 350.0
 offset_right = 1040.0
 offset_bottom = 620.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_shop")
 
-[node name="TitreShop" type="Label" parent="shopbox/DialogueBoxShop" unique_id=873189968]
+[node name="TitreShop" type="Label" parent="shopbox/DialogueBoxShop"]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 8.0
@@ -264,7 +264,7 @@ theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 11
 text = "Inventaire du Marchand"
 
-[node name="SepLineShop" type="ColorRect" parent="shopbox/DialogueBoxShop" unique_id=1898980678]
+[node name="SepLineShop" type="ColorRect" parent="shopbox/DialogueBoxShop"]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 33.0
@@ -272,7 +272,7 @@ offset_right = 882.0
 offset_bottom = 34.0
 color = Color(0.78, 0.59, 0.23, 0.3)
 
-[node name="Label" type="Label" parent="shopbox/DialogueBoxShop" unique_id=223847267]
+[node name="Label" type="Label" parent="shopbox/DialogueBoxShop"]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 42.0
@@ -283,7 +283,7 @@ theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 20
 text = "Epee"
 
-[node name="LabelPotion" type="Label" parent="shopbox/DialogueBoxShop" unique_id=80481747]
+[node name="LabelPotion" type="Label" parent="shopbox/DialogueBoxShop"]
 layout_mode = 0
 offset_left = 310.0
 offset_top = 42.0
@@ -294,7 +294,7 @@ theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 20
 text = "Potion"
 
-[node name="LabelShield" type="Label" parent="shopbox/DialogueBoxShop" unique_id=1142009889]
+[node name="LabelShield" type="Label" parent="shopbox/DialogueBoxShop"]
 layout_mode = 0
 offset_left = 610.0
 offset_top = 42.0
@@ -305,7 +305,7 @@ theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 20
 text = "Bouclier"
 
-[node name="sword" type="CheckBox" parent="shopbox/DialogueBoxShop" unique_id=56973531]
+[node name="sword" type="CheckBox" parent="shopbox/DialogueBoxShop"]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 64.0
@@ -315,7 +315,7 @@ theme_override_colors/font_color = Color(0.91, 0.82, 0.58, 1)
 theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 15
 
-[node name="potion" type="CheckBox" parent="shopbox/DialogueBoxShop" unique_id=134660725]
+[node name="potion" type="CheckBox" parent="shopbox/DialogueBoxShop"]
 layout_mode = 0
 offset_left = 310.0
 offset_top = 64.0
@@ -325,7 +325,7 @@ theme_override_colors/font_color = Color(0.91, 0.82, 0.58, 1)
 theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 15
 
-[node name="shield" type="CheckBox" parent="shopbox/DialogueBoxShop" unique_id=193555296]
+[node name="shield" type="CheckBox" parent="shopbox/DialogueBoxShop"]
 layout_mode = 0
 offset_left = 610.0
 offset_top = 64.0
@@ -335,28 +335,28 @@ theme_override_colors/font_color = Color(0.91, 0.82, 0.58, 1)
 theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 15
 
-[node name="swordspin" type="SpinBox" parent="shopbox/DialogueBoxShop" unique_id=1955359302]
+[node name="swordspin" type="SpinBox" parent="shopbox/DialogueBoxShop"]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 100.0
 offset_right = 285.0
 offset_bottom = 128.0
 
-[node name="potionspin" type="SpinBox" parent="shopbox/DialogueBoxShop" unique_id=1441644689]
+[node name="potionspin" type="SpinBox" parent="shopbox/DialogueBoxShop"]
 layout_mode = 0
 offset_left = 310.0
 offset_top = 100.0
 offset_right = 580.0
 offset_bottom = 128.0
 
-[node name="shieldspin" type="SpinBox" parent="shopbox/DialogueBoxShop" unique_id=691638141]
+[node name="shieldspin" type="SpinBox" parent="shopbox/DialogueBoxShop"]
 layout_mode = 0
 offset_left = 610.0
 offset_top = 100.0
 offset_right = 882.0
 offset_bottom = 128.0
 
-[node name="SepLineFooter" type="ColorRect" parent="shopbox/DialogueBoxShop" unique_id=376853881]
+[node name="SepLineFooter" type="ColorRect" parent="shopbox/DialogueBoxShop"]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 135.0
@@ -364,7 +364,7 @@ offset_right = 882.0
 offset_bottom = 136.0
 color = Color(0.78, 0.59, 0.23, 0.25)
 
-[node name="parler" type="Button" parent="shopbox/DialogueBoxShop" unique_id=602831476]
+[node name="parler" type="Button" parent="shopbox/DialogueBoxShop"]
 layout_mode = 0
 offset_left = 720.0
 offset_top = 144.0
@@ -381,7 +381,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 theme_override_styles/focus = SubResource("StyleBoxFlat_btn_normal")
 text = "talk"
 
-[node name="acheter" type="Button" parent="shopbox/DialogueBoxShop" unique_id=1916221498]
+[node name="acheter" type="Button" parent="shopbox/DialogueBoxShop"]
 layout_mode = 0
 offset_left = 830.0
 offset_top = 144.0
@@ -398,26 +398,26 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_buy_hover")
 theme_override_styles/focus = SubResource("StyleBoxFlat_buy_normal")
 text = "buy"
 
-[node name="RessultatDachat" type="Label" parent="shopbox/DialogueBoxShop" unique_id=889895395]
+[node name="RessultatDachat" type="Label" parent="shopbox/DialogueBoxShop"]
 layout_mode = 0
 offset_left = 34.0
 offset_top = 189.0
 offset_right = 496.0
 offset_bottom = 244.0
-theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0)
 theme_override_font_sizes/font_size = 20
 text = "tetst"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=443030999]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="DialogueBox" type="Panel" parent="CanvasLayer" unique_id=1808770943]
+[node name="DialogueBox" type="Panel" parent="CanvasLayer"]
 offset_left = 120.0
 offset_top = 480.0
 offset_right = 1040.0
 offset_bottom = 620.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
-[node name="NomMarchand" type="Label" parent="CanvasLayer/DialogueBox" unique_id=1869074526]
+[node name="NomMarchand" type="Label" parent="CanvasLayer/DialogueBox"]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 6.0
@@ -428,7 +428,7 @@ theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 12
 text = "Aldric Vennebroc  —  Marchand Itinerant"
 
-[node name="SepLine" type="ColorRect" parent="CanvasLayer/DialogueBox" unique_id=1849940223]
+[node name="SepLine" type="ColorRect" parent="CanvasLayer/DialogueBox"]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 30.0
@@ -436,7 +436,7 @@ offset_right = 882.0
 offset_bottom = 31.0
 color = Color(0.78, 0.59, 0.23, 0.25)
 
-[node name="Dialogue" type="Label" parent="CanvasLayer/DialogueBox" unique_id=1236927134]
+[node name="Dialogue" type="Label" parent="CanvasLayer/DialogueBox"]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 38.0
@@ -447,7 +447,7 @@ theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 20
 autowrap_mode = 2
 
-[node name="achat" type="Button" parent="CanvasLayer/DialogueBox" unique_id=1200166062]
+[node name="achat" type="Button" parent="CanvasLayer/DialogueBox"]
 visible = false
 layout_mode = 0
 offset_left = 700.0
@@ -466,7 +466,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_buy_normal")
 text = "achat
 "
 
-[node name="suivant" type="Button" parent="CanvasLayer/DialogueBox" unique_id=1175047656]
+[node name="suivant" type="Button" parent="CanvasLayer/DialogueBox"]
 layout_mode = 0
 offset_left = 808.0
 offset_top = 110.0
@@ -483,7 +483,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 theme_override_styles/focus = SubResource("StyleBoxFlat_btn_normal")
 text = "Next"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=358880529]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(713.80927, 270.98108)
 scale = Vector2(0.2227911, 0.222791)
@@ -492,21 +492,23 @@ animation = &"idle"
 frame = 1
 frame_progress = 0.31770468
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1402665171]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(703, 279)
 shape = SubResource("CapsuleShape2D_e42wc")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1454928715]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1364272822]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 light_mask = 2
 visibility_layer = 2
 position = Vector2(703, 279)
 shape = SubResource("CapsuleShape2D_040je")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=760803683]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../shopbox/DialogueBoxShop")
-libraries/ = SubResource("AnimationLibrary_g5lp4")
+libraries = {
+&"": SubResource("AnimationLibrary_g5lp4")
+}
 
 [connection signal="pressed" from="shopbox/DialogueBoxShop/parler" to="." method="_on_parler_pressed"]
 [connection signal="pressed" from="shopbox/DialogueBoxShop/acheter" to="." method="_on_acheter_pressed"]
