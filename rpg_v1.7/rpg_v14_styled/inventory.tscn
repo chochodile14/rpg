@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1hedugxnujci"]
+
+[ext_resource type="FontFile" uid="uid://crre5antcpq43" path="res://art/fonts/firstorder.ttf" id="1_pohso"]
+[ext_resource type="Script" uid="uid://bxosqeqhkirek" path="res://script/inventory.gd" id="1_psafj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psafj"]
+bg_color = Color(0.086, 0.067, 0.039, 0.97)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.78, 0.59, 0.23, 0.55)
+corner_radius_top_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 4
+
+[node name="inventory" type="Node2D"]
+script = ExtResource("1_psafj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="inventaire" type="Panel" parent="CanvasLayer"]
+offset_left = 36.0
+offset_top = 41.0
+offset_right = 1106.0
+offset_bottom = 622.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_psafj")
+
+[node name="NomInventaire" type="Label" parent="CanvasLayer/inventaire"]
+layout_mode = 0
+offset_left = 424.0
+offset_right = 594.6667
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.54, 0.41, 0.16, 1)
+theme_override_fonts/font = ExtResource("1_pohso")
+theme_override_font_sizes/font_size = 30
+text = "Inventaire"
+
+[node name="Objet" type="Label" parent="CanvasLayer/inventaire"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 32.0
+offset_right = 1045.0
+offset_bottom = 528.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_pohso")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 2
+
+[node name="close" type="Button" parent="CanvasLayer/inventaire"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 12.0
+offset_right = 94.0
+offset_bottom = 54.0
+theme_override_colors/font_color = Color(0.5411765, 0.4117647, 0.16078432, 1)
+theme_override_font_sizes/font_size = 24
+text = "close"
+
+[connection signal="pressed" from="CanvasLayer/inventaire/close" to="." method="_on_close_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cjhmbt2lrpqc6"]
+[gd_scene load_steps=5 format=3 uid="uid://cjhmbt2lrpqc6"]
 
 [ext_resource type="FontFile" uid="uid://crre5antcpq43" path="res://art/fonts/firstorder.ttf" id="1_hdmo1"]
 [ext_resource type="Script" uid="uid://ccocjaufo85gx" path="res://pause_menu.gd" id="1_nwcfo"]
@@ -15,7 +15,7 @@ func _on_pressed() -> void:
 	pass # Replace with function body.
 "
 
-[node name="PauseMenu" type="Control" unique_id=692343603]
+[node name="PauseMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,35 +24,35 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nwcfo")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1593738241]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=72946686]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="resume" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2008046588]
+[node name="resume" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hdmo1")
 text = "Resume"
 script = SubResource("GDScript_05uyy")
 
-[node name="settigs" type="Button" parent="MarginContainer/VBoxContainer" unique_id=622548652]
+[node name="settigs" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hdmo1")
 text = "Settings"
 
-[node name="quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1131673074]
+[node name="quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hdmo1")
 text = "quit"
 
-[node name="save" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1226460927]
+[node name="save" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "save"
 
-[node name="settings" parent="." unique_id=565499012 instance=ExtResource("3_05uyy")]
+[node name="settings" parent="." instance=ExtResource("3_05uyy")]
 layout_mode = 1
 offset_left = -239.0
 offset_top = -101.0

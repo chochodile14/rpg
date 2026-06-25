@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ob2qv1hjune"]
+[gd_scene load_steps=13 format=3 uid="uid://ob2qv1hjune"]
 
 [ext_resource type="Script" uid="uid://c0i87dkuhwwg" path="res://script/music_control.gd" id="4_gc0em"]
 [ext_resource type="Script" uid="uid://dvcqsodblntib" path="res://script/fullscreen.gd" id="5_cj1lu"]
@@ -121,7 +121,7 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 4
 
-[node name="settings" type="Control" unique_id=565499012]
+[node name="settings" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -130,17 +130,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_3ykye")
 
-[node name="BG" type="ColorRect" parent="." unique_id=222000001]
+[node name="BG" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 651.0
 color = Color(0.035, 0.027, 0.016, 1)
 
-[node name="BgParticles" type="CPUParticles2D" parent="." unique_id=756833979]
+[node name="BgParticles" type="CPUParticles2D" parent="."]
 position = Vector2(580, 340)
 amount = 10
 
-[node name="ChapterLabel" type="Label" parent="." unique_id=222000002]
+[node name="ChapterLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 68.0
@@ -151,7 +151,7 @@ theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 13
 text = "— Paramètres —"
 
-[node name="TitleLabel" type="Label" parent="." unique_id=222000003]
+[node name="TitleLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 58.0
 offset_top = 88.0
@@ -162,7 +162,7 @@ theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 62
 text = "Options"
 
-[node name="SubtitleLabel" type="Label" parent="." unique_id=222000004]
+[node name="SubtitleLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 178.0
@@ -173,7 +173,7 @@ theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 11
 text = "Configurez votre expérience"
 
-[node name="OrnamentRect" type="ColorRect" parent="." unique_id=222000005]
+[node name="OrnamentRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 210.0
@@ -181,7 +181,7 @@ offset_right = 280.0
 offset_bottom = 212.0
 color = Color(0.4, 0.28, 0.1, 0.5)
 
-[node name="Label2" type="Label" parent="." unique_id=624169992]
+[node name="Label2" type="Label" parent="."]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 234.0
@@ -192,7 +192,7 @@ theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 18
 text = "Musique"
 
-[node name="music_control" type="HSlider" parent="." unique_id=720149647]
+[node name="music_control" type="HSlider" parent="."]
 layout_mode = 0
 offset_left = 190.0
 offset_top = 237.0
@@ -207,7 +207,7 @@ value = 1.0
 script = ExtResource("4_gc0em")
 audio_bus_name = "music"
 
-[node name="Label3" type="Label" parent="." unique_id=1482807414]
+[node name="Label3" type="Label" parent="."]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 284.0
@@ -218,7 +218,7 @@ theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 18
 text = "SFX"
 
-[node name="SFX_control" type="HSlider" parent="." unique_id=1860524545]
+[node name="SFX_control" type="HSlider" parent="."]
 layout_mode = 0
 offset_left = 190.0
 offset_top = 287.0
@@ -233,7 +233,7 @@ value = 1.0
 script = ExtResource("5_sfxctl")
 audio_bus_name = "sfx"
 
-[node name="fullscreen" type="CheckBox" parent="." unique_id=1865624743]
+[node name="fullscreen" type="CheckBox" parent="."]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 338.0
@@ -247,7 +247,7 @@ button_pressed = true
 text = "Plein écran"
 script = ExtResource("5_cj1lu")
 
-[node name="SepRect" type="ColorRect" parent="." unique_id=222000010]
+[node name="SepRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 530.0
@@ -255,7 +255,7 @@ offset_right = 264.0
 offset_bottom = 531.0
 color = Color(0.28, 0.19, 0.07, 0.4)
 
-[node name="exit" type="Button" parent="." unique_id=258714329]
+[node name="exit" type="Button" parent="."]
 self_modulate = Color(0.85, 0.72, 0.45, 1)
 custom_minimum_size = Vector2(300, 52)
 layout_mode = 0
@@ -273,7 +273,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
 theme_override_styles/focus = SubResource("StyleBoxFlat_normal")
 text = "← Retour"
 
-[node name="VersionLabel" type="Label" parent="." unique_id=222000011]
+[node name="VersionLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 610.0
@@ -284,10 +284,10 @@ theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 10
 text = "v1.5 — Build des ténèbres"
 
-[node name="SFX_Hover" type="AudioStreamPlayer" parent="." unique_id=1747358009]
+[node name="SFX_Hover" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("sfx_hover")
 
-[node name="SFX_Click" type="AudioStreamPlayer" parent="." unique_id=1058347523]
+[node name="SFX_Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("sfx_click")
 
 [connection signal="value_changed" from="music_control" to="music_control" method="_on_music_control_value_changed"]

@@ -10,7 +10,7 @@ extends Node2D
 const AptitudeMenuScene = preload("res://ui/aptitude_menu.tscn")
 
 @onready var pause_menu = $character_beta/PauseMenu
-
+@onready var inventory = $character_beta/inventory
 var paused         : bool = false
 var _aptitude_menu        = null
 
@@ -24,7 +24,7 @@ func _ready() -> void:
 
 	# Cache le menu pause au départ
 	pause_menu.hide()
-
+	inventory.hide()
 	# Instancie le menu aptitude
 	_aptitude_menu = AptitudeMenuScene.instantiate()
 	add_child(_aptitude_menu)
@@ -32,8 +32,24 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		PauseMenu()
+		
+	if Input.is_action_just_pressed("Inventory"):
+		Inventory()
 
 # Bascule le menu pause
+func Inventory() -> void:
+	if paused:
+		inventory.hide()
+		Engine.time_scale = 1
+		get_tree().paused = false   # ← AJOUTE ÇA
+		paused = false
+	else:
+		inventory.show()
+		Engine.time_scale = 0
+		get_tree().paused = true    # ← AJOUTE ÇA
+		paused = true
+
+
 func PauseMenu() -> void:
 	if paused:
 		pause_menu.hide()

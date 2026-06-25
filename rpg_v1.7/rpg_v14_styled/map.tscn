@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://dr445gttfhtbh"]
+[gd_scene load_steps=43 format=4 uid="uid://dr445gttfhtbh"]
 
 [ext_resource type="Script" uid="uid://c1kmsxi42sv7w" path="res://script/map.gd" id="1_p5pve"]
 [ext_resource type="PackedScene" uid="uid://bv4yubv0w5x82" path="res://player/character_body.tscn" id="2_e0an3"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://dabwsqal6kk5k" path="res://art/map/Sprites/asset/asset/Art/Buildings/Atlas/Buildings.png" id="16_4sf5t"]
 [ext_resource type="PackedScene" uid="uid://bksp1xycp7d5y" path="res://pnj_marchand_test.tscn" id="17_jky6x"]
 [ext_resource type="PackedScene" uid="uid://2b0kiv3nh0o7" path="res://pnj.tscn" id="17_r5om4"]
+[ext_resource type="PackedScene" uid="uid://b1hedugxnujci" path="res://inventory.tscn" id="20_4sf5t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1wlr"]
 texture = ExtResource("2_wbpbn")
@@ -4880,6 +4881,8 @@ position = Vector2(93, -1481)
 
 [node name="character_beta" parent="." instance=ExtResource("2_e0an3")]
 position = Vector2(209, 12)
+
+[node name="inventory" parent="character_beta" instance=ExtResource("20_4sf5t")]
 
 [node name="PauseMenu" parent="character_beta" instance=ExtResource("6_iw27f")]
 visible = false

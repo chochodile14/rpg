@@ -1,4 +1,431 @@
 extends Node
+#---------items ----------------------------------------------------------------
+var items = {
+	# =========================
+	# ARMES
+	# =========================
+
+	"dagger": {
+		"name": "Dague",
+		"price": 10,
+		"attack": 1,
+		"description": "Une petite lame facile à dissimuler."
+	},
+
+	"hunting_knife": {
+		"name": "Couteau de chasse",
+		"price": 8,
+		"attack": 1,
+		"description": "Utilisé pour la chasse et le dépeçage."
+	},
+
+	"short_sword": {
+		"name": "Épée courte",
+		"price": 25,
+		"attack": 2,
+		"description": "Une épée légère adaptée aux aventuriers."
+	},
+
+	"long_sword": {
+		"name": "Épée longue",
+		"price": 50,
+		"attack": 4,
+		"description": "Une arme fiable utilisée par les soldats."
+	},
+
+	"bastard_sword": {
+		"name": "Épée bâtarde",
+		"price": 90,
+		"attack": 6,
+		"description": "Peut être maniée à une ou deux mains."
+	},
+
+	"greatsword": {
+		"name": "Espadon",
+		"price": 120,
+		"attack": 8,
+		"description": "Une immense lame infligeant de lourds dégâts."
+	},
+
+	"war_axe": {
+		"name": "Hache de guerre",
+		"price": 60,
+		"attack": 5,
+		"description": "Une arme redoutable contre les armures."
+	},
+
+	"spear": {
+		"name": "Lance",
+		"price": 30,
+		"attack": 3,
+		"description": "Permet d'attaquer à distance."
+	},
+
+	"halberd": {
+		"name": "Hallebarde",
+		"price": 100,
+		"attack": 7,
+		"description": "Combinaison d'une hache et d'une lance."
+	},
+
+	"short_bow": {
+		"name": "Arc court",
+		"price": 35,
+		"attack": 3,
+		"description": "Arc léger pour les tireurs mobiles."
+	},
+
+	"long_bow": {
+		"name": "Arc long",
+		"price": 75,
+		"attack": 5,
+		"description": "Arc puissant nécessitant de la force."
+	},
+
+	"crossbow": {
+		"name": "Arbalète",
+		"price": 90,
+		"attack": 6,
+		"description": "Inflige de lourds dégâts à distance."
+	},
+
+	"magic_wand": {
+		"name": "Baguette magique",
+		"price": 100,
+		"magic": 2,
+		"description": "Canalise l'énergie magique."
+	},
+
+	# =========================
+	# ARMURES
+	# =========================
+
+	"cloth_armor": {
+		"name": "Tunique rembourrée",
+		"price": 10,
+		"defense": 1,
+		"description": "Protection basique en tissu."
+	},
+
+	"leather_armor": {
+		"name": "Armure de cuir",
+		"price": 30,
+		"defense": 2,
+		"description": "Protection légère et flexible."
+	},
+
+	"reinforced_leather": {
+		"name": "Cuir renforcé",
+		"price": 60,
+		"defense": 4,
+		"description": "Du cuir renforcé par des plaques."
+	},
+
+	"chainmail": {
+		"name": "Cotte de mailles",
+		"price": 120,
+		"defense": 6,
+		"description": "Protection classique des chevaliers."
+	},
+
+	"scale_armor": {
+		"name": "Armure d'écailles",
+		"price": 180,
+		"defense": 8,
+		"description": "Fabriquée à partir d'écailles métalliques."
+	},
+
+	"plate_armor": {
+		"name": "Armure de plates",
+		"price": 350,
+		"defense": 12,
+		"description": "L'une des meilleures protections non magiques."
+	},
+
+	"mage_robe": {
+		"name": "Robe de mage",
+		"price": 50,
+		"magic": 3,
+		"description": "Augmente la puissance magique."
+	},
+
+	"enchanted_robe": {
+		"name": "Robe enchantée",
+		"price": 200,
+		"magic": 5,
+		"description": "Robe imprégnée d'énergie mystique."
+	},
+
+	# =========================
+	# BOUCLIERS
+	# =========================
+
+	"small_shield": {
+		"name": "Petit bouclier",
+		"price": 20,
+		"defense": 2,
+		"description": "Petit mais efficace."
+	},
+
+	"round_shield": {
+		"name": "Bouclier rond",
+		"price": 40,
+		"defense": 4,
+		"description": "Utilisé par les guerriers itinérants."
+	},
+
+	"knight_shield": {
+		"name": "Écu de chevalier",
+		"price": 90,
+		"defense": 6,
+		"description": "Bouclier robuste en acier."
+	},
+
+	# =========================
+	# CONSOMMABLES
+	# =========================
+
+	"apple": {
+		"name": "Pomme",
+		"price": 1,
+		"heal": 5,
+		"description": "Restaure 5 PV."
+	},
+
+	"bread": {
+		"name": "Pain",
+		"price": 2,
+		"heal": 10,
+		"description": "Restaure 10 PV."
+	},
+
+	"dried_meat": {
+		"name": "Viande séchée",
+		"price": 5,
+		"heal": 20,
+		"description": "Restaure 20 PV."
+	},
+
+	"small_potion": {
+		"name": "Potion mineure",
+		"price": 15,
+		"heal": 50,
+		"description": "Restaure 50 PV."
+	},
+
+	"potion": {
+		"name": "Potion",
+		"price": 50,
+		"heal": 150,
+		"description": "Restaure 150 PV."
+	},
+
+	"large_potion": {
+		"name": "Grande potion",
+		"price": 150,
+		"heal": 400,
+		"description": "Restaure 400 PV."
+	},
+
+	"mana_potion": {
+		"name": "Potion de mana",
+		"price": 50,
+		"mana": 50,
+		"description": "Restaure 50 PM."
+	},
+
+	"greater_mana_potion": {
+		"name": "Grande potion de mana",
+		"price": 150,
+		"mana": 200,
+		"description": "Restaure 200 PM."
+	},
+
+	"antidote": {
+		"name": "Antidote",
+		"price": 20,
+		"cure": "poison",
+		"description": "Guérit le poison."
+	},
+
+	# =========================
+	# ACCESSOIRES
+	# =========================
+
+	"ring_strength": {
+		"name": "Anneau de force",
+		"price": 150,
+		"attack": 3,
+		"description": "Augmente la force physique."
+	},
+
+	"ring_protection": {
+		"name": "Anneau de protection",
+		"price": 200,
+		"defense": 3,
+		"description": "Renforce la résistance aux dégâts."
+	},
+
+	"mage_necklace": {
+		"name": "Collier du mage",
+		"price": 250,
+		"magic": 5,
+		"description": "Augmente la puissance magique."
+	},
+
+	"lucky_talisman": {
+		"name": "Talisman de chance",
+		"price": 400,
+		"luck": 5,
+		"description": "Favorise les découvertes rares."
+	},
+
+	# =========================
+	# OBJETS MAGIQUES
+	# =========================
+
+	"fire_scroll": {
+		"name": "Parchemin de feu",
+		"price": 50,
+		"spell": "fireball",
+		"description": "Lance une boule de feu."
+	},
+
+	"ice_scroll": {
+		"name": "Parchemin de glace",
+		"price": 50,
+		"spell": "ice_shard",
+		"description": "Lance un éclat de glace."
+	},
+
+	"lightning_scroll": {
+		"name": "Parchemin de foudre",
+		"price": 75,
+		"spell": "lightning",
+		"description": "Invoque un éclair."
+	},
+
+	"teleport_stone": {
+		"name": "Pierre de téléportation",
+		"price": 500,
+		"description": "Téléporte instantanément en ville."
+	},
+
+	# =========================
+	# OUTILS
+	# =========================
+
+	"torch": {
+		"name": "Torche",
+		"price": 2,
+		"description": "Éclaire les zones sombres."
+	},
+
+	"rope": {
+		"name": "Corde",
+		"price": 5,
+		"description": "Permet l'escalade."
+	},
+
+	"pickaxe": {
+		"name": "Pioche",
+		"price": 10,
+		"description": "Utilisée pour miner."
+	},
+
+	"shovel": {
+		"name": "Pelle",
+		"price": 8,
+		"description": "Permet de creuser."
+	},
+
+	"tent": {
+		"name": "Tente",
+		"price": 25,
+		"description": "Permet de se reposer en extérieur."
+	},
+
+	"backpack": {
+		"name": "Sac à dos",
+		"price": 15,
+		"inventory_slots": 20,
+		"description": "Ajoute 20 emplacements d'inventaire."
+	},
+
+	# =========================
+	# RESSOURCES
+	# =========================
+
+	"wolf_pelt": {
+		"name": "Peau de loup",
+		"price": 8,
+		"description": "Matériau de fabrication."
+	},
+
+	"wolf_fang": {
+		"name": "Croc de loup",
+		"price": 4,
+		"description": "Matériau alchimique."
+	},
+
+	"goblin_claw": {
+		"name": "Griffe de gobelin",
+		"price": 3,
+		"description": "Trophée de monstre."
+	},
+
+	"dragon_scale": {
+		"name": "Écaille de dragon",
+		"price": 500,
+		"description": "Matériau extrêmement rare."
+	},
+
+	"iron_ingot": {
+		"name": "Lingot de fer",
+		"price": 20,
+		"description": "Utilisé par les forgerons."
+	},
+
+	"steel_ingot": {
+		"name": "Lingot d'acier",
+		"price": 50,
+		"description": "Métal raffiné de qualité."
+	},
+
+	"mithril_ore": {
+		"name": "Mithril brut",
+		"price": 300,
+		"description": "Métal légendaire très recherché."
+	},
+
+	# =========================
+	# TRÉSORS
+	# =========================
+
+	"gold_ring": {
+		"name": "Bague en or",
+		"price": 100,
+		"description": "Objet de valeur pouvant être revendu."
+	},
+
+	"ruby": {
+		"name": "Rubis",
+		"price": 400,
+		"description": "Pierre précieuse rouge."
+	},
+
+	"emerald": {
+		"name": "Émeraude",
+		"price": 450,
+		"description": "Pierre précieuse verte."
+	},
+
+	"diamond": {
+		"name": "Diamant",
+		"price": 1000,
+		"description": "L'une des pierres les plus précieuses."
+	}
+}
 #---------inventaire -----------------------------------------------------------
 var inventory = {
 	"potion": 0,
