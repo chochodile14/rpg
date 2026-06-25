@@ -36,20 +36,20 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Inventory"):
 		Inventory()
 
-# Bascule le menu pause
+# Bascule le menu inventaire
 func Inventory() -> void:
 	if paused:
-		inventory.hide()
+		inventory.get_node("CanvasLayer").visible = false
 		Engine.time_scale = 1
 		get_tree().paused = false   # ← AJOUTE ÇA
 		paused = false
 	else:
-		inventory.show()
+		inventory.ShowInventory()
 		Engine.time_scale = 0
 		get_tree().paused = true    # ← AJOUTE ÇA
 		paused = true
 
-
+# Bascule le menu pause
 func PauseMenu() -> void:
 	if paused:
 		pause_menu.hide()
