@@ -8,8 +8,10 @@ func ShowInventory():
 		$CanvasLayer.visible = true
 		for items in Global.inventory:
 			var label = Label.new()
-			label.text = items
-			$CanvasLayer/inventaire/VBoxContainer.add_child(label)
+			if Global.inventory[items] > 0:
+				label.text = items
+				$CanvasLayer/inventaire/VBoxContainer.add_child(label)
+			
 
 func _on_close_pressed() -> void:
 	var map = get_tree().current_scene
