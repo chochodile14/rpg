@@ -97,9 +97,9 @@ func _physics_process(delta):
 				dialogue_index = 0
 		"SHOP":
 			$shopbox.visible = true
-			$shopbox/DialogueBoxShop/potion.text = shop_item["potion"]["name"] + " - " + str(shop_item["potion"]["price"]) + " or"
-			$shopbox/DialogueBoxShop/shield.text = shop_item["shield"]["name"] + " - " + str(shop_item["shield"]["price"]) + " or"
-			$shopbox/DialogueBoxShop/sword.text = shop_item["sword"]["name"] + " - " + str(shop_item["sword"]["price"]) + " or"
+			$shopbox/DialogueBoxShop/potion.text = Global.items["potion"]["name"] + " - " + str(Global.items["potion"]["price"]) + " or"
+			$shopbox/DialogueBoxShop/shield.text = Global.items["shield"]["name"] + " - " + str(Global.items["shield"]["price"]) + " or"
+			$shopbox/DialogueBoxShop/sword.text = Global.items["sword"]["name"] + " - " + str(Global.items["sword"]["price"]) + " or"
 			$CanvasLayer.visible = false
 func _update_animation(dir_vec: Vector2):
 	if abs(dir_vec.x) > abs(dir_vec.y):
@@ -117,7 +117,6 @@ func _process(delta: float) -> void:
 				if dialogue_index == 2:
 					$CanvasLayer/DialogueBox/achat.visible = true
 		else:
-			await get_tree().create_timer(0.75 ).timeout
 			$CanvasLayer/DialogueBox/achat.visible = false
 			dialogue_open = true
 			saved_position = global_position

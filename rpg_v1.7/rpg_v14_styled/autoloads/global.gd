@@ -33,11 +33,12 @@ var items = {
 		"description": "Une arme fiable utilisée par les soldats."
 	},
 
-	"bastard_sword": {
-		"name": "Épée bâtarde",
+	"sword": {
+		"name": "Épée rafiner",
 		"price": 90,
 		"attack": 6,
-		"description": "Peut être maniée à une ou deux mains."
+		"description": "Peut être maniée à une ou deux mains.",
+		"icon": preload("res://art/icon/sword icon.png"),
 	},
 
 	"greatsword": {
@@ -174,11 +175,12 @@ var items = {
 		"description": "Utilisé par les guerriers itinérants."
 	},
 
-	"knight_shield": {
-		"name": "Écu de chevalier",
+	"shield": {
+		"name": "Bouclier de chevalier",
 		"price": 90,
 		"defense": 6,
-		"description": "Bouclier robuste en acier."
+		"description": "Bouclier robuste en acier.",
+		"icon":preload("res://art/icon/shiel icon.png")
 	},
 
 	# =========================
@@ -217,7 +219,8 @@ var items = {
 		"name": "Potion",
 		"price": 50,
 		"heal": 150,
-		"description": "Restaure 150 PV."
+		"description": "Restaure 150 PV.",
+		"icon":preload("res://art/icon/potion icon.png")
 	},
 
 	"large_potion": {
@@ -542,7 +545,7 @@ func spend_aptitude(player_idx: int, stat: String) -> bool:
 
 func save_game(slot: int) -> void:
 	var data := {
-#		"gold": total_gold,
+		"player_gold": gold,
 		"player_inventory": inventory,
 		"total_xp":          total_xp,
 		"player_levels":      player_levels,
@@ -566,8 +569,8 @@ func load_game(slot: int) -> bool:
 	var data = JSON.parse_string(f.get_as_text())
 	f.close()
 	if data == null: return false
-	gold.string("player_gold")
-	inventory.string("player_inventory")
+	gold      = data["player_gold"]
+	inventory = data["player_inventory"]
 	total_xp          = data["total_xp"]
 	player_levels.assign(data["player_levels"])
 	aptitude_points.assign(data["aptitude_points"])

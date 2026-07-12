@@ -14,6 +14,23 @@ corner_radius_top_right = 8
 corner_radius_bottom_left = 8
 corner_detail = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tooltip"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.08, 0.06, 0.03, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.78, 0.59, 0.23, 0.9)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 4
+
 [node name="inventory" type="Node2D" unique_id=1988855481]
 script = ExtResource("1_psafj")
 
@@ -26,42 +43,71 @@ offset_right = 1106.0
 offset_bottom = 622.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_psafj")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/inventaire" unique_id=1604853080]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.034
-anchor_top = -0.071
-anchor_right = -0.034
-anchor_bottom = -0.071
-offset_left = 55.38
-offset_top = 60.742
-offset_right = 1087.38
-offset_bottom = 622.251
-
-[node name="NomInventaire" type="Label" parent="CanvasLayer/inventaire/VBoxContainer" unique_id=2099563525]
-layout_mode = 2
+[node name="NomInventaire" type="Label" parent="CanvasLayer/inventaire" unique_id=2099563525]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 18.0
+offset_right = 614.0
+offset_bottom = 51.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.54, 0.41, 0.16, 1)
 theme_override_fonts/font = ExtResource("1_pohso")
 theme_override_font_sizes/font_size = 30
 text = "Inventaire"
 
-[node name="close" type="Button" parent="CanvasLayer/inventaire/VBoxContainer" unique_id=1766475751]
-layout_mode = 2
+[node name="close" type="Button" parent="CanvasLayer/inventaire" unique_id=1766475751]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 55.0
+offset_right = 86.0
+offset_bottom = 97.0
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.5411765, 0.4117647, 0.16078432, 1)
 theme_override_font_sizes/font_size = 24
 text = "close"
 
-[node name="Objet" type="Label" parent="CanvasLayer/inventaire/VBoxContainer" unique_id=1595923420]
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/inventaire" unique_id=531127968]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 110.0
+offset_right = 1051.0
+offset_bottom = 580.0
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 6
+
+[node name="ToolTips" type="Panel" parent="CanvasLayer/inventaire" unique_id=1790348848]
+visible = false
+layout_mode = 0
+offset_right = 220.0
+offset_bottom = 110.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tooltip")
+
+[node name="orga" type="VBoxContainer" parent="CanvasLayer/inventaire/ToolTips" unique_id=111111111]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="name" type="Label" parent="CanvasLayer/inventaire/ToolTips/orga" unique_id=222222222]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.85, 0.65, 0.2, 1)
 theme_override_fonts/font = ExtResource("1_pohso")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 18
+
+[node name="description" type="Label" parent="CanvasLayer/inventaire/ToolTips/orga" unique_id=333333333]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.75, 0.65, 1)
+theme_override_font_sizes/font_size = 13
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/inventaire/VBoxContainer" unique_id=1268114701]
+[node name="price" type="Label" parent="CanvasLayer/inventaire/ToolTips/orga" unique_id=444444444]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.78, 0.2, 1)
+theme_override_font_sizes/font_size = 14
 
-[connection signal="pressed" from="CanvasLayer/inventaire/VBoxContainer/close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="CanvasLayer/inventaire/close" to="." method="_on_close_pressed"]

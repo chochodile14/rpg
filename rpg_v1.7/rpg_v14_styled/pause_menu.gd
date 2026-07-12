@@ -35,7 +35,7 @@ func _on_settigs_pressed() -> void:
 	settings_panel.show()
 
 func _on_quit_pressed() -> void:
-	get_tree().change_scene_to_file("res://hub.tscn")
+	get_tree().quit()
 
 # ← NOUVELLE FONCTION appelée par le panneau Settings quand on clique Back
 func show_main_buttons() -> void:
