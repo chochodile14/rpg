@@ -243,14 +243,14 @@ theme_override_font_sizes/font_size = 13
 text = "— Chapitre I —"
 
 [node name="TitleLabel" type="Label" parent="." unique_id=111000002]
-offset_left = 58.0
-offset_top = 88.0
-offset_right = 500.0
-offset_bottom = 178.0
+offset_left = 59.0
+offset_top = 102.0
+offset_right = 444.0
+offset_bottom = 146.0
 theme_override_colors/font_color = Color(0.82, 0.65, 0.38, 1)
 theme_override_fonts/font = ExtResource("font_1")
-theme_override_font_sizes/font_size = 72
-text = "RPG"
+theme_override_font_sizes/font_size = 40
+text = "Ashes of Dereliction"
 
 [node name="SubtitleLabel" type="Label" parent="." unique_id=111000003]
 offset_left = 64.0

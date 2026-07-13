@@ -112,7 +112,10 @@ func _on_slot(i: int) -> void:
 			{"hp": 0, "atk": 0, "def": 0, "crit": 0},
 			{"hp": 0, "atk": 0, "def": 0, "crit": 0},
 		]
-	get_tree().change_scene_to_file("res://map.tscn")
+	if Global.cinematic_debut_viewed:
+		get_tree().change_scene_to_file("res://map.tscn")
+	else:
+		get_tree().change_scene_to_file("res://cinematique_debut.tscn")
 
 
 # ── Clic sur un slot EN MODE SUPPRESSION ─────────────────────────────────────

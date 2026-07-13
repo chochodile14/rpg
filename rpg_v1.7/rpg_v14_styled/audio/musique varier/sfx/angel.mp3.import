@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://byfyvdo5nvxao"
+path="res://.godot/imported/angel.mp3-482a3582c47a6f25ad70e198500817d0.mp3str"
+
+[deps]
+
+source_file="res://audio/musique varier/sfx/angel.mp3"
+dest_files=["res://.godot/imported/angel.mp3-482a3582c47a6f25ad70e198500817d0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
