@@ -28,6 +28,9 @@
 [ext_resource type="AudioStream" uid="uid://ckjkh0dyjs6e1" path="res://audio/musique varier/sfx/dragon-studio-wind-blowing-sfx-01-423673.mp3" id="25_hlgqr"]
 [ext_resource type="AudioStream" uid="uid://dwieyg6dmh2lo" path="res://audio/musique varier/sfx/evil laugh.mp3" id="27_bqc7q"]
 [ext_resource type="AudioStream" uid="uid://byfyvdo5nvxao" path="res://audio/musique varier/sfx/angel.mp3" id="28_6f8qc"]
+[ext_resource type="AudioStream" uid="uid://tq0kaigqqkb0" path="res://audio/musique varier/sfx/apparetion.mp3" id="29_of5kv"]
+[ext_resource type="AudioStream" uid="uid://cc4lyw4ybwm3x" path="res://audio/musique varier/sfx/coeur.wav" id="30_2k7ao"]
+[ext_resource type="AudioStream" uid="uid://c6hddpyq1vnpi" path="res://audio/musique varier/sfx/voice line/voice-line.wav" id="31_2k7ao"]
 
 [sub_resource type="Animation" id="Animation_t5bns"]
 length = 0.001
@@ -5195,5 +5198,20 @@ bus = &"SFX"
 
 [node name="angel" type="AudioStreamPlayer" parent="." unique_id=603488130]
 stream = ExtResource("28_6f8qc")
+max_polyphony = 6
+bus = &"SFX"
+
+[node name="apparaition" type="AudioStreamPlayer" parent="." unique_id=2059569652]
+stream = ExtResource("29_of5kv")
+max_polyphony = 6
+bus = &"SFX"
+
+[node name="heart" type="AudioStreamPlayer" parent="." unique_id=1376440296]
+stream = ExtResource("30_2k7ao")
+max_polyphony = 6
+bus = &"SFX"
+
+[node name="dialogue_empreur" type="AudioStreamPlayer" parent="." unique_id=433410356]
+stream = ExtResource("31_2k7ao")
 max_polyphony = 6
 bus = &"SFX"

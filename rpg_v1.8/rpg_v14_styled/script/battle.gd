@@ -5,12 +5,29 @@ extends Node2D
 @onready var btn_ultimate   : Button      = $CanvasLayer/choice/ultimate
 @onready var btn_exit       : Button      = $CanvasLayer/choice/exit
 @onready var ennemies_groupe: Node        = $ennemies_groupe
-@onready var ult_bar        : ProgressBar = $CanvasLayer/UltBar/BarBg/Bar
+@onready var ult_bar        : TextureRect = $CanvasLayer/UltBar/BarBg/Bar
 @onready var ult_label      : Label       = $CanvasLayer/UltBar/Label
 @onready var ult_flash      : ColorRect   = $CanvasLayer/UltBar/Flash
 
+# ── Barre d'Ultimate (asset pixel-art à 6 paliers, du plus chargé au vide) ───
+const ULT_BAR_SHEET := preload("res://art/ui/ultimate_sheet.png")
+const ULT_BAR_FRAME_RECTS := [
+	Rect2(95, 379, 129, 54),
+	Rect2(95, 463, 129, 54),
+	Rect2(95, 547, 129, 54),
+	Rect2(259, 379, 128, 54),
+	Rect2(259, 463, 129, 54),
+	Rect2(259, 547, 129, 54),
+]
+var _ult_frames: Array = []
+
 func _ready():
 	print("battle lancé")
+	for r in ULT_BAR_FRAME_RECTS:
+		var tex := AtlasTexture.new()
+		tex.atlas = ULT_BAR_SHEET
+		tex.region = r
+		_ult_frames.append(tex)
 	$CanvasLayer/choice.show()
 	btn_light.pressed.connect(_on_light)
 	btn_heavy.pressed.connect(_on_heavy)
@@ -54,20 +71,9 @@ func _on_exit_pressed() -> void:
 # ── Barre de charge de l'Ultimate ────────────────────────────────────────────
 func _on_charge_changed(current: int, maximum: int) -> void:
 	var pct = float(current) / float(maximum)
-	ult_bar.value = pct * 100.0
-
-	# Couleur qui passe du bleu → violet → or selon la charge
-	var col: Color
-	if pct < 0.5:
-		col = Color(0.2, 0.5, 1.0).lerp(Color(0.7, 0.2, 1.0), pct * 2.0)
-	else:
-		col = Color(0.7, 0.2, 1.0).lerp(Color(1.0, 0.85, 0.0), (pct - 0.5) * 2.0)
-
-	# Applique la couleur à la barre via StyleBoxFlat
-	var style = ult_bar.get_theme_stylebox("fill").duplicate()
-	if style is StyleBoxFlat:
-		style.bg_color = col
-		ult_bar.add_theme_stylebox_override("fill", style)
+	if not _ult_frames.is_empty():
+		var idx = clampi(int(round((1.0 - pct) * 5.0)), 0, 5)
+		ult_bar.texture = _ult_frames[idx]
 
 	# Texte
 	if current >= maximum:

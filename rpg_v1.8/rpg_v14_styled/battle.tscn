@@ -24,13 +24,16 @@ texture = ExtResource("1_7sfm4")
 [node name="GameResult" parent="CanvasLayer" unique_id=1909750759 instance=ExtResource("6_result")]
 
 [node name="UltBar" type="VBoxContainer" parent="CanvasLayer" unique_id=1423821311]
-anchors_preset = 2
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 12.0
-offset_top = -72.0
-offset_right = 340.0
-offset_bottom = -12.0
+offset_left = -387.0
+offset_top = -254.0
+offset_right = -187.0
+offset_bottom = -145.0
+grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/separation = 2
 
@@ -41,12 +44,12 @@ theme_override_font_sizes/font_size = 16
 text = "⚡ Ultimate  0 / 10"
 
 [node name="BarBg" type="PanelContainer" parent="CanvasLayer/UltBar" unique_id=1785796015]
-custom_minimum_size = Vector2(0, 22)
+custom_minimum_size = Vector2(200, 84)
 layout_mode = 2
 
-[node name="Bar" type="ProgressBar" parent="CanvasLayer/UltBar/BarBg" unique_id=332499957]
+[node name="Bar" type="TextureRect" parent="CanvasLayer/UltBar/BarBg" unique_id=332499957]
 layout_mode = 2
-show_percentage = false
+expand_mode = 1
 
 [node name="Flash" type="ColorRect" parent="CanvasLayer/UltBar" unique_id=790194445]
 visible = false
@@ -61,10 +64,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -160.0
-offset_top = -130.0
-offset_right = -10.0
-offset_bottom = -10.0
+offset_left = -338.0
+offset_top = -139.0
+offset_right = -188.0
+offset_bottom = -3.0
 grow_horizontal = 0
 grow_vertical = 0
 

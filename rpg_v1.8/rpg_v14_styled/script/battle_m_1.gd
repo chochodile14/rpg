@@ -1,6 +1,18 @@
 extends Node2D
 class_name BattleEnnemy
 
+# ── Barre de vie (asset pixel-art à 6 paliers : 100/80/60/40/20/0%) ──────────
+const HP_BAR_SHEET := preload("res://art/ui/enemy_hp_sheet.png")
+const HP_BAR_FRAME_RECTS := [
+	Rect2(163, 287, 152, 61),
+	Rect2(163, 356, 152, 61),
+	Rect2(163, 425, 152, 61),
+	Rect2(163, 494, 152, 61),
+	Rect2(163, 563, 152, 61),
+	Rect2(163, 632, 152, 61),
+]
+var _hp_frames: Array = []
+
 @onready var _focus       = $turn
 @onready var progress_bar = $pv
 @onready var hurt         = $hurt
@@ -28,12 +40,34 @@ var health: float = 100:
 		if health <= 0 and not is_dying:
 			die()
 
+func _ready() -> void:
+	for r in HP_BAR_FRAME_RECTS:
+		var tex := AtlasTexture.new()
+		tex.atlas = HP_BAR_SHEET
+		tex.region = r
+		_hp_frames.append(tex)
+	_update_progress_bar()
+
 func _update_progress_bar():
-	progress_bar.value = (health / max_health) * 100
+	if _hp_frames.is_empty():
+		return
+	var pct = health / max_health
+	var idx = clampi(int(round((1.0 - pct) * 5.0)), 0, 5)
+	progress_bar.texture = _hp_frames[idx]
 
 func _play_annimation():
 	hurt.play("hurt")
 	sfx_monster_hurt.play()
+	_shake_bar()
+
+func _shake_bar() -> void:
+	var base_pos = progress_bar.position
+	var tween = create_tween()
+	tween.tween_property(progress_bar, "position", base_pos + Vector2(4, 0), 0.03)
+	tween.tween_property(progress_bar, "position", base_pos + Vector2(-4, 0), 0.03)
+	tween.tween_property(progress_bar, "position", base_pos + Vector2(3, 0), 0.03)
+	tween.tween_property(progress_bar, "position", base_pos + Vector2(-3, 0), 0.03)
+	tween.tween_property(progress_bar, "position", base_pos, 0.03)
 
 func focus():
 	if not is_dying:

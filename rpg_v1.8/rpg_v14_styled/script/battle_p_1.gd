@@ -1,6 +1,18 @@
 extends Node2D
 class_name BattlePlayer
 
+# ── Barre de vie (asset pixel-art à 6 paliers : 100/80/60/40/20/0%) ──────────
+const HP_BAR_SHEET := preload("res://art/ui/player_hp_sheet.png")
+const HP_BAR_FRAME_RECTS := [
+	Rect2(14, 14, 455, 147),
+	Rect2(14, 175, 455, 147),
+	Rect2(14, 336, 455, 147),
+	Rect2(14, 497, 455, 148),
+	Rect2(14, 659, 455, 147),
+	Rect2(15, 820, 454, 147),
+]
+var _hp_frames: Array = []
+
 @onready var _focus      = $turn
 @onready var progress_bar = $pv
 @onready var hurt_anim   = $hurt
@@ -32,16 +44,36 @@ var health: float = 20:
 var is_dead: bool = false
 
 func _ready() -> void:
+	if _hp_frames.is_empty():
+		for r in HP_BAR_FRAME_RECTS:
+			var tex := AtlasTexture.new()
+			tex.atlas = HP_BAR_SHEET
+			tex.region = r
+			_hp_frames.append(tex)
 	max_health = Global.get_max_hp(player_index)
 	health = max_health
 
 func _update_progress_bar():
-	progress_bar.value = (health / max_health) * 100
+	if _hp_frames.is_empty():
+		return
+	var pct = health / max_health
+	var idx = clampi(int(round((1.0 - pct) * 5.0)), 0, 5)
+	progress_bar.texture = _hp_frames[idx]
 
 func _play_hurt_animation():
 	if not is_dead:
 		hurt_anim.play("hurt")
 		if sfx_player_hurt: sfx_player_hurt.play()
+		_shake_bar()
+
+func _shake_bar() -> void:
+	var base_pos = progress_bar.position
+	var tween = create_tween()
+	tween.tween_property(progress_bar, "position", base_pos + Vector2(4, 0), 0.03)
+	tween.tween_property(progress_bar, "position", base_pos + Vector2(-4, 0), 0.03)
+	tween.tween_property(progress_bar, "position", base_pos + Vector2(3, 0), 0.03)
+	tween.tween_property(progress_bar, "position", base_pos + Vector2(-3, 0), 0.03)
+	tween.tween_property(progress_bar, "position", base_pos, 0.03)
 
 func focus():
 	if not is_dead:

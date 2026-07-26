@@ -60,11 +60,11 @@ func _ready() -> void:
 
 	anim.play("castle_entry")
 	await get_tree().create_timer(2.5).timeout
+	snow_particles.emitting = false
 	anim.play("revers_start")
 	await get_tree().create_timer(2.7).timeout
 
 	# ── Arrêt météo, transition vers intérieur ────────────────────────────────
-	snow_particles.emitting = false
 	lightning_timer.stop()
 	$AudioStreamPlayer.stop()
 
@@ -77,12 +77,13 @@ func _ready() -> void:
 	chasseur.visible     = true
 
 	anim.play("apparetion")
-	await get_tree().create_timer(1.5).timeout
-
+	$apparaition.play()
+	await get_tree().create_timer(3.5).timeout
 	# ── Dialogues du Chasseur ─────────────────────────────────────────────────
+	$heart.play()
 	await _afficher_dialogues(CHASSEUR_TEXTE)
-
-	await get_tree().create_timer(1.0).timeout
+	$heart.stop()
+	await get_tree().create_timer(0.5).timeout
 	$"evil laugh".play()
 	await get_tree().create_timer(2.7).timeout
 
@@ -107,7 +108,8 @@ func _ready() -> void:
 	_demarrer_vfx_divin()
 
 	await get_tree().create_timer(1.8).timeout
-
+	$dialogue_empreur.play()
+	await get_tree().create_timer(2.5).timeout
 	# ── Dialogues de l'Empereur ───────────────────────────────────────────────
 	await _afficher_dialogues(EMPREUR_TEXTE)
 	await get_tree().create_timer(1.2).timeout

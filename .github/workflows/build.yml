@@ -1,0 +1,39 @@
+name: Build Ashes of Dereliction
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  export-windows:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Télécharger le projet
+        uses: actions/checkout@v4
+
+      - name: Installer Godot 4.7.1
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: "4.7.1"
+          include-templates: true
+
+      - name: Vérifier la version de Godot
+        run: godot --version
+
+      - name: Créer le dossier Build
+        run: mkdir -p Build
+
+      - name: Exporter le jeu
+        run: |
+          godot --headless --export-release "Windows Desktop" Build/AshesOfDereliction.exe
+
+      - name: Envoyer le build
+        uses: actions/upload-artifact@v4
+        with:
+          name: AshesOfDereliction
+          path: Build/

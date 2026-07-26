@@ -58,14 +58,13 @@ rotation = 1.5708
 scale = Vector2(0.427586, 0.450904)
 texture = ExtResource("2_tfjny")
 
-[node name="pv" type="ProgressBar" parent="." unique_id=900760863]
-modulate = Color(1, 0, 0, 1)
+[node name="pv" type="TextureRect" parent="." unique_id=900760863]
 offset_left = 51.0
 offset_top = 4.0
-offset_right = 154.333
-offset_bottom = 31.0
-scale = Vector2(1.5, 1.5)
-value = 100.0
+offset_right = 171.0
+offset_bottom = 52.0
+expand_mode = 1
+stretch_mode = 0
 
 [node name="hurt" type="AnimationPlayer" parent="." unique_id=2109755947]
 libraries/ = SubResource("AnimationLibrary_gyjgb")
