@@ -28,7 +28,7 @@ jobs:
         run: mkdir -p Build
 
       - name: Exporter le jeu
-        working-directory: ./rpg_v1.7
+        working-directory: ./rpg_v1.8
         run: |
           godot --headless --path . --export-release "Windows Desktop" ../Build/AshesOfDereliction.exe
 
