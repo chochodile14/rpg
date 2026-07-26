@@ -24,13 +24,13 @@ jobs:
 
       - name: Vérifier la version de Godot
         run: godot --version
-
       - name: Créer le dossier Build
         run: mkdir -p Build
 
       - name: Exporter le jeu
+        working-directory: ./rpg_v1.7
         run: |
-          godot --headless --export-release "Windows Desktop" Build/AshesOfDereliction.exe
+          godot --headless --path . --export-release "Windows Desktop" ../Build/AshesOfDereliction.exe
 
       - name: Envoyer le build
         uses: actions/upload-artifact@v4
