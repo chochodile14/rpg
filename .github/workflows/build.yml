@@ -6,7 +6,7 @@ on:
       - main
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   export-windows:
@@ -22,8 +22,9 @@ jobs:
           version: "4.7.1"
           include-templates: true
 
-      - name: Vérifier la version de Godot
+      - name: Vérifier la version
         run: godot --version
+
       - name: Créer le dossier Build
         run: mkdir -p Build
 
@@ -32,8 +33,28 @@ jobs:
         run: |
           godot --headless --path . --export-release "Windows Desktop" ../Build/AshesOfDereliction.exe
 
-      - name: Envoyer le build
-        uses: actions/upload-artifact@v4
+      - name: Créer le ZIP
+        run: |
+          cd Build
+          zip -r AshesOfDereliction.zip .
+
+      - name: Supprimer l'ancienne Release "latest"
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release delete latest -y
+
+      - name: Supprimer l'ancien tag "latest"
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git push origin :refs/tags/latest || true
+
+      - name: Créer la nouvelle Release
+        uses: softprops/action-gh-release@v2
         with:
-          name: AshesOfDereliction
-          path: Build/
+          tag_name: latest
+          name: Dernière version
+          files: Build/AshesOfDereliction.zip
