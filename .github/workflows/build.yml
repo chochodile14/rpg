@@ -8,53 +8,50 @@ on:
 permissions:
   contents: write
 
+env:
+  PROJECT_PATH: rpg_v1.8
+  EXPORT_NAME: AshesOfDereliction
+  EXPORT_PRESET: Windows Desktop
+
 jobs:
-  export-windows:
+  build:
+    name: Build Windows
     runs-on: ubuntu-latest
 
     steps:
-      - name: Télécharger le projet
+      - name: 📥 Télécharger le dépôt
         uses: actions/checkout@v4
 
-      - name: Installer Godot 4.7.1
+      - name: 🎮 Installer Godot 4.7.1
         uses: chickensoft-games/setup-godot@v2
         with:
           version: "4.7.1"
           include-templates: true
 
-      - name: Vérifier la version
+      - name: ✅ Vérifier Godot
         run: godot --version
 
-      - name: Créer le dossier Build
+      - name: 📖 Lire la version
+        id: version
+        run: |
+          VERSION=$(cat version.txt)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: 📁 Créer le dossier Build
         run: mkdir -p Build
 
-      - name: Exporter le jeu
-        working-directory: ./rpg_v1.8
+      - name: 🛠 Exporter le jeu
+        working-directory: ./${{ env.PROJECT_PATH }}
         run: |
-          godot --headless --path . --export-release "Windows Desktop" ../Build/AshesOfDereliction.exe
+          godot --headless --path . --export-release "${{ env.EXPORT_PRESET }}" "../Build/${{ env.EXPORT_NAME }}.exe"
 
-      - name: Créer le ZIP
+      - name: 📦 Créer le ZIP
         run: |
           cd Build
-          zip -r AshesOfDereliction.zip .
+          zip -r "../${{ env.EXPORT_NAME }}-v${VERSION}.zip" .
 
-      - name: Supprimer l'ancienne Release "latest"
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh release delete latest -y
-
-      - name: Supprimer l'ancien tag "latest"
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git push origin :refs/tags/latest || true
-
-      - name: Créer la nouvelle Release
-        uses: softprops/action-gh-release@v2
+      - name: 📤 Envoyer le ZIP en Artifact
+        uses: actions/upload-artifact@v4
         with:
-          tag_name: latest
-          name: Dernière version
-          files: Build/AshesOfDereliction.zip
+          name: AshesOfDereliction-v${{ env.VERSION }}
+          path: AshesOfDereliction-v${{ env.VERSION }}.zip
