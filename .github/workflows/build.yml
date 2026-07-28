@@ -57,3 +57,27 @@ jobs:
         with:
           name: AshesOfDereliction-v${{ env.VERSION }}
           path: AshesOfDereliction-v${{ env.VERSION }}.zip
+          
+      - name: 🏷️ Créer le tag
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+
+          if git rev-parse "v${VERSION}" >/dev/null 2>&1; then
+            echo "Le tag existe déjà."
+          else
+            git tag "v${VERSION}"
+            git push origin "v${VERSION}"
+          fi
+
+      - name: 🚀 Créer la Release GitHub
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ env.VERSION }}
+          name: Ashes of Dereliction v${{ env.VERSION }}
+          body_path: CHANGELOG.md
+          files: AshesOfDereliction-v${{ env.VERSION }}.zip
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
