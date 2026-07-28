@@ -2,28 +2,30 @@ extends Node2D
 class_name BattlePlayer
 
 # ── Barre de vie (asset pixel-art à 6 paliers : 100/80/60/40/20/0%) ──────────
-const HP_BAR_SHEET := preload("res://art/ui/player_hp_sheet.png")
-const HP_BAR_FRAME_RECTS := [
-	Rect2(14, 14, 455, 147),
-	Rect2(14, 175, 455, 147),
-	Rect2(14, 336, 455, 147),
-	Rect2(14, 497, 455, 148),
-	Rect2(14, 659, 455, 147),
-	Rect2(15, 820, 454, 147),
+const HP_SHEET := preload("res://art/ui/player_hp_sheet.png")
+
+const HP_BAR_REGIONS := [
+	Rect2(0, 14, 483, 146),    # 100%
+	Rect2(0, 175, 483, 147),   # ~83%
+	Rect2(0, 336, 483, 147),   # ~66%
+	Rect2(0, 498, 483, 146),   # ~50%
+	Rect2(0, 659, 483, 146),   # ~33%
+	Rect2(0, 820, 483, 147),   # ~16% / vide
 ]
 var _hp_frames: Array = []
-
 @onready var _focus      = $turn
 @onready var progress_bar = $pv
 @onready var hurt_anim   = $hurt
 @onready var atk_anim    = $atk
+@onready var _base_sprite: Sprite2D = $base
+@onready var _base_default_position: Vector2 = _base_sprite.position
 
 # ── Sons de combat ────────────────────────────────────────────────────────────
-@onready var sfx_player_hurt = $SFX_PlayerHurt   # kick_m_05 → joueur reçoit dégâts
-@onready var sfx_player_die  = $SFX_PlayerDie    # fall1     → joueur meurt
-@onready var sfx_punch       = $SFX_Punch        # punch_h_05 → attaque légère
-@onready var sfx_heavy       = $SFX_Heavy        # scorpion_claw → attaque lourde
-@onready var sfx_ultimate    = $SFX_Ultimate     # bear_attack → ultime
+@onready var sfx_player_hurt = $SFX_PlayerHurt
+@onready var sfx_player_die  = $SFX_PlayerDie
+@onready var sfx_punch       = $SFX_Punch
+@onready var sfx_heavy       = $SFX_Heavy
+@onready var sfx_ultimate    = $SFX_Ultimate
 
 var player_index: int = 0
 
@@ -44,21 +46,33 @@ var health: float = 20:
 var is_dead: bool = false
 
 func _ready() -> void:
-	if _hp_frames.is_empty():
-		for r in HP_BAR_FRAME_RECTS:
-			var tex := AtlasTexture.new()
-			tex.atlas = HP_BAR_SHEET
-			tex.region = r
-			_hp_frames.append(tex)
 	max_health = Global.get_max_hp(player_index)
 	health = max_health
+	_apply_class_sprite()
 
+func _apply_class_sprite() -> void:
+	if player_index < Global.player_classes.size():
+		var char_class = Global.player_classes[player_index]
+		if char_class != null and char_class.battle_texture != null:
+			_base_sprite.texture = char_class.battle_texture
+			_base_sprite.rotation_degrees = char_class.battle_rotation_degrees
+			_base_sprite.flip_h = char_class.flip_h
+			_base_sprite.flip_v = char_class.flip_v
+
+			var tex_height = char_class.battle_texture.get_height()
+			if tex_height > 0:
+				var uniform_scale = (char_class.battle_target_height / tex_height) * char_class.battle_visual_scale_correction
+				_base_sprite.scale = Vector2(uniform_scale, uniform_scale)
+
+			_base_sprite.position = _base_default_position + char_class.battle_offset
 func _update_progress_bar():
-	if _hp_frames.is_empty():
-		return
 	var pct = health / max_health
-	var idx = clampi(int(round((1.0 - pct) * 5.0)), 0, 5)
-	progress_bar.texture = _hp_frames[idx]
+	var stage_index = int(clamp((1.0 - pct) * HP_BAR_REGIONS.size(), 0, HP_BAR_REGIONS.size() - 1))
+
+	var atlas := AtlasTexture.new()
+	atlas.atlas = HP_SHEET
+	atlas.region = HP_BAR_REGIONS[stage_index]
+	progress_bar.texture = atlas
 
 func _play_hurt_animation():
 	if not is_dead:

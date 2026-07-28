@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterClass" format=3 uid="uid://b3b3ipgrtff7h"]
 
 [ext_resource type="Script" uid="uid://d3ffcr2a0i8sl" path="res://autoloads/character_class.gd" id="1_r0oxt"]
+[ext_resource type="Texture2D" uid="uid://dmktvoqtlsveb" path="res://art/sprite/wizard.png" id="1_vwtbe"]
 
 [resource]
 script = ExtResource("1_r0oxt")
@@ -9,5 +10,7 @@ base_hp = 15.0
 base_atk = 2.0
 base_def = 1.0
 base_crit = 0.04
+battle_visual_scale_correction = 2.5
 ultimate_dmg_mult = 1.5
+battle_texture = ExtResource("1_vwtbe")
 metadata/_custom_type_script = "uid://d3ffcr2a0i8sl"

@@ -227,13 +227,12 @@ rotation = 1.5708
 scale = Vector2(0.471222, 0.553582)
 texture = ExtResource("2_5jqhn")
 
-[node name="pv" type="TextureRect" parent="." unique_id=1930849097]
-offset_left = 984.75
-offset_top = 15.0
-offset_right = 1144.75
-offset_bottom = 67.0
-expand_mode = 1
-stretch_mode = 0
+[node name="pv" type="TextureRect" parent="." unique_id=1779998750]
+offset_left = 999.0
+offset_top = 49.0
+offset_right = 1159.0
+offset_bottom = 101.0
+scale = Vector2(0.35, 0.35)
 
 [node name="hurt" type="AnimationPlayer" parent="." unique_id=207366038]
 libraries/ = SubResource("AnimationLibrary_hurt")
@@ -243,20 +242,15 @@ libraries/ = SubResource("AnimationLibrary_atk")
 
 [node name="SFX_PlayerHurt" type="AudioStreamPlayer" parent="." unique_id=1848481245]
 stream = ExtResource("4_puf4w")
-bus = &"sfx"
 
 [node name="SFX_PlayerDie" type="AudioStreamPlayer" parent="." unique_id=211395198]
 stream = ExtResource("5_qnwqa")
-bus = &"sfx"
 
 [node name="SFX_Punch" type="AudioStreamPlayer" parent="." unique_id=1781502546]
 stream = ExtResource("6_su1dd")
-bus = &"sfx"
 
 [node name="SFX_Heavy" type="AudioStreamPlayer" parent="." unique_id=861226022]
 stream = ExtResource("7_5yi7y")
-bus = &"sfx"
 
 [node name="SFX_Ultimate" type="AudioStreamPlayer" parent="." unique_id=1701203456]
 stream = ExtResource("8_murn8")
-bus = &"sfx"

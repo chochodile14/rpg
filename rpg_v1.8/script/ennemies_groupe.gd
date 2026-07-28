@@ -118,6 +118,8 @@ func _action(stack: Array) -> void:
 			var pidx = attacker.player_index
 			# Bonus d'attaque
 			final_dmg += Global.get_atk_bonus(pidx)
+			# ── NOUVEAU : multiplicateur selon la classe et le type d'attaque ──
+			final_dmg *= Global.get_attack_multiplier(pidx, atk_type)
 			# Coup critique ?
 			var crit_roll = randf()
 			if crit_roll < Global.get_crit_chance(pidx):
@@ -125,8 +127,6 @@ func _action(stack: Array) -> void:
 				is_crit = true
 			# Animation
 			await attacker.play_attack_animation(atk_type)
-		else:
-			await get_tree().create_timer(0.5).timeout
 
 		# ── Applique les dégâts ──────────────────────────────────────────────
 		if target_idx < ennemies.size() \

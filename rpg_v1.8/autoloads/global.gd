@@ -507,7 +507,20 @@ func get_crit_chance(player_idx: int) -> float:
 	var rank = player_upgrades[player_idx]["crit"]
 	var base = player_classes[player_idx].base_crit
 	return base + rank * CRIT_PER_UPGRADE
-
+	
+func get_attack_multiplier(player_idx: int, attack_type: String) -> float:
+	var char_class = player_classes[player_idx]
+	if char_class == null:
+		return 1.0
+	match attack_type:
+		"light":
+			return char_class.light_dmg_mult
+		"heavy":
+			return char_class.heavy_dmg_mult
+		"ultimate":
+			return char_class.ultimate_dmg_mult
+	return 1.0
+	
 func get_player_stats_dict(player_idx: int) -> Dictionary:
 	return {
 		"level":         player_levels[player_idx],

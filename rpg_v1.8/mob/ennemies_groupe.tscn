@@ -1,15 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvvlq15ha218e"]
+[gd_scene format=3 uid="uid://dvvlq15ha218e"]
 
 [ext_resource type="Script" uid="uid://bkp4w56hyiq7e" path="res://script/ennemies_groupe.gd" id="1_83u1q"]
 [ext_resource type="PackedScene" uid="uid://yvt1jga7a2s6" path="res://mob/battle_m_1.tscn" id="1_hlrp1"]
 
-[node name="ennemies_groupe" type="Node2D"]
+[node name="ennemies_groupe" type="Node2D" unique_id=1210389866]
 script = ExtResource("1_83u1q")
 
-[node name="battle m 1" parent="." instance=ExtResource("1_hlrp1")]
+[node name="battle m 1" parent="." unique_id=504617923 instance=ExtResource("1_hlrp1")]
 
-[node name="battle m 2" parent="." instance=ExtResource("1_hlrp1")]
+[node name="battle m 2" parent="." unique_id=183265920 instance=ExtResource("1_hlrp1")]
 
-[node name="battle m 3" parent="." instance=ExtResource("1_hlrp1")]
+[node name="battle m 3" parent="." unique_id=316850666 instance=ExtResource("1_hlrp1")]
 
-[node name="battle m 4" parent="." instance=ExtResource("1_hlrp1")]
+[node name="battle m 4" parent="." unique_id=616618994 instance=ExtResource("1_hlrp1")]
