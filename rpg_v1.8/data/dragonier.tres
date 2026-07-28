@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CharacterClass" format=3 uid="uid://ybr83gnmce7d"]
+
+[ext_resource type="Script" uid="uid://d3ffcr2a0i8sl" path="res://autoloads/character_class.gd" id="1_hvod4"]
+
+[resource]
+script = ExtResource("1_hvod4")
+class_name_display = "dragonier"
+base_hp = 30.0
+base_atk = 1.5
+base_def = 3.0
+base_crit = 0.02
+light_dmg_mult = 2.0
+heavy_dmg_mult = 0.75
+ultimate_dmg_mult = 2.0
+metadata/_custom_type_script = "uid://d3ffcr2a0i8sl"

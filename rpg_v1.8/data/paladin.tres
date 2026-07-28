@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CharacterClass" format=3 uid="uid://cfv16d6oy8nuq"]
+
+[ext_resource type="Script" uid="uid://d3ffcr2a0i8sl" path="res://autoloads/character_class.gd" id="1_h57tp"]
+
+[resource]
+script = ExtResource("1_h57tp")
+class_name_display = "paladin"
+base_hp = 22.0
+base_atk = 1.5
+base_def = 1.5
+base_crit = 0.1
+light_dmg_mult = 2.0
+ultimate_dmg_mult = 1.5
+metadata/_custom_type_script = "uid://d3ffcr2a0i8sl"
