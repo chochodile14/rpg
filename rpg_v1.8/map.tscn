@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://bksp1xycp7d5y" path="res://pnj_marchand_test.tscn" id="17_jky6x"]
 [ext_resource type="PackedScene" uid="uid://2b0kiv3nh0o7" path="res://pnj.tscn" id="17_r5om4"]
 [ext_resource type="PackedScene" uid="uid://b1hedugxnujci" path="res://inventory.tscn" id="20_4sf5t"]
+[ext_resource type="PackedScene" uid="uid://do1fubarqu1td" path="res://stats_viewer.tscn" id="24_3mr0t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1wlr"]
 texture = ExtResource("2_wbpbn")
@@ -4882,7 +4883,15 @@ position = Vector2(93, -1481)
 [node name="character_beta" parent="." unique_id=422991297 instance=ExtResource("2_e0an3")]
 position = Vector2(209, 12)
 
+[node name="StatsViewer" parent="character_beta" unique_id=770258242 instance=ExtResource("24_3mr0t")]
+visible = false
+offset_left = -209.0
+offset_top = -12.0
+offset_right = -169.0
+offset_bottom = 28.0
+
 [node name="inventory" parent="character_beta" unique_id=711512444 instance=ExtResource("20_4sf5t")]
+position = Vector2(-171, 15)
 
 [node name="PauseMenu" parent="character_beta" unique_id=1878538548 instance=ExtResource("6_iw27f")]
 visible = false
@@ -4899,7 +4908,7 @@ gizmo_extents = 4000.0
 position = Vector2(500, 1000)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=80075310]
-position = Vector2(-74, -4)
+position = Vector2(-63, 25)
 navigation_polygon = SubResource("NavigationPolygon_p5pve")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=108247924]

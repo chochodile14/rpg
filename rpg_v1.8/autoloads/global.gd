@@ -460,6 +460,7 @@ var player_upgrades: Array[Dictionary] = [
 	{ "hp": 0, "atk": 0, "def": 0, "crit": 0 },
 	{ "hp": 0, "atk": 0, "def": 0, "crit": 0 },
 ]
+@export var player_classes: Array[CharacterClass] = []
 
 const XP_PER_LEVEL: int     = 100
 const XP_PER_COMBAT: int    = 40
@@ -476,24 +477,46 @@ const ATK_PER_UPGRADE: float  = 2.0
 const DEF_PER_UPGRADE: float  = 4.0
 const CRIT_PER_UPGRADE: float = 0.05
 
+func _ready() -> void:
+	player_classes = [
+		load("res://data/mage.tres"),
+		load("res://data/paladin.tres"),
+		load("res://data/guerrier.tres"),
+		load("res://data/dragonier.tres"),
+	]
+
+
 # ── Accesseurs calculés ───────────────────────────────────────────────────────
 
 func get_max_hp(player_idx: int) -> float:
 	var rank = player_upgrades[player_idx]["hp"]
-	return BASE_HP + rank * HP_PER_UPGRADE
+	var base = player_classes[player_idx].base_hp
+	return base + rank * HP_PER_UPGRADE
 
 func get_atk_bonus(player_idx: int) -> float:
 	var rank = player_upgrades[player_idx]["atk"]
-	return BASE_ATK_BONUS + rank * ATK_PER_UPGRADE
+	var base = player_classes[player_idx].base_atk
+	return base + rank * ATK_PER_UPGRADE
 
 func get_def_reduction(player_idx: int) -> float:
 	var rank = player_upgrades[player_idx]["def"]
-	return rank * DEF_PER_UPGRADE / 100.0
+	var base = player_classes[player_idx].base_def
+	return (base + rank * DEF_PER_UPGRADE) / 100.0
 
 func get_crit_chance(player_idx: int) -> float:
 	var rank = player_upgrades[player_idx]["crit"]
-	return BASE_CRIT_CHANCE + rank * CRIT_PER_UPGRADE
+	var base = player_classes[player_idx].base_crit
+	return base + rank * CRIT_PER_UPGRADE
 
+func get_player_stats_dict(player_idx: int) -> Dictionary:
+	return {
+		"level":         player_levels[player_idx],
+		"max_hp":        get_max_hp(player_idx),
+		"atk_bonus":     get_atk_bonus(player_idx),
+		"def_reduction": get_def_reduction(player_idx) * 100.0,  # en %
+		"crit_chance":   get_crit_chance(player_idx) * 100.0,    # en %
+		"aptitude_pts":  aptitude_points[player_idx],
+	}
 # ── Gestion XP / niveaux ─────────────────────────────────────────────────────
 
 func add_xp(amount: int) -> Array[int]:

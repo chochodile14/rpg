@@ -33,6 +33,7 @@ window/stretch/mode="canvas_items"
 folder_colors={
 "res://art/": "purple",
 "res://art/map/": "orange",
+"res://data/": "gray",
 "res://mob/": "red",
 "res://player/": "yellow",
 "res://script/": "green"
