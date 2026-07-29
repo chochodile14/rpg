@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://b1hedugxnujci"]
+
+[ext_resource type="FontFile" uid="uid://crre5antcpq43" path="res://art/fonts/firstorder.ttf" id="1_pohso"]
+[ext_resource type="Script" uid="uid://bxosqeqhkirek" path="res://script/inventory.gd" id="1_psafj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psafj"]
+bg_color = Color(0.086, 0.067, 0.039, 0.97)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.78, 0.59, 0.23, 0.55)
+corner_radius_top_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tooltip"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.08, 0.06, 0.03, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.78, 0.59, 0.23, 0.9)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 4
+
+[node name="inventory" type="Node2D" unique_id=1988855481]
+script = ExtResource("1_psafj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=83047387]
+
+[node name="inventaire" type="Panel" parent="CanvasLayer" unique_id=2040829022]
+offset_left = 36.0
+offset_top = 20.0
+offset_right = 1106.0
+offset_bottom = 622.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_psafj")
+
+[node name="NomInventaire" type="Label" parent="CanvasLayer/inventaire" unique_id=2099563525]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 18.0
+offset_right = 614.0
+offset_bottom = 51.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.54, 0.41, 0.16, 1)
+theme_override_fonts/font = ExtResource("1_pohso")
+theme_override_font_sizes/font_size = 30
+text = "Inventaire"
+
+[node name="close" type="Button" parent="CanvasLayer/inventaire" unique_id=1766475751]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 55.0
+offset_right = 86.0
+offset_bottom = 97.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.5411765, 0.4117647, 0.16078432, 1)
+theme_override_font_sizes/font_size = 24
+text = "close"
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/inventaire" unique_id=531127968]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 110.0
+offset_right = 1051.0
+offset_bottom = 580.0
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 6
+
+[node name="ToolTips" type="Panel" parent="CanvasLayer/inventaire" unique_id=1790348848]
+visible = false
+layout_mode = 0
+offset_right = 220.0
+offset_bottom = 110.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tooltip")
+
+[node name="orga" type="VBoxContainer" parent="CanvasLayer/inventaire/ToolTips" unique_id=111111111]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="name" type="Label" parent="CanvasLayer/inventaire/ToolTips/orga" unique_id=222222222]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.65, 0.2, 1)
+theme_override_fonts/font = ExtResource("1_pohso")
+theme_override_font_sizes/font_size = 18
+
+[node name="description" type="Label" parent="CanvasLayer/inventaire/ToolTips/orga" unique_id=333333333]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.75, 0.65, 1)
+theme_override_font_sizes/font_size = 13
+autowrap_mode = 2
+
+[node name="price" type="Label" parent="CanvasLayer/inventaire/ToolTips/orga" unique_id=444444444]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.78, 0.2, 1)
+theme_override_font_sizes/font_size = 14
+
+[connection signal="pressed" from="CanvasLayer/inventaire/close" to="." method="_on_close_pressed"]

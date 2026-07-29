@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://tq0kaigqqkb0"
+path="res://.godot/imported/apparetion.mp3-02717c900e1834cf9b53c1396f7cfa47.mp3str"
+
+[deps]
+
+source_file="res://audio/musique varier/sfx/apparetion.mp3"
+dest_files=["res://.godot/imported/apparetion.mp3-02717c900e1834cf9b53c1396f7cfa47.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

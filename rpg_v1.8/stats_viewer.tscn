@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://do1fubarqu1td"]
+
+[ext_resource type="Script" uid="uid://bgwyxxkw6bdfu" path="res://script/stats_viewer.gd" id="1_1s0ql"]
+
+[node name="StatsViewer" type="Control" unique_id=770258242]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_1s0ql")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=926166663]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ckjkh0dyjs6e1"
+path="res://.godot/imported/dragon-studio-wind-blowing-sfx-01-423673.mp3-cd84e121a6355087564a8d359e212a60.mp3str"
+
+[deps]
+
+source_file="res://audio/musique varier/sfx/dragon-studio-wind-blowing-sfx-01-423673.mp3"
+dest_files=["res://.godot/imported/dragon-studio-wind-blowing-sfx-01-423673.mp3-cd84e121a6355087564a8d359e212a60.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

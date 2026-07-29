@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Ashes of Dereliction</title>
+
+<style>
+body{
+    margin:0;
+    background:#111;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.card{
+    background:#1b1b1b;
+    padding:40px;
+    border-radius:15px;
+    width:600px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,.4);
+}
+
+h1{
+    margin-top:0;
+    font-size:42px;
+}
+
+.version{
+    font-size:22px;
+    margin:20px 0;
+}
+
+.update{
+    text-align:left;
+    background:#2a2a2a;
+    padding:20px;
+    border-radius:10px;
+    white-space:pre-wrap;
+    margin-bottom:25px;
+}
+
+button{
+    padding:15px 35px;
+    font-size:22px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<h1>Ashes of Dereliction</h1>
+
+<div class="version" id="version">
+Chargement...
+</div>
+
+<div class="update" id="notes">
+Chargement des nouveautés...
+</div>
+
+<button id="download">
+Télécharger
+</button>
+
+</div>
+
+<script>
+
+const owner="chochodile14";
+const repo="rpg";
+
+fetch(`https://api.github.com/repos/${owner}/${repo}/releases/latest`)
+.then(r=>r.json())
+.then(release=>{
+
+document.getElementById("version").innerHTML =
+"<b>Version :</b> " + release.tag_name;
+
+document.getElementById("notes").innerText =
+release.body;
+
+document.getElementById("download").onclick=()=>{
+
+window.location.href =
+release.assets[0].browser_download_url;
+
+};
+
+});
+
+</script>
+
+</body>
+</html>

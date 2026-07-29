@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dc8wpeiy4431e"
+path="res://.godot/imported/strident spooki.mp3-8e2ff8289d49ed5c25ee39632654d614.mp3str"
+
+[deps]
+
+source_file="res://audio/musique varier/sfx/strident spooki.mp3"
+dest_files=["res://.godot/imported/strident spooki.mp3-8e2ff8289d49ed5c25ee39632654d614.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

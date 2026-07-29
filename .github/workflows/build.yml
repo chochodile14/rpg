@@ -1,0 +1,83 @@
+name: Build Ashes of Dereliction
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+env:
+  PROJECT_PATH: rpg_v1.8
+  EXPORT_NAME: AshesOfDereliction
+  EXPORT_PRESET: Windows Desktop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🎮 Installer Godot 4.7.1
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: "4.7.1"
+          include-templates: true
+
+      - name: 📖 Lire la version
+        run: |
+          echo "VERSION=$(cat version.txt)" >> $GITHUB_ENV
+
+      - name: 📁 Créer Build
+        run: mkdir -p Build
+
+      - name: 🛠 Exporter le jeu
+        working-directory: ./${{ env.PROJECT_PATH }}
+        run: |
+          godot --headless \
+            --path . \
+            --export-release "${{ env.EXPORT_PRESET }}" \
+            "../Build/${{ env.EXPORT_NAME }}.exe"
+
+      - name: ✅ Vérifier les fichiers
+        run: |
+          test -f Build/${{ env.EXPORT_NAME }}.exe
+          test -f Build/${{ env.EXPORT_NAME }}.pck
+
+      - name: 📦 Créer le ZIP
+        run: |
+          cd Build
+          zip -r "../${{ env.EXPORT_NAME }}-v${VERSION}.zip" .
+
+      - name: 📤 Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AshesOfDereliction-v${{ env.VERSION }}
+          path: AshesOfDereliction-v${{ env.VERSION }}.zip
+          
+      - name: 🏷️ Créer le tag
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+
+          if git rev-parse "v${VERSION}" >/dev/null 2>&1; then
+            echo "Le tag existe déjà."
+          else
+            git tag "v${VERSION}"
+            git push origin "v${VERSION}"
+          fi
+
+      - name: 🚀 Créer la Release GitHub
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ env.VERSION }}
+          name: Ashes of Dereliction v${{ env.VERSION }}
+          body_path: CHANGELOG.md
+          files: AshesOfDereliction-v${{ env.VERSION }}.zip
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
