@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("1_hvod4")
-class_name_display = "dragonier"
+class_name_display = "Naerys"
 base_hp = 30.0
-base_atk = 1.5
-base_def = 3.0
+base_atk = 2.5
+base_def = 1.0
 base_crit = 0.02
 battle_visual_scale_correction = 1.5
 light_dmg_mult = 2.0
