@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://m5o88rkjrio8"]
+
+[ext_resource type="Script" uid="uid://csspfq4i17c8d" path="res://script/cinematiques_actes_1.gd" id="1_oo4f3"]
+
+[node name="cinematiques_actes1" type="Node2D" unique_id=524548774]
+script = ExtResource("1_oo4f3")
+
+[node name="images1" type="TextureRect" parent="." unique_id=1388056647]
+offset_right = 1150.0
+offset_bottom = 650.0
+
+[node name="images2" type="TextureRect" parent="." unique_id=41707188]
+offset_right = 1150.0
+offset_bottom = 650.0
+
+[node name="images3" type="TextureRect" parent="." unique_id=1189535231]
+offset_right = 1150.0
+offset_bottom = 650.0
+
+[node name="images4" type="TextureRect" parent="." unique_id=1617075228]
+offset_right = 1150.0
+offset_bottom = 650.0
+
+[node name="images5" type="TextureRect" parent="." unique_id=1188293120]
+offset_right = 1150.0
+offset_bottom = 650.0
+
+[node name="images6" type="TextureRect" parent="." unique_id=1344366366]
+offset_right = 1150.0
+offset_bottom = 650.0
+metadata/_edit_use_anchors_ = true
+
+[node name="images7" type="TextureRect" parent="." unique_id=305877222]
+offset_right = 1150.0
+offset_bottom = 650.0
+metadata/_edit_use_anchors_ = true
+
+[node name="images8" type="TextureRect" parent="." unique_id=198974501]
+offset_right = 1150.0
+offset_bottom = 650.0
+
+[node name="Narator" type="AudioStreamPlayer" parent="." unique_id=572216879]
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=276589496]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1334212435]
+offset_right = 1155.0
+offset_bottom = 650.0
+color = Color(0, 0, 0, 1)

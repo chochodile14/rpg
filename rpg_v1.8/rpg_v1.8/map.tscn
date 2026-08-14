@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://2b0kiv3nh0o7" path="res://pnj.tscn" id="17_r5om4"]
 [ext_resource type="PackedScene" uid="uid://b1hedugxnujci" path="res://inventory.tscn" id="20_4sf5t"]
 [ext_resource type="PackedScene" uid="uid://do1fubarqu1td" path="res://stats_viewer.tscn" id="24_3mr0t"]
+[ext_resource type="PackedScene" uid="uid://b41xe0tln6vc2" path="res://rigid_body_2d.tscn" id="25_6sq2s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1wlr"]
 texture = ExtResource("2_wbpbn")
@@ -4899,6 +4900,9 @@ offset_left = -29.0
 offset_top = -25.0
 offset_right = -29.0
 offset_bottom = -25.0
+
+[node name="RigidBody2D" parent="." unique_id=1615586881 instance=ExtResource("25_6sq2s")]
+position = Vector2(87, -133)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=174550552]
 position = Vector2(603, 315)

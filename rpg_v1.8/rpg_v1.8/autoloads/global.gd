@@ -479,9 +479,9 @@ const CRIT_PER_UPGRADE: float = 0.05
 
 func _ready() -> void:
 	player_classes = [
-		load("res://data/archer.tres"),
-		load("res://data/chevalier.tres"),
 		load("res://data/voyageur.tres"),
+		load("res://data/chevalier.tres"),
+		load("res://data/archer.tres"),
 		load("res://data/dragonier.tres"),
 	]
 

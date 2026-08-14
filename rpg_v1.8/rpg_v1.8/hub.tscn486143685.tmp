@@ -1,0 +1,279 @@
+[gd_scene format=3 uid="uid://qdl1o1fy4y1m"]
+
+[ext_resource type="Script" uid="uid://vevgiyy4668s" path="res://script/hub.gd" id="0_script"]
+[ext_resource type="AudioStream" uid="uid://yl6hn5n3wlnt" path="res://audio/musique varier/menu-sacha-2.2.ogg" id="1_l10or"]
+[ext_resource type="Texture2D" uid="uid://bgj1epv16l0sl" path="res://art/cinematic/castle/Dracula's Castle(1920X1080).png" id="bg_castle"]
+[ext_resource type="FontFile" uid="uid://crre5antcpq43" path="res://art/fonts/firstorder.ttf" id="font_1"]
+[ext_resource type="AudioStream" uid="uid://dckk4vslrnkb" path="res://audio/musique varier/sfx/freesound_community-menu-sound-1-98856.mp3" id="sfx_click"]
+[ext_resource type="AudioStream" uid="uid://dyleu2ajcnrkj" path="res://audio/musique varier/sfx/freesound_community-menu-selection-102220.mp3" id="sfx_hover"]
+[ext_resource type="AudioStream" uid="uid://ht8oru114r62" path="res://audio/musique varier/sfx/dragon-studio-menu-open-433000.mp3" id="sfx_open"]
+[ext_resource type="Shader" uid="uid://c2aboq5u0arb" path="res://shaders/title_shine.gdshader" id="shader_shine"]
+[ext_resource type="Shader" uid="uid://berehiv3o6o31" path="res://shaders/vignette.gdshader" id="shader_vignette"]
+
+[sub_resource type="Gradient" id="Gradient_overlay"]
+offsets = PackedFloat32Array(0, 0.62, 1)
+colors = PackedColorArray(0.02, 0.015, 0.01, 0.88, 0.02, 0.015, 0.01, 0.35, 0.02, 0.015, 0.01, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_overlay"]
+gradient = SubResource("Gradient_overlay")
+width = 512
+height = 4
+fill_from = Vector2(0, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vignette"]
+shader = ExtResource("shader_vignette")
+shader_parameter/intensity = 1.0
+shader_parameter/radius = 0.72
+shader_parameter/softness = 0.6
+shader_parameter/vignette_color = Color(0.02, 0.015, 0.01, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_shine"]
+shader = ExtResource("shader_shine")
+shader_parameter/progress = -0.5
+shader_parameter/band_width = 0.16
+shader_parameter/shine_color = Color(1, 0.92, 0.65, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_normal"]
+bg_color = Color(0.04, 0.03, 0.02, 0)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.25, 0.1, 0.7)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pressed"]
+bg_color = Color(0.06, 0.04, 0.02, 0.7)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5, 0.36, 0.14, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hover"]
+bg_color = Color(0.1, 0.07, 0.03, 0.5)
+border_width_left = 4
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.72, 0.52, 0.22, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 4
+
+[node name="hub" type="CanvasLayer" unique_id=1930257843]
+script = ExtResource("0_script")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1519776750]
+texture_filter = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("bg_castle")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="BgGradient" type="TextureRect" parent="." unique_id=1458236904]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_overlay")
+expand_mode = 1
+
+[node name="Vignette" type="ColorRect" parent="." unique_id=610589945]
+material = SubResource("ShaderMaterial_vignette")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="BgParticles" type="CPUParticles2D" parent="." unique_id=1263387779]
+z_index = 1
+
+[node name="ChapterLabel" type="Label" parent="." unique_id=111000001]
+offset_left = 64.0
+offset_top = 68.0
+offset_right = 500.0
+offset_bottom = 92.0
+theme_override_colors/font_color = Color(0.55, 0.4, 0.18, 1)
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 13
+text = "— Chapitre I —"
+
+[node name="TitleGlow" type="Label" parent="." unique_id=111000006]
+offset_left = 59.0
+offset_top = 103.0
+offset_right = 620.0
+offset_bottom = 147.0
+theme_override_colors/font_color = Color(0.9, 0.55, 0.15, 0.35)
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 42
+text = "Ashes of Dereliction"
+
+[node name="TitleLabel" type="Label" parent="." unique_id=111000002]
+material = SubResource("ShaderMaterial_shine")
+offset_left = 59.0
+offset_top = 102.0
+offset_right = 620.0
+offset_bottom = 146.0
+theme_override_colors/font_color = Color(0.86, 0.68, 0.4, 1)
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 40
+text = "Ashes of Dereliction"
+
+[node name="SubtitleLabel" type="Label" parent="." unique_id=111000003]
+offset_left = 64.0
+offset_top = 178.0
+offset_right = 600.0
+offset_bottom = 200.0
+theme_override_colors/font_color = Color(0.32, 0.22, 0.09, 1)
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 11
+text = "Les cendres ne mentent pas"
+
+[node name="OrnamentRect" type="ColorRect" parent="." unique_id=111000004]
+offset_left = 64.0
+offset_top = 210.0
+offset_right = 280.0
+offset_bottom = 212.0
+color = Color(0.4, 0.28, 0.1, 0.5)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1697101124]
+offset_left = 64.0
+offset_top = 232.0
+offset_right = 394.0
+offset_bottom = 588.0
+theme_override_constants/separation = 10
+
+[node name="start" type="Button" parent="VBoxContainer" unique_id=2032733078]
+self_modulate = Color(0.85, 0.72, 0.45, 1)
+custom_minimum_size = Vector2(320, 54)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.82, 0.65, 0.38, 1)
+theme_override_colors/font_hover_color = Color(1, 0.88, 0.55, 1)
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_normal")
+text = "Commencer"
+
+[node name="tutorial" type="Button" parent="VBoxContainer" unique_id=999274646]
+self_modulate = Color(0.85, 0.72, 0.45, 1)
+custom_minimum_size = Vector2(320, 54)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.82, 0.65, 0.38, 1)
+theme_override_colors/font_hover_color = Color(1, 0.88, 0.55, 1)
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_normal")
+text = "Tutoriel"
+
+[node name="SepRect1" type="ColorRect" parent="VBoxContainer" unique_id=111000010]
+custom_minimum_size = Vector2(200, 1)
+layout_mode = 2
+color = Color(0.28, 0.19, 0.07, 0.4)
+
+[node name="option" type="Button" parent="VBoxContainer" unique_id=1126072868]
+self_modulate = Color(0.85, 0.72, 0.45, 1)
+custom_minimum_size = Vector2(320, 54)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.82, 0.65, 0.38, 1)
+theme_override_colors/font_hover_color = Color(1, 0.88, 0.55, 1)
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_normal")
+text = "Options"
+
+[node name="credits" type="Button" parent="VBoxContainer" unique_id=1748551397]
+self_modulate = Color(0.85, 0.72, 0.45, 1)
+custom_minimum_size = Vector2(320, 54)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.82, 0.65, 0.38, 1)
+theme_override_colors/font_hover_color = Color(1, 0.88, 0.55, 1)
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_normal")
+text = "Crédits"
+
+[node name="SepRect2" type="ColorRect" parent="VBoxContainer" unique_id=111000011]
+custom_minimum_size = Vector2(200, 1)
+layout_mode = 2
+color = Color(0.28, 0.19, 0.07, 0.4)
+
+[node name="exit" type="Button" parent="VBoxContainer" unique_id=1943941195]
+self_modulate = Color(0.85, 0.72, 0.45, 1)
+custom_minimum_size = Vector2(320, 54)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.82, 0.65, 0.38, 1)
+theme_override_colors/font_hover_color = Color(1, 0.88, 0.55, 1)
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_normal")
+text = "Quitter"
+
+[node name="Selector" type="Label" parent="." unique_id=865887687]
+offset_left = 30.0
+offset_top = 246.0
+offset_right = 56.0
+offset_bottom = 276.0
+theme_override_colors/font_color = Color(1, 0.75, 0.3, 1)
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 20
+text = ">"
+
+[node name="VersionLabel" type="Label" parent="." unique_id=111000005]
+offset_left = 64.0
+offset_top = 610.0
+offset_right = 500.0
+offset_bottom = 635.0
+theme_override_colors/font_color = Color(0.55, 0.4, 0.18, 1)
+theme_override_fonts/font = ExtResource("font_1")
+theme_override_font_sizes/font_size = 10
+text = "v 1.8 — Hexa Studio"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1443819826]
+stream = ExtResource("1_l10or")
+autoplay = true
+bus = &"music"
+parameters/looping = true
+
+[node name="SFX_Hover" type="AudioStreamPlayer" parent="." unique_id=400098630]
+stream = ExtResource("sfx_hover")
+
+[node name="SFX_Click" type="AudioStreamPlayer" parent="." unique_id=1332060942]
+stream = ExtResource("sfx_click")
+
+[node name="SFX_Open" type="AudioStreamPlayer" parent="." unique_id=1525690061]
+stream = ExtResource("sfx_open")
