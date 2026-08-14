@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://djhu3cyo1cmpl"]
+
+[ext_resource type="Script" uid="uid://vi003bol5h56" path="res://script/transition_manager.gd" id="1_script"]
+[ext_resource type="Shader" uid="uid://c78w15yic2b0f" path="res://shaders/iris_wipe.gdshader" id="2_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_transition"]
+shader = ExtResource("2_shader")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 0.0
+shader_parameter/softness = 0.05
+shader_parameter/aspect = 1.7778
+shader_parameter/wipe_color = Color(0.03, 0.02, 0.012, 1)
+
+[node name="TransitionManager" type="CanvasLayer" unique_id=1984121445]
+script = ExtResource("1_script")
+
+[node name="TransitionRect" type="ColorRect" parent="." unique_id=1063656899]
+material = SubResource("ShaderMaterial_transition")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
