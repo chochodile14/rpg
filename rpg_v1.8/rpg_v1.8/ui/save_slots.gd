@@ -17,19 +17,7 @@ func _ready() -> void:
 
 
 # ── Animation d'entrée ───────────────────────────────────────────────────────
-# Pourquoi on n'utilise PAS position.x ici :
-#   Les boutons de slot sont dans un HBoxContainer. Un Container gère lui-même
-#   la position de ses enfants sur son axe principal (X pour HBox, Y pour VBox).
-#   Si on écrit child.position.x = -30 avant que le layout soit calculé, le
-#   Container remet tous les enfants à leur position calculée → ils se retrouvent
-#   tous superposés à x=0.
-#
-#   Pour les boutons du bas (dans un VBoxContainer), c'est l'axe Y qui est
-#   contrôlé, donc position.x fonctionnerait — mais on reste cohérent.
-#
-# Solution propre : animer scale:x (0→1) avec pivot_offset au bord gauche.
-#   Le nœud "se déplie" de gauche à droite sans jamais quitter sa case dans
-#   le layout. On combine avec modulate:a pour le fondu.
+
 func _entrance_animation() -> void:
 	var all_nodes: Array = []
 	var slots_box: HBoxContainer = get_node("VBoxContainer/SlotsBox")
@@ -97,6 +85,7 @@ func _refresh_slots() -> void:
 func _on_slot(i: int) -> void:
 	if _delete_mode:
 		return
+	var btn: Button = get_node("VBoxContainer/SlotsBox/Slot%d" % i)
 	var sfx: AudioStreamPlayer = get_node_or_null("SFX_Click")
 	if sfx:
 		sfx.play()
@@ -112,10 +101,20 @@ func _on_slot(i: int) -> void:
 			{"hp": 0, "atk": 0, "def": 0, "crit": 0},
 			{"hp": 0, "atk": 0, "def": 0, "crit": 0},
 		]
-	if Global.cinematic_debut_viewed:
-		get_tree().change_scene_to_file("res://map.tscn")
-	else:
-		get_tree().change_scene_to_file("res://cinematique_debut.tscn")
+
+	# On coupe en douceur la musique du menu (le lecteur audio du hub, notre
+	# parent direct) pendant que l'écran se referme, plutôt qu'un silence brutal.
+	var menu_music: AudioStreamPlayer = get_node_or_null("../AudioStreamPlayer")
+	if menu_music:
+		create_tween().tween_property(menu_music, "volume_db", -40.0, 0.55)
+
+	var target_path := "res://map.tscn"
+	if not Global.cinematic_debut_viewed:
+		target_path = "res://cinematique_debut.tscn"
+
+	# Ferme l'écran en iris à partir du slot cliqué, change de scène, puis
+	# rouvre l'écran sur le monde — plus de coupure instantanée.
+	Transition.change_scene(target_path, btn.global_position + btn.size / 2.0)
 
 
 # ── Clic sur un slot EN MODE SUPPRESSION ─────────────────────────────────────

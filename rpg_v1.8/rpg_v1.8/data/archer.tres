@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CharacterClass" format=3 uid="uid://cfv16d6oy8nuq"]
+
+[ext_resource type="Texture2D" uid="uid://cko77apbn2auw" path="res://art/sprite/paladin.png" id="1_6l0p1"]
+[ext_resource type="Script" uid="uid://d3ffcr2a0i8sl" path="res://autoloads/character_class.gd" id="2_4und0"]
+
+[resource]
+script = ExtResource("2_4und0")
+class_name_display = "elio(provisoir)"
+base_hp = 22.0
+base_atk = 2.0
+base_def = 1.0
+base_crit = 0.15
+battle_visual_scale_correction = 2.0
+portrait_scale_correction = 1.3
+light_dmg_mult = 2.0
+ultimate_dmg_mult = 1.5
+battle_texture = ExtResource("1_6l0p1")
+metadata/_custom_type_script = "uid://d3ffcr2a0i8sl"
