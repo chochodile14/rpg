@@ -1,2 +1,2 @@
-0.1.8
-nouveau menu, et system de visualisation des personnage avec le bouton "F2"
+0.1.9
+
