@@ -1,0 +1,196 @@
+[gd_scene format=4 uid="uid://eqpug5syrrhd"]
+
+[ext_resource type="Texture2D" uid="uid://bkugoy0ofpp2" path="res://art/map/Sprites/Tileset/Floors/Wooden floor_01 .png" id="1_1dal8"]
+[ext_resource type="Texture2D" uid="uid://g3jlcolkxoek" path="res://art/map/Sprites/Tileset/Walls/Walls_01.png" id="2_kwryp"]
+[ext_resource type="Texture2D" uid="uid://csgxy7uo2u3xm" path="res://art/map/Sprites/Tileset/Walls/Wooden door.png" id="3_xws3u"]
+[ext_resource type="Texture2D" uid="uid://dvkkwj2y81lsl" path="res://art/map/Sprites/Tileset/Walls/mieux.png" id="4_psvw2"]
+[ext_resource type="Texture2D" uid="uid://bwm5qt85y433k" path="res://art/map/Woolly Lands FREE pack/pack asset/House_Doors/Doors.png" id="5_yxx2e"]
+[ext_resource type="Texture2D" uid="uid://cjmuqt1ccorus" path="res://art/map/Sprites/Objects/Objects.png" id="6_xws3u"]
+[ext_resource type="Texture2D" uid="uid://cnirff1dlu4j" path="res://art/map/Sprites/Objects/Chest _01.png" id="7_psvw2"]
+[ext_resource type="Texture2D" uid="uid://cyg2sbkd38x43" path="res://art/map/Sprites/Tileset/Walls/rond noir sorti.png" id="8_yxx2e"]
+[ext_resource type="PackedScene" uid="uid://bv4yubv0w5x82" path="res://player/character_body.tscn" id="9_psvw2"]
+[ext_resource type="PackedScene" uid="uid://ci4yuobsqhn5e" path="res://porte_exit.tscn" id="10_yxx2e"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jsk1s"]
+texture = ExtResource("1_1dal8")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_57qmd"]
+sources/0 = SubResource("TileSetAtlasSource_jsk1s")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m2nr8"]
+texture = ExtResource("2_kwryp")
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+5:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -3.2374573, -8, -3.2374573, 3.5971756, 8, 3.5971756, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 3.956892, 8, 3.956892, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 3.956892, 3.4173145, 2.8777409, 3.956892, -8, 8, -8, 8, 8, -8, 8)
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:3/0 = 0
+5:3/0 = 0
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bcmqb"]
+texture = ExtResource("3_xws3u")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xxxxh"]
+texture = ExtResource("4_psvw2")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.5971737, -8, 8, -8, 8, 8, 3.7770329, 8)
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 3.956892, -8, -8, -3.7770348, -8, -4.136751, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lidsj"]
+texture = ExtResource("5_yxx2e")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yxx2e"]
+texture = ExtResource("6_xws3u")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.115198, -8, 5.935337, -8, 5.935337, 6.115198, -5.3957634, 5.935339)
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.4749146, 0.71943474, 8, 0.35971832, 8, 8, -8, 8)
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.4749146, 0.71943474, 8, 0.35971832, 8, 8, -8, 8)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 0, -8, -0.35971642)
+4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 0, -8, -0.35971642)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ynnhx"]
+texture = ExtResource("7_psvw2")
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.115198, -4.4964676, 5.5756187, -5.036044, 5.935337, 6.115198, -5.3957634, 5.935339)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jor1l"]
+texture = ExtResource("8_yxx2e")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -1.4388695, -6.115198, -6.115196, -1.2590122, -8, 3.057598, -5.935337, 8, -5.5756197, 8, -1.4388695, 4.856186, 5.935339, -2.3381634, 6.115198)
+
+[sub_resource type="TileSet" id="TileSet_d0u6y"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_m2nr8")
+sources/1 = SubResource("TileSetAtlasSource_bcmqb")
+sources/2 = SubResource("TileSetAtlasSource_xxxxh")
+sources/3 = SubResource("TileSetAtlasSource_lidsj")
+sources/4 = SubResource("TileSetAtlasSource_yxx2e")
+sources/5 = SubResource("TileSetAtlasSource_ynnhx")
+sources/6 = SubResource("TileSetAtlasSource_jor1l")
+
+[node name="maison" type="Node2D" unique_id=1792227538]
+
+[node name="maison" type="Node2D" parent="." unique_id=1311502798]
+position = Vector2(1, -1)
+
+[node name="floor" type="TileMapLayer" parent="maison" unique_id=1484148160]
+physics_interpolation_mode = 1
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAABAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAALAAEAAAAAAAAAAAALAAIAAAAAAAAAAAALAAMAAAAAAAAAAAALAAQAAAAAAAAAAAALAAUAAAAAAAAAAAALAAYAAAAAAAAAAAALAAcAAAABAAAAAAAKAAcAAAABAAAAAAAJAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAIAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAADAAgAAAAAAAAAAAACAAgAAAAAAAAAAAABAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAABAAAAAAAJAAgAAAAAAAAAAAAKAAgAAAAAAAAAAAALAAgAAAABAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAAKAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAMAAAABAAAAAAAFAAMAAAABAAAAAAAEAAMAAAAAAAAAAAADAAMAAAAAAAAAAAACAAMAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAABAAYAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAABAAAAAAACAAYAAAABAAAAAAACAAUAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAADAAYAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAUAAAABAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAABAAAAAAAFAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAMAAAABAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAHAAcAAAAAAAAAAAAJAAYAAAAAAAAAAAAJAAUAAAAAAAAAAAAJAAQAAAAAAAAAAAAJAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAYAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_57qmd")
+
+[node name="wall" type="TileMapLayer" parent="maison" unique_id=83974165]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAALAAAAAAACAAAAAAALAAgAAAACAAMAAAALAAcAAAACAAIAAAAAAAgAAAAAAAMAAAAAAAcAAAAAAAIAAAABAAgAAAAAAAMAAAACAAgAAAAAAAMAAAADAAgAAAAAAAMAAAAEAAgAAAAAAAMAAAABAAcAAAABAAIAAAACAAcAAAABAAIAAAADAAcAAAABAAIAAAAEAAcAAAABAAIAAAAGAAcAAAABAAIAAAAHAAcAAAABAAIAAAAKAAcAAAABAAIAAAAJAAcAAAABAAIAAAAIAAcAAAABAAIAAAAKAAgAAAABAAMAAAAJAAgAAAABAAMAAAAIAAgAAAABAAMAAAAHAAgAAAABAAMAAAAGAAgAAAABAAMAAAAAAAYAAgAAAAEAAAAAAAUAAgAAAAEAAAAAAAQAAgAAAAEAAAAAAAMAAgAAAAEAAAAAAAIAAgAAAAEAAAAAAAEAAgAAAAEAAAALAAEAAgACAAEAAAALAAIAAgACAAEAAAALAAMAAgACAAEAAAALAAQAAgACAAEAAAALAAUAAgACAAEAAAALAAYAAgACAAEAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAAFAAAAAAABAAAAAAAGAAAAAAABAAAAAAAHAAAAAAABAAAAAAAIAAAAAAABAAAAAAAJAAAAAAABAAAAAAAKAAAAAAABAAAAAAABAAEABAABAAMAAAABAAIABAABAAQAAAACAAEABAABAAMAAAACAAIABAABAAQAAAAFAAIABAADAAMAAAAFAAMABAADAAQAAAAGAAIABAAEAAMAAAAGAAMABAAEAAQAAAAJAAEABAACAAEAAAAKAAEABAACAAEAAAAKAAIABAACAAEAAAADAAEABQAAAAAAAAAFAAgABgAAAAAAAAA=")
+tile_set = SubResource("TileSet_d0u6y")
+
+[node name="character_beta" parent="." unique_id=245361564 instance=ExtResource("9_psvw2")]
+position = Vector2(53.000008, 87.00001)
+scale = Vector2(0.37, 0.37)
+walk_speed = 150
+
+[node name="porte exit" parent="." unique_id=1924529962 instance=ExtResource("10_yxx2e")]
+position = Vector2(89, 124)
+scale = Vector2(0.5, 0.5)

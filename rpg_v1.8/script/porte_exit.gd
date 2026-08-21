@@ -1,7 +1,7 @@
 extends StaticBody2D
 
-@export var target_scene: String = "res://maison.tscn"
-@export var spawn_position: Vector2 = Vector2(88.0, 119.0)
+@export var target_scene: String = "res://map.tscn"
+@export var spawn_position: Vector2 = Vector2(90.0, -112.0)
 
 
 var entered = false

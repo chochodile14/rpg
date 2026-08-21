@@ -24,7 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://2b0kiv3nh0o7" path="res://pnj.tscn" id="17_r5om4"]
 [ext_resource type="PackedScene" uid="uid://b1hedugxnujci" path="res://inventory.tscn" id="20_4sf5t"]
 [ext_resource type="PackedScene" uid="uid://do1fubarqu1td" path="res://stats_viewer.tscn" id="24_3mr0t"]
-[ext_resource type="PackedScene" uid="uid://b41xe0tln6vc2" path="res://rigid_body_2d.tscn" id="25_6sq2s"]
+[ext_resource type="Script" uid="uid://bmpraqthiijw6" path="res://marker_2d.gd" id="24_4v3wx"]
+[ext_resource type="PackedScene" uid="uid://b41xe0tln6vc2" path="res://porte_entry.tscn" id="25_6sq2s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1wlr"]
 texture = ExtResource("2_wbpbn")
@@ -4882,7 +4883,7 @@ position = Vector2(178, -1085)
 position = Vector2(93, -1481)
 
 [node name="character_beta" parent="." unique_id=422991297 instance=ExtResource("2_e0an3")]
-position = Vector2(209, 12)
+position = Vector2(88, -128)
 
 [node name="StatsViewer" parent="character_beta" unique_id=770258242 instance=ExtResource("24_3mr0t")]
 visible = false
@@ -4902,11 +4903,12 @@ offset_right = -29.0
 offset_bottom = -25.0
 
 [node name="RigidBody2D" parent="." unique_id=1615586881 instance=ExtResource("25_6sq2s")]
-position = Vector2(87, -133)
+position = Vector2(89, -124)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=174550552]
-position = Vector2(603, 315)
+position = Vector2(90, -112)
 gizmo_extents = 4000.0
+script = ExtResource("24_4v3wx")
 
 [node name="mob" parent="." unique_id=254019950 instance=ExtResource("3_e0an3")]
 position = Vector2(500, 1000)

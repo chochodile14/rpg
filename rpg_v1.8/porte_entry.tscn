@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://b41xe0tln6vc2"]
 
 [ext_resource type="Script" uid="uid://m5a7dwycmubd" path="res://script/colision_porte.gd" id="1_wltir"]
+[ext_resource type="PackedScene" uid="uid://c1a7p5mkmwqxj" path="res://ui/interaction_prompt.tscn" id="2_jiowd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wltir"]
 radius = 32.0
 height = 86.0
 
-[node name="RigidBody2D" type="StaticBody2D" unique_id=2000503996]
+[node name="porte entrée" type="StaticBody2D" unique_id=2000503996]
 script = ExtResource("1_wltir")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=228937279]
@@ -15,6 +16,9 @@ script = ExtResource("1_wltir")
 light_mask = 2
 visibility_layer = 2
 shape = SubResource("CapsuleShape2D_wltir")
+
+[node name="InteractionPrompt" parent="." unique_id=1160988177 instance=ExtResource("2_jiowd")]
+position = Vector2(48, -31)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

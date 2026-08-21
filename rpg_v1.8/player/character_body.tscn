@@ -242,3 +242,19 @@ shape = SubResource("CapsuleShape2D_f3kxg")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=360689876]
 position = Vector2(1.5, 8.5)
 zoom = Vector2(1.5, 1.5)
+
+[node name="FootstepDust" type="CPUParticles2D" parent="." unique_id=2131979177]
+modulate = Color(1, 0.8, 0.36862746, 1)
+position = Vector2(-1, 23)
+emitting = false
+amount = 4
+lifetime = 0.4
+direction = Vector2(0, -1)
+spread = 60.0
+gravity = Vector2(0, 40)
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+scale_amount_min = 2.5
+scale_amount_max = 5.0
+
+[node name="FootstepTimer" type="Timer" parent="." unique_id=488490218]
