@@ -447,6 +447,8 @@ var current_slot: int = 0
 # ── Position combat / map ─────────────────────────────────────────────────────
 var battle_mob_position: Vector2 = Vector2.ZERO
 var player_spawn_position: Vector2 = Vector2.ZERO
+var return_scene_path: String = ""
+var return_position: Vector2 = Vector2.ZERO
 var player: Node = null
 var is_tutorial: bool = false
 

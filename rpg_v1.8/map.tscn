@@ -4922,3 +4922,12 @@ stream = ExtResource("5_urblq")
 autoplay = true
 bus = &"music"
 parameters/looping = false
+
+[node name="RigidBody2D4" parent="." unique_id=2000503996 instance=ExtResource("25_6sq2s")]
+position = Vector2(279, -388)
+
+[node name="RigidBody2D3" parent="." unique_id=1914547187 instance=ExtResource("25_6sq2s")]
+position = Vector2(1045, -443)
+
+[node name="RigidBody2D2" parent="." unique_id=878488854 instance=ExtResource("25_6sq2s")]
+position = Vector2(564, -58)
