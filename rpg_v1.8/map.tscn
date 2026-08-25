@@ -4902,9 +4902,6 @@ offset_top = -25.0
 offset_right = -29.0
 offset_bottom = -25.0
 
-[node name="RigidBody2D" parent="." unique_id=1615586881 instance=ExtResource("25_6sq2s")]
-position = Vector2(89, -124)
-
 [node name="Marker2D" type="Marker2D" parent="." unique_id=174550552]
 position = Vector2(90, -112)
 gizmo_extents = 4000.0
@@ -4923,11 +4920,29 @@ autoplay = true
 bus = &"music"
 parameters/looping = false
 
-[node name="RigidBody2D4" parent="." unique_id=2000503996 instance=ExtResource("25_6sq2s")]
+[node name="LittleHouse" parent="." unique_id=1615586881 instance=ExtResource("25_6sq2s")]
+position = Vector2(89, -124)
+
+[node name="LittleHouse2" parent="." unique_id=2000503996 instance=ExtResource("25_6sq2s")]
+position = Vector2(764, -1545)
+
+[node name="LittleHouse3" parent="." unique_id=688740919 instance=ExtResource("25_6sq2s")]
 position = Vector2(279, -388)
 
-[node name="RigidBody2D3" parent="." unique_id=1914547187 instance=ExtResource("25_6sq2s")]
+[node name="LittleHouse4" parent="." unique_id=1914547187 instance=ExtResource("25_6sq2s")]
 position = Vector2(1045, -443)
 
-[node name="RigidBody2D2" parent="." unique_id=878488854 instance=ExtResource("25_6sq2s")]
+[node name="LittleHouse5" parent="." unique_id=878488854 instance=ExtResource("25_6sq2s")]
 position = Vector2(564, -58)
+
+[node name="LittleHouse6" parent="." unique_id=1177215560 instance=ExtResource("25_6sq2s")]
+position = Vector2(178, -1089)
+
+[node name="LittleHouse7" parent="." unique_id=2111301989 instance=ExtResource("25_6sq2s")]
+position = Vector2(-333, -1641)
+
+[node name="LittleHouse8" parent="." unique_id=523920509 instance=ExtResource("25_6sq2s")]
+position = Vector2(1462, -1014)
+
+[node name="LittleHouse9" parent="." unique_id=1668892095 instance=ExtResource("25_6sq2s")]
+position = Vector2(-262, -731)
