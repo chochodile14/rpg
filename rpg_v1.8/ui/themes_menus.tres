@@ -1,0 +1,110 @@
+[gd_resource type="Theme" format=3 uid="uid://l1aujuv3vv21"]
+
+[ext_resource type="Texture2D" uid="uid://ck6fevdqppikd" path="res://art/ui/kenney_fantasy-ui-borders/PNG/Default/Border/panel-border-004.png" id="1_e7815"]
+[ext_resource type="Texture2D" uid="uid://na7b3l8nr84" path="res://art/ui/kenney_fantasy-ui-borders/PNG/Double/Border/panel-border-000.png" id="3_5voi6"]
+[ext_resource type="Texture2D" uid="uid://dt62e6h4pn32x" path="res://art/ui/Fantasy-UI.png" id="3_p23g7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5voi6"]
+texture = ExtResource("1_e7815")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(0.2901961, 0.27058825, 0.23921569, 0.54901963)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p23g7"]
+texture = ExtResource("1_e7815")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(1, 0.8627451, 0.6509804, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f8roq"]
+texture = ExtResource("1_e7815")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(0.8509804, 0.72156864, 0.4509804, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ox2h"]
+texture = ExtResource("1_e7815")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(0.54901963, 0.3529412, 0.12156863, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b4tbw"]
+texture = ExtResource("1_e7815")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(0, 0, 48.06204, 48)
+modulate_color = Color(0.16470589, 0.14117648, 0.10980392, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bps3l"]
+texture = ExtResource("1_e7815")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(0.54901963, 0.3529412, 0.12156863, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j6r5"]
+atlas = ExtResource("3_p23g7")
+region = Rect2(176, 160, 48, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3lj6o"]
+texture = SubResource("AtlasTexture_3j6r5")
+texture_margin_left = 3.0
+texture_margin_top = 4.0
+texture_margin_right = 3.0
+texture_margin_bottom = 4.0
+modulate_color = Color(1, 0.63529414, 0.41568628, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7815"]
+atlas = ExtResource("3_p23g7")
+region = Rect2(175.00037, 159.71173, 49.090942, 16.430939)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1k4ii"]
+texture = SubResource("AtlasTexture_e7815")
+texture_margin_left = 3.0
+texture_margin_top = 4.0
+texture_margin_right = 3.0
+texture_margin_bottom = 4.0
+modulate_color = Color(1, 0.7411765, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p23g7"]
+atlas = ExtResource("3_p23g7")
+region = Rect2(176.56973, 85.46808, 47.087036, 5.1439514)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_82xqq"]
+texture = SubResource("AtlasTexture_p23g7")
+texture_margin_left = 3.0
+texture_margin_top = 4.0
+texture_margin_right = 3.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2adma"]
+texture = ExtResource("3_5voi6")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(0.09019608, 0.078431375, 0.0627451, 1)
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_5voi6")
+Button/styles/focus = SubResource("StyleBoxTexture_p23g7")
+Button/styles/hover = SubResource("StyleBoxTexture_f8roq")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_5ox2h")
+Button/styles/normal = SubResource("StyleBoxTexture_b4tbw")
+Button/styles/pressed = SubResource("StyleBoxTexture_bps3l")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_3lj6o")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_1k4ii")
+HSlider/styles/slider = SubResource("StyleBoxTexture_82xqq")
+Panel/styles/panel = SubResource("StyleBoxTexture_2adma")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_2adma")

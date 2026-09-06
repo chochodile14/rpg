@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://qdl1o1fy4y1m"]
 
 [ext_resource type="Script" uid="uid://vevgiyy4668s" path="res://script/hub.gd" id="0_script"]
-[ext_resource type="AudioStream" uid="uid://yl6hn5n3wlnt" path="res://audio/musique varier/menu-sacha-2.2.ogg" id="1_l10or"]
 [ext_resource type="Texture2D" uid="uid://bgj1epv16l0sl" path="res://art/cinematic/castle/Dracula's Castle(1920X1080).png" id="bg_castle"]
 [ext_resource type="FontFile" uid="uid://crre5antcpq43" path="res://art/fonts/firstorder.ttf" id="font_1"]
 [ext_resource type="AudioStream" uid="uid://dckk4vslrnkb" path="res://audio/musique varier/sfx/freesound_community-menu-sound-1-98856.mp3" id="sfx_click"]
@@ -278,12 +277,6 @@ theme_override_colors/font_color = Color(0.55, 0.4, 0.18, 1)
 theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 10
 text = "v 1.8 — Hexa Studio"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1443819826]
-stream = ExtResource("1_l10or")
-autoplay = true
-bus = &"music"
-parameters/looping = true
 
 [node name="SFX_Hover" type="AudioStreamPlayer" parent="." unique_id=400098630]
 stream = ExtResource("sfx_hover")

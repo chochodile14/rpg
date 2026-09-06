@@ -4916,9 +4916,7 @@ navigation_polygon = SubResource("NavigationPolygon_p5pve")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=108247924]
 stream = ExtResource("5_urblq")
-autoplay = true
-bus = &"music"
-parameters/looping = false
+parameters/looping = true
 
 [node name="LittleHouse" parent="." unique_id=1615586881 instance=ExtResource("25_6sq2s")]
 position = Vector2(89, -124)

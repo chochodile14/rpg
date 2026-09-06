@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 Global="*uid://ce1mpl1bdypin"
 Transition="*res://transition_manager.tscn"
+AudioManager="*uid://cyq80a742jiff"
 
 [display]
 

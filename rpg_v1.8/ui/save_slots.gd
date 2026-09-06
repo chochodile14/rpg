@@ -11,6 +11,8 @@ const COLOR_GOLD_DIM    := Color(0.85, 0.72, 0.45, 1.0)
 const COLOR_RED_SELECT  := Color(1.0,  0.35, 0.15, 1.0)
 
 func _ready() -> void:
+	$SFX_Click.bus = "SFX"
+	$SFX_Hover.bus = "SFX"
 	_refresh_slots()
 	_update_delete_button()
 	_entrance_animation()

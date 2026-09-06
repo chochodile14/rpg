@@ -17,6 +17,10 @@ const SaveSlotsScene = preload("res://ui/save_slots.tscn")
 var _current_button : Button = null
 
 func _ready() -> void:
+	sfx_hover_player.bus = "SFX"
+	sfx_click_player.bus = "SFX"
+	sfx_open_player.bus = "SFX"
+	AudioManager.play_menu_music(preload("res://audio/musique varier/menu-sacha-2.2.ogg"))
 	_setup_particles()
 	_connect_buttons()
 	_setup_background_pan()
