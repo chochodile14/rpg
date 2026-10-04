@@ -260,7 +260,7 @@ shape = SubResource("CapsuleShape2D_y1dt5")
 
 [node name="InteractionPrompt" parent="." unique_id=1160988177 instance=ExtResource("4_sjljv")]
 position = Vector2(314, 135)
-scale = Vector2(0.35, 0.35)
+scale = Vector2(0.15, 0.15)
 
 [connection signal="pressed" from="CanvasLayer/DialogueBox/suivant" to="." method="_on_suivant_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

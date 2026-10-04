@@ -93,7 +93,6 @@ text = "exit"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=149267975]
 stream = ExtResource("5_6t8i5")
 autoplay = true
-bus = &"music"
 parameters/looping = true
 
 [connection signal="enemy_turn_done" from="ennemies_groupe" to="player group" method="_on_ennemies_groupe_enemy_turn_done"]

@@ -23,6 +23,7 @@ var _ult_frames: Array = []
 
 func _ready():
 	print("battle lancé")
+	AudioManager.play_menu_music(preload("res://audio/battle/rpg.ogg"))
 	for r in ULT_BAR_FRAME_RECTS:
 		var tex := AtlasTexture.new()
 		tex.atlas = ULT_BAR_SHEET

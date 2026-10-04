@@ -30,6 +30,7 @@ var _triggered     : bool    = false
 
 # ═════════════════════════════════════════════════════════════════════════════
 func _ready() -> void:
+	
 	_spawn_pos = global_position
 	lock_rotation = true
 
@@ -52,7 +53,8 @@ func _ready() -> void:
 	await get_tree().process_frame
 	await get_tree().process_frame
 	freeze = false
-
+	contact_area.monitoring = true
+	detect_zone.monitoring = true
 	for body in contact_area.get_overlapping_bodies():
 		if body.is_in_group("Player"):
 			_on_area_2d_body_entered(body)
