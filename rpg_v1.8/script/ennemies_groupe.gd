@@ -183,3 +183,17 @@ func _move_index_to_alive_from(start: int) -> void:
 			index = candidate
 			ennemies[index].focus()
 			return
+func _unhandled_input(event: InputEvent) -> void:
+	if not OS.is_debug_build():
+		return
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_F and Input.is_key_pressed(KEY_4):
+			_debug_kill_all_enemies()
+
+func _debug_kill_all_enemies() -> void:
+	for enemy in _get_alive_ennemies():
+		enemy.take_damage(99999.0)
+	if _get_alive_ennemies().size() == 0:
+		is_battling = false
+		waiting_for_attack_choice = false
+		emit_signal("battle_won")

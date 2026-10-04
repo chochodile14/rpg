@@ -9,7 +9,45 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_1s0ql")
 
-[node name="GridContainer" type="GridContainer" parent="." unique_id=926166663]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="HeroList" type="HBoxContainer" parent="." unique_id=995148387]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 175.0
+offset_top = -2.0
+offset_right = 175.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="DetailPanel" type="VBoxContainer" parent="." unique_id=1529986115]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -160.0
+offset_right = 111.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="DetailPanel" unique_id=1424639271]
+custom_minimum_size = Vector2(150, 250)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="DetailPanel" unique_id=393590071]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="DetailPanel" unique_id=926166663]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="DetailPanel" unique_id=1050221054]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6

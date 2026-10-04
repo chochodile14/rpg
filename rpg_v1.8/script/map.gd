@@ -15,6 +15,10 @@ var paused         : bool = false
 var _aptitude_menu        = null
 
 func _ready() -> void:
+	print("Nombre d'AudioStreamPlayer actifs dans l'arbre : ", get_tree().get_nodes_in_group("_debug_audio").size())
+	for node in get_tree().root.get_children():
+		print("Enfant racine : ", node.name)
+	AudioManager.play_menu_music(preload("res://audio/musique varier/music-medieval-chocho.ogg"))
 	# Repositionne le joueur si on revient d'un combat
 	if Global.player_spawn_position != Vector2.ZERO:
 		var player_node = get_node_or_null("character_beta")

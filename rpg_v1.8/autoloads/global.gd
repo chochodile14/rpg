@@ -447,6 +447,8 @@ var current_slot: int = 0
 # ── Position combat / map ─────────────────────────────────────────────────────
 var battle_mob_position: Vector2 = Vector2.ZERO
 var player_spawn_position: Vector2 = Vector2.ZERO
+var return_scene_path: String = ""
+var return_position: Vector2 = Vector2.ZERO
 var player: Node = null
 var is_tutorial: bool = false
 
@@ -479,9 +481,9 @@ const CRIT_PER_UPGRADE: float = 0.05
 
 func _ready() -> void:
 	player_classes = [
-		load("res://data/mage.tres"),
-		load("res://data/paladin.tres"),
-		load("res://data/guerrier.tres"),
+		load("res://data/voyageur.tres"),
+		load("res://data/chevalier.tres"),
+		load("res://data/archer.tres"),
 		load("res://data/dragonier.tres"),
 	]
 

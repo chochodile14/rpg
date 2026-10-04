@@ -2,7 +2,52 @@
 
 [ext_resource type="Texture2D" uid="uid://bi8vl5iijwhja" path="res://art/map/Woolly Lands FREE pack/pack asset/Sprite Player/1 Sprite woman walk.png" id="1_f50pn"]
 [ext_resource type="Script" uid="uid://d4kcvcmxdcco4" path="res://script/png.gd" id="1_ij6vw"]
+[ext_resource type="PackedScene" uid="uid://c1a7p5mkmwqxj" path="res://ui/interaction_prompt.tscn" id="4_sjljv"]
 [ext_resource type="FontFile" uid="uid://crre5antcpq43" path="res://art/fonts/firstorder.ttf" id="font_1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.086, 0.067, 0.039, 0.97)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.78, 0.59, 0.23, 0.55)
+corner_radius_top_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+bg_color = Color(0.086, 0.067, 0.039, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.55, 0.4, 0.15, 0.7)
+corner_radius_top_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+bg_color = Color(0.78, 0.59, 0.23, 0.3)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.91, 0.73, 0.36, 1)
+corner_radius_top_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.78, 0.59, 0.23, 0.18)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.78, 0.59, 0.23, 1)
+corner_radius_top_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 3
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pcvj2"]
 atlas = ExtResource("1_f50pn")
@@ -69,7 +114,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jv68x")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -86,7 +131,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dd465")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk_down",
 "speed": 5.0
 }, {
@@ -103,7 +148,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6ct3r")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk_left",
 "speed": 5.0
 }, {
@@ -120,7 +165,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k85er")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk_up",
 "speed": 5.0
 }]
@@ -132,62 +177,6 @@ height = 27.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y1dt5"]
 radius = 29.0
 height = 58.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
-bg_color = Color(0.086, 0.067, 0.039, 0.97)
-border_width_left = 2
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.78, 0.59, 0.23, 0.55)
-corner_radius_top_left = 0
-corner_radius_top_right = 8
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 8
-corner_detail = 4
-expand_margin_left = 0.0
-expand_margin_top = 0.0
-expand_margin_right = 0.0
-expand_margin_bottom = 0.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
-bg_color = Color(0.086, 0.067, 0.039, 0.0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.55, 0.40, 0.15, 0.7)
-corner_radius_top_left = 0
-corner_radius_top_right = 4
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 4
-corner_detail = 3
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
-bg_color = Color(0.78, 0.59, 0.23, 0.18)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.78, 0.59, 0.23, 1.0)
-corner_radius_top_left = 0
-corner_radius_top_right = 4
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 4
-corner_detail = 3
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
-bg_color = Color(0.78, 0.59, 0.23, 0.30)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.91, 0.73, 0.36, 1.0)
-corner_radius_top_left = 0
-corner_radius_top_right = 4
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 4
-corner_detail = 3
 
 [node name="pnj" type="CharacterBody2D" unique_id=957045931]
 scale = Vector2(2, 2)
@@ -209,10 +198,10 @@ offset_left = 18.0
 offset_top = 8.0
 offset_right = 700.0
 offset_bottom = 32.0
-text = "Habitante de l'Empire"
+theme_override_colors/font_color = Color(0.54, 0.41, 0.16, 1)
 theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 9
-theme_override_colors/font_color = Color(0.54, 0.41, 0.16, 1.0)
+text = "Habitante de l'Empire"
 
 [node name="SepLine" type="ColorRect" parent="CanvasLayer/DialogueBox" unique_id=9010002]
 layout_mode = 0
@@ -228,11 +217,10 @@ offset_left = 18.0
 offset_top = 44.0
 offset_right = 882.0
 offset_bottom = 118.0
+theme_override_colors/font_color = Color(0.91, 0.82, 0.58, 1)
 theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 13
-theme_override_colors/font_color = Color(0.91, 0.82, 0.58, 1.0)
 autowrap_mode = 2
-
 
 [node name="suivant" type="Button" parent="CanvasLayer/DialogueBox" unique_id=1016479404]
 layout_mode = 0
@@ -240,16 +228,16 @@ offset_left = 806.0
 offset_top = 112.0
 offset_right = 900.0
 offset_bottom = 134.0
-text = "Next"
+theme_override_colors/font_color = Color(0.78, 0.59, 0.23, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.88, 0.55, 1)
+theme_override_colors/font_hover_color = Color(0.91, 0.73, 0.36, 1)
 theme_override_fonts/font = ExtResource("font_1")
 theme_override_font_sizes/font_size = 9
-theme_override_colors/font_color = Color(0.78, 0.59, 0.23, 1.0)
-theme_override_colors/font_hover_color = Color(0.91, 0.73, 0.36, 1.0)
-theme_override_colors/font_pressed_color = Color(1.0, 0.88, 0.55, 1.0)
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 theme_override_styles/focus = SubResource("StyleBoxFlat_btn_normal")
+text = "Next"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=192228906]
 texture_filter = 1
@@ -269,6 +257,10 @@ light_mask = 2
 visibility_layer = 2
 position = Vector2(295, 146)
 shape = SubResource("CapsuleShape2D_y1dt5")
+
+[node name="InteractionPrompt" parent="." unique_id=1160988177 instance=ExtResource("4_sjljv")]
+position = Vector2(314, 135)
+scale = Vector2(0.35, 0.35)
 
 [connection signal="pressed" from="CanvasLayer/DialogueBox/suivant" to="." method="_on_suivant_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

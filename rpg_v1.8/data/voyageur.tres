@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CharacterClass" format=3 uid="uid://b3b3ipgrtff7h"]
+
+[ext_resource type="Texture2D" uid="uid://dmktvoqtlsveb" path="res://art/sprite/wizard.png" id="1_e2h61"]
+[ext_resource type="Script" uid="uid://d3ffcr2a0i8sl" path="res://autoloads/character_class.gd" id="2_rmlwa"]
+
+[resource]
+script = ExtResource("2_rmlwa")
+class_name_display = "mage"
+base_hp = 15.0
+base_atk = 1.0
+base_def = 1.0
+base_crit = 0.05
+battle_visual_scale_correction = 2.5
+portrait_scale_correction = 1.4
+ultimate_dmg_mult = 1.5
+battle_texture = ExtResource("1_e2h61")
+metadata/_custom_type_script = "uid://d3ffcr2a0i8sl"

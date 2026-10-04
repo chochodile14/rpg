@@ -1,26 +1,4 @@
-# mob/mob.gd  ─────────────────────────────────────────────────────────────────
-#
-# MACHINE À ÉTATS DU MONSTRE :
-#
-#   WANDER  →  le monstre se promène aléatoirement à vitesse lente.
-#              Il choisit un point aléatoire, s'y dirige, attend 1-3 s puis
-#              recommence. Animation "walk" ralentie (speed_scale 0.5).
-#
-#   ALERT   →  il vient de repérer le joueur. Il s'arrête, "!" apparaît,
-#              il attend 0.5 s pour laisser le temps de fuir puis…
-#
-#   CHASE   →  il court vers le joueur. Le sprite se retourne SEULEMENT si le
-#              déplacement est principalement horizontal (|dx| > |dy|).
-#              Si le joueur est surtout en haut/bas, pas de flip.
-#              Animation "walk" à pleine vitesse (speed_scale 1.0).
-#
-#   DEAD    →  après un combat ou un respawn en cours. Tout désactivé.
-#
-# DÉCLENCHEMENT DU COMBAT :
-#   La petite Area2D de contact (rayon ~40px) déclenche le combat quand
-#   elle touche le joueur. Le monstre disparaît immédiatement et réapparaît
-#   après `respawn_delay` secondes à sa position initiale.
-#
+
 # ─────────────────────────────────────────────────────────────────────────────
 
 extends RigidBody2D
@@ -69,12 +47,21 @@ func _ready() -> void:
 	# Attend 2 frames avant d'activer les collisions
 	# → empêche le déclenchement immédiat au chargement
 	freeze = true
+	contact_area.monitoring = false
+	detect_zone.monitoring = false
 	await get_tree().process_frame
 	await get_tree().process_frame
 	freeze = false
 
-	_set_state(State.WANDER)
+	for body in contact_area.get_overlapping_bodies():
+		if body.is_in_group("Player"):
+			_on_area_2d_body_entered(body)
 
+	for body in detect_zone.get_overlapping_bodies():
+		if body.is_in_group("Player"):
+			_on_detection_zone_body_entered(body)
+
+	_set_state(State.WANDER)
 
 # ═════════════════════════════════════════════════════════════════════════════
 func _physics_process(_delta: float) -> void:

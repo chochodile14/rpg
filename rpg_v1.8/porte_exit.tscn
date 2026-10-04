@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ci4yuobsqhn5e"]
+
+[ext_resource type="PackedScene" uid="uid://c1a7p5mkmwqxj" path="res://ui/interaction_prompt.tscn" id="1_88hko"]
+[ext_resource type="Script" uid="uid://dynfdvvijq0oc" path="res://script/porte_exit.gd" id="1_o4lp8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o4lp8"]
+radius = 21.0
+height = 62.0
+
+[node name="porte exit" type="StaticBody2D" unique_id=1924529962]
+script = ExtResource("1_o4lp8")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=248309245]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=989672864]
+shape = SubResource("CapsuleShape2D_o4lp8")
+
+[node name="InteractionPrompt" parent="." unique_id=1160988177 instance=ExtResource("1_88hko")]
+position = Vector2(28, -28)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
