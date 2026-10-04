@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bilt0dbun2q4r" path="res://script/torch.gd" id="1_pa17o"]
 [ext_resource type="Texture2D" uid="uid://bl7eqfak0lfh4" path="res://art/torch.png" id="2_s1444"]
+[ext_resource type="Script" uid="uid://cpa2qb3trjq4k" path="res://addons/lit/nodes/lit_point_light_2d.gd" id="3_w3qnr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w3qnr"]
 atlas = ExtResource("2_s1444")
@@ -221,19 +222,6 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_d0u6y"]
-offsets = PackedFloat32Array(0, 0.44311377, 1)
-colors = PackedColorArray(1, 0.68235296, 0.47058824, 0.7372549, 0.8980392, 0.80784315, 0.31764707, 0.5882353, 1, 0.8980392, 0.25882354, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_57qmd"]
-gradient = SubResource("Gradient_d0u6y")
-width = 200
-height = 200
-use_hdr = true
-fill = 1
-fill_from = Vector2(0.5356125, 0.52136755)
-fill_to = Vector2(1, 0.52136755)
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
 radius = 4.0
 height = 16.0
@@ -249,22 +237,18 @@ animation = &"fire_on"
 frame = 28
 frame_progress = 0.79972297
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1056108504]
-position = Vector2(-18.5, -13)
-scale = Vector2(0.68500006, 0.95)
-color = Color(0.8977666, 0.80946815, 0.31711304, 1)
-energy = 0.94
-range_z_max = 1000
-range_layer_min = -4
-range_layer_max = 4
+[node name="LitPointLight2D" type="Node2D" parent="." unique_id=1343431553]
+script = ExtResource("3_w3qnr")
+lit_version = "1.1.5"
+color = Color(1, 0.6039216, 0.23529412, 1)
+energy = 10.0
+range = 300.0
 shadow_enabled = true
-shadow_color = Color(0.15523142, 0.14589286, 4.813075e-08, 1)
-shadow_filter = 2
-shadow_filter_smooth = 8.5
-texture = SubResource("GradientTexture2D_57qmd")
+metadata/_custom_type_script = "uid://cpa2qb3trjq4k"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1116166351]
+position = Vector2(-1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=441875083]
-position = Vector2(-13, -6)
+position = Vector2(-12, -6)
 shape = SubResource("CapsuleShape2D_g4v7s")

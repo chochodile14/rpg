@@ -1,7 +1,18 @@
 @tool
 @icon("res://addons/lit/icons/lit_point_light_2d.svg")
+
 extends Node2D
 class_name LitPointLight2D
+
+var base_energy := 1.3
+var t := randf() * 100.0  # décale chaque torche pour qu'elles ne scintillent pas en même temps
+
+func _process(delta):
+	t += delta
+	energy = base_energy + sin(t * 9.0) * 0.08 + sin(t * 23.0) * 0.05
+
+
+
 
 ## A point light for the Lit system.
 ##

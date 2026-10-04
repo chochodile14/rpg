@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://eqpug5syrrhd"]
 
 [ext_resource type="Texture2D" uid="uid://bkugoy0ofpp2" path="res://art/map/Sprites/Tileset/Floors/Wooden floor_01 .png" id="1_1dal8"]
+[ext_resource type="Script" uid="uid://dtbtq2iowg33y" path="res://addons/lit/nodes/lit_canvas_modulate.gd" id="1_m2nr8"]
 [ext_resource type="Texture2D" uid="uid://g3jlcolkxoek" path="res://art/map/Sprites/Tileset/Walls/Walls_01.png" id="2_kwryp"]
+[ext_resource type="Shader" uid="uid://cadnte8s5ipk7" path="res://addons/lit/shaders/receiver/lit_receiver_fast.gdshader" id="3_odoq1"]
 [ext_resource type="Texture2D" uid="uid://csgxy7uo2u3xm" path="res://art/map/Sprites/Tileset/Walls/Wooden door.png" id="3_xws3u"]
 [ext_resource type="Texture2D" uid="uid://dvkkwj2y81lsl" path="res://art/map/Sprites/Tileset/Walls/mieux.png" id="4_psvw2"]
 [ext_resource type="Texture2D" uid="uid://bwm5qt85y433k" path="res://art/map/Woolly Lands FREE pack/pack asset/House_Doors/Doors.png" id="5_yxx2e"]
@@ -11,6 +13,14 @@
 [ext_resource type="PackedScene" uid="uid://bv4yubv0w5x82" path="res://player/character_body.tscn" id="9_psvw2"]
 [ext_resource type="PackedScene" uid="uid://ci4yuobsqhn5e" path="res://porte_exit.tscn" id="10_yxx2e"]
 [ext_resource type="PackedScene" uid="uid://bxjpxirxihvhx" path="res://torch.tscn" id="11_jsk1s"]
+[ext_resource type="Script" uid="uid://djrtgftop1i8a" path="res://addons/lit/nodes/lit_post_process.gd" id="14_k1shp"]
+[ext_resource type="Script" uid="uid://behhf75ah8gi3" path="res://addons/lit/nodes/post/lit_post_auto_exposure.gd" id="15_dboeo"]
+[ext_resource type="Script" uid="uid://3ghrmclc08m8" path="res://addons/lit/nodes/post/lit_post_bloom.gd" id="16_fvtfk"]
+[ext_resource type="Script" uid="uid://bqtkd0r2ptxwt" path="res://addons/lit/nodes/post/lit_post_halation.gd" id="17_7gltt"]
+[ext_resource type="Script" uid="uid://bnp1kfvwbkmhy" path="res://addons/lit/nodes/post/lit_post_color_grade.gd" id="18_o2au2"]
+[ext_resource type="Script" uid="uid://c023y342eplgh" path="res://addons/lit/nodes/post/lit_post_lut.gd" id="19_xw76p"]
+[ext_resource type="Script" uid="uid://bbw5g5btekf5t" path="res://addons/lit/nodes/post/lit_post_film_grain.gd" id="20_k1shp"]
+[ext_resource type="Script" uid="uid://dnwa5edefmb4c" path="res://addons/lit/nodes/post/lit_post_vignette.gd" id="20_o8v1l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jsk1s"]
 texture = ExtResource("1_1dal8")
@@ -21,6 +31,23 @@ texture = ExtResource("1_1dal8")
 
 [sub_resource type="TileSet" id="TileSet_57qmd"]
 sources/0 = SubResource("TileSetAtlasSource_jsk1s")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvcn1"]
+shader = ExtResource("3_odoq1")
+shader_parameter/emissive_strength = 0.0
+shader_parameter/receiver_mask = 1
+shader_parameter/self_shadow = false
+shader_parameter/self_rect_count = 0
+shader_parameter/self_rects = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/specular_strength = 0.5
+shader_parameter/specular_k = 32.0
+shader_parameter/has_specular_map = false
+shader_parameter/metallic_value = 0.0
+shader_parameter/roughness_value = 1.0
+shader_parameter/shadow_steps = 64
+shader_parameter/shadow_min_step = 0.2
+shader_parameter/shadow_ramp = 0.0
+shader_parameter/directional_horizontal_scale = 32.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jsk1s"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, -4, -1, 1, -4, 8, -8, 8)
@@ -296,19 +323,34 @@ sources/4 = SubResource("TileSetAtlasSource_yxx2e")
 sources/5 = SubResource("TileSetAtlasSource_ynnhx")
 sources/6 = SubResource("TileSetAtlasSource_jor1l")
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_g4v7s"]
-polygon = PackedVector2Array(205, -4, 203, 128, 190, 144, 102, 144, 100, 124, 182, 124, 184, 95, 189, 4, 189, -8, 185, -26, 107, -42, -4, -35, -37, -1, -32, 15, -30, 140, 78, 142, 77, 124, 10, 127, 4, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k1shp"]
+shader = ExtResource("3_odoq1")
+shader_parameter/emissive_strength = 0.0
+shader_parameter/receiver_mask = 1
+shader_parameter/self_shadow = false
+shader_parameter/self_rect_count = 0
+shader_parameter/self_rects = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/specular_strength = 0.5
+shader_parameter/specular_k = 32.0
+shader_parameter/has_specular_map = false
+shader_parameter/metallic_value = 0.0
+shader_parameter/roughness_value = 1.0
+shader_parameter/shadow_steps = 64
+shader_parameter/shadow_min_step = 0.2
+shader_parameter/shadow_ramp = 0.0
+shader_parameter/directional_horizontal_scale = 32.0
 
 [node name="maison" type="Node2D" unique_id=1792227538]
 
+[node name="LitCanvasModulate" type="Node2D" parent="." unique_id=1488075079]
+scale = Vector2(100, 100)
+script = ExtResource("1_m2nr8")
+lit_version = "1.1.5"
+color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://dtbtq2iowg33y"
+
 [node name="maison" type="Node2D" parent="." unique_id=1311502798]
 position = Vector2(1, -1)
-
-[node name="ColorRect" type="ColorRect" parent="maison" unique_id=1022934933]
-offset_left = -705.0
-offset_top = -286.0
-offset_right = 799.0
-offset_bottom = 665.0
 
 [node name="floor" type="TileMapLayer" parent="maison" unique_id=1484148160]
 physics_interpolation_mode = 1
@@ -316,20 +358,22 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAA
 tile_set = SubResource("TileSet_57qmd")
 
 [node name="wall" type="TileMapLayer" parent="maison" unique_id=83974165]
+material = SubResource("ShaderMaterial_hvcn1")
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAALAAAAAAACAAAAAAALAAgAAAACAAMAAAALAAcAAAACAAIAAAAAAAgAAAAAAAMAAAAAAAcAAAAAAAIAAAABAAgAAAAAAAMAAAACAAgAAAAAAAMAAAADAAgAAAAAAAMAAAAEAAgAAAAAAAMAAAABAAcAAAABAAIAAAACAAcAAAABAAIAAAADAAcAAAABAAIAAAAEAAcAAAABAAIAAAAGAAcAAAABAAIAAAAHAAcAAAABAAIAAAAKAAcAAAABAAIAAAAJAAcAAAABAAIAAAAIAAcAAAABAAIAAAAKAAgAAAABAAMAAAAJAAgAAAABAAMAAAAIAAgAAAABAAMAAAAHAAgAAAABAAMAAAAGAAgAAAABAAMAAAAAAAYAAgAAAAEAAAAAAAUAAgAAAAEAAAAAAAQAAgAAAAEAAAAAAAMAAgAAAAEAAAAAAAIAAgAAAAEAAAAAAAEAAgAAAAEAAAALAAEAAgACAAEAAAALAAIAAgACAAEAAAALAAMAAgACAAEAAAALAAQAAgACAAEAAAALAAUAAgACAAEAAAALAAYAAgACAAEAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAAFAAAAAAABAAAAAAAGAAAAAAABAAAAAAAHAAAAAAABAAAAAAAIAAAAAAABAAAAAAAJAAAAAAABAAAAAAAKAAAAAAABAAAAAAABAAEABAABAAMAAAABAAIABAABAAQAAAACAAEABAABAAMAAAACAAIABAABAAQAAAAFAAIABAADAAMAAAAFAAMABAADAAQAAAAGAAIABAAEAAMAAAAGAAMABAAEAAQAAAAJAAEABAACAAEAAAAKAAEABAACAAEAAAAKAAIABAACAAEAAAADAAEABQAAAAAAAAAFAAgABgAAAAAAAAA=")
 tile_set = SubResource("TileSet_d0u6y")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="maison/wall" unique_id=1856280448]
-occluder = SubResource("OccluderPolygon2D_g4v7s")
+[node name="torch3" parent="." unique_id=1141253738 instance=ExtResource("11_jsk1s")]
+position = Vector2(153, 110)
 
 [node name="torch2" parent="." unique_id=1104544010 instance=ExtResource("11_jsk1s")]
-position = Vector2(60, 81)
+position = Vector2(69, 40)
 
-[node name="torch" parent="." unique_id=1141253738 instance=ExtResource("11_jsk1s")]
-position = Vector2(153, 83)
+[node name="torch" parent="." unique_id=1302362757 instance=ExtResource("11_jsk1s")]
+position = Vector2(163, 41)
 
 [node name="character_beta" parent="." unique_id=245361564 instance=ExtResource("9_psvw2")]
-position = Vector2(53.000008, 87.00001)
+material = SubResource("ShaderMaterial_k1shp")
+position = Vector2(43, 87)
 scale = Vector2(0.37, 0.37)
 walk_speed = 150
 
@@ -337,6 +381,38 @@ walk_speed = 150
 position = Vector2(89, 124)
 scale = Vector2(0.5, 0.5)
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1255875668]
-position = Vector2(-15, -29)
-color = Color(0.096204735, 0.09620475, 0.096204735, 1)
+[node name="LitPostProcess" type="CanvasLayer" parent="." unique_id=1675520224]
+script = ExtResource("14_k1shp")
+lit_version = "1.1.5"
+metadata/_custom_type_script = "uid://djrtgftop1i8a"
+
+[node name="AutoExposure" type="Node2D" parent="LitPostProcess" unique_id=1406935331]
+script = ExtResource("15_dboeo")
+lit_version = "1.1.5"
+
+[node name="Bloom" type="Node2D" parent="LitPostProcess" unique_id=660240166]
+script = ExtResource("16_fvtfk")
+lit_version = "1.1.5"
+
+[node name="Halation" type="Node2D" parent="LitPostProcess" unique_id=652126915]
+script = ExtResource("17_7gltt")
+lit_version = "1.1.5"
+
+[node name="ColorGrade" type="Node2D" parent="LitPostProcess" unique_id=1446544683]
+script = ExtResource("18_o2au2")
+exposure = 0.96
+contrast = 1.11
+saturation = 1.25
+lit_version = "1.1.5"
+
+[node name="LUT" type="Node2D" parent="LitPostProcess" unique_id=930460380]
+script = ExtResource("19_xw76p")
+lit_version = "1.1.5"
+
+[node name="FilmGrain" type="Node2D" parent="LitPostProcess" unique_id=903096606]
+script = ExtResource("20_k1shp")
+lit_version = "1.1.5"
+
+[node name="Vignette" type="Node2D" parent="LitPostProcess" unique_id=187812769]
+script = ExtResource("20_o8v1l")
+lit_version = "1.1.5"
