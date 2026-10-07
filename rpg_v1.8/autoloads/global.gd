@@ -567,6 +567,7 @@ func spend_aptitude(player_idx: int, stat: String) -> bool:
 
 func save_game(slot: int) -> void:
 	var data := {
+		"time":                  GameClock.hour,
 		"player_gold":           gold,
 		"player_inventory":      inventory,
 		"total_xp":              total_xp,
@@ -591,6 +592,7 @@ func load_game(slot: int) -> bool:
 	var data = JSON.parse_string(f.get_as_text())
 	f.close()
 	if data == null: return false
+	GameClock.hour              = data["time"]
 	gold              = data["player_gold"]
 	inventory         = data["player_inventory"]
 	total_xp          = data["total_xp"]

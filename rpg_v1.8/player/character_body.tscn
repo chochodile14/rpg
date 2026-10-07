@@ -1,7 +1,26 @@
-[gd_scene format=3 uid="uid://bv4yubv0w5x82"]
+[gd_scene format=4 uid="uid://bv4yubv0w5x82"]
 
 [ext_resource type="Script" uid="uid://56gqpmrecwvk" path="res://script/character_body_2d.gd" id="1_l2fv6"]
+[ext_resource type="Shader" uid="uid://cadnte8s5ipk7" path="res://addons/lit/shaders/receiver/lit_receiver_fast.gdshader" id="2_32m34"]
 [ext_resource type="Texture2D" uid="uid://cxj0nq15obm6n" path="res://art/character.png" id="2_kovia"]
+[ext_resource type="Script" uid="uid://ccbrgq2jxmujk" path="res://addons/lit/nodes/lit_animated_sprite_2d.gd" id="4_fwwiy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x36md"]
+shader = ExtResource("2_32m34")
+shader_parameter/emissive_strength = 0.0
+shader_parameter/receiver_mask = 1
+shader_parameter/self_shadow = false
+shader_parameter/self_rect_count = 0
+shader_parameter/self_rects = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/specular_strength = 0.5
+shader_parameter/specular_k = 32.0
+shader_parameter/has_specular_map = false
+shader_parameter/metallic_value = 0.0
+shader_parameter/roughness_value = 1.0
+shader_parameter/shadow_steps = 64
+shader_parameter/shadow_min_step = 0.2
+shader_parameter/shadow_ramp = 0.0
+shader_parameter/directional_horizontal_scale = 32.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l2fv6"]
 atlas = ExtResource("2_kovia")
@@ -230,10 +249,12 @@ script = ExtResource("1_l2fv6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=533157561]
 texture_filter = 3
+material = SubResource("ShaderMaterial_x36md")
 position = Vector2(2.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_yur7t")
 animation = &"run"
 frame_progress = 0.9267736
+script = ExtResource("4_fwwiy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=573701229]
 position = Vector2(-0.5, 0.5)

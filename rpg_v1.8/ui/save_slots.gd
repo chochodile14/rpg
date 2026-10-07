@@ -104,8 +104,6 @@ func _on_slot(i: int) -> void:
 			{"hp": 0, "atk": 0, "def": 0, "crit": 0},
 		]
 
-	# On coupe en douceur la musique du menu (le lecteur audio du hub, notre
-	# parent direct) pendant que l'écran se referme, plutôt qu'un silence brutal.
 	var menu_music: AudioStreamPlayer = get_node_or_null("../AudioStreamPlayer")
 	if menu_music:
 		create_tween().tween_property(menu_music, "volume_db", -40.0, 0.55)

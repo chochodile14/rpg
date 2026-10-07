@@ -25,6 +25,7 @@ Global="*uid://ce1mpl1bdypin"
 Transition="*res://transition_manager.tscn"
 AudioManager="*uid://cyq80a742jiff"
 LitManager="*uid://brf2hvdtyyw3q"
+GameClock="*uid://do76g0ohoq106"
 
 [display]
 

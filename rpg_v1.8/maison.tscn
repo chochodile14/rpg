@@ -364,12 +364,15 @@ tile_set = SubResource("TileSet_d0u6y")
 
 [node name="torch3" parent="." unique_id=1141253738 instance=ExtResource("11_jsk1s")]
 position = Vector2(153, 110)
+always_on = true
 
 [node name="torch2" parent="." unique_id=1104544010 instance=ExtResource("11_jsk1s")]
 position = Vector2(69, 40)
+always_on = true
 
 [node name="torch" parent="." unique_id=1302362757 instance=ExtResource("11_jsk1s")]
 position = Vector2(163, 41)
+always_on = true
 
 [node name="character_beta" parent="." unique_id=245361564 instance=ExtResource("9_psvw2")]
 material = SubResource("ShaderMaterial_k1shp")

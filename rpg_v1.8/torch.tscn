@@ -226,8 +226,9 @@ animations = [{
 radius = 4.0
 height = 16.0
 
-[node name="torch" type="Node2D" unique_id=1141253738]
+[node name="torch" type="Node2D" unique_id=1141253738 node_paths=PackedStringArray("light")]
 script = ExtResource("1_pa17o")
+light = NodePath("LitPointLight2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=400753423]
 position = Vector2(-12.750002, -23.717377)
@@ -238,17 +239,18 @@ frame = 28
 frame_progress = 0.79972297
 
 [node name="LitPointLight2D" type="Node2D" parent="." unique_id=1343431553]
+position = Vector2(-14, -11)
 script = ExtResource("3_w3qnr")
 lit_version = "1.1.5"
 color = Color(1, 0.6039216, 0.23529412, 1)
-energy = 10.0
+energy = 1.2426762296998366
 range = 300.0
 shadow_enabled = true
 metadata/_custom_type_script = "uid://cpa2qb3trjq4k"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1116166351]
-position = Vector2(-1, 0)
+position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=441875083]
-position = Vector2(-12, -6)
+position = Vector2(-13, -6)
 shape = SubResource("CapsuleShape2D_g4v7s")

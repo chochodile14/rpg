@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c2y00dk7tg6yd"]
+
+[ext_resource type="Script" uid="uid://do76g0ohoq106" path="res://autoloads/game_clock.gd" id="1_fnpis"]
+
+[node name="GameClock" type="Node2D" unique_id=1723269067]
+script = ExtResource("1_fnpis")
