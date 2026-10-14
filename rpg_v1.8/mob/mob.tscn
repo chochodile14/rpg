@@ -1,11 +1,30 @@
-[gd_scene format=3 uid="uid://bioiiawcbv3s2"]
+[gd_scene format=4 uid="uid://bioiiawcbv3s2"]
 
 [ext_resource type="Script" uid="uid://ks4xc7mqqd7i" path="res://mob/mob.gd" id="1_6jlfs"]
+[ext_resource type="Shader" uid="uid://cadnte8s5ipk7" path="res://addons/lit/shaders/receiver/lit_receiver_fast.gdshader" id="2_mixeo"]
 [ext_resource type="Texture2D" uid="uid://wnqjg41y1ie6" path="res://art/monstre.png" id="2_nokgg"]
+[ext_resource type="Script" uid="uid://ccbrgq2jxmujk" path="res://addons/lit/nodes/lit_animated_sprite_2d.gd" id="4_jkfaf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_body"]
 radius = 30.0
 height = 96.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vcc1q"]
+shader = ExtResource("2_mixeo")
+shader_parameter/emissive_strength = 0.0
+shader_parameter/receiver_mask = 1
+shader_parameter/self_shadow = false
+shader_parameter/self_rect_count = 0
+shader_parameter/self_rects = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/specular_strength = 0.5
+shader_parameter/specular_k = 32.0
+shader_parameter/has_specular_map = false
+shader_parameter/metallic_value = 0.0
+shader_parameter/roughness_value = 1.0
+shader_parameter/shadow_steps = 64
+shader_parameter/shadow_min_step = 0.2
+shader_parameter/shadow_ramp = 0.0
+shader_parameter/directional_horizontal_scale = 32.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_atk0"]
 atlas = ExtResource("2_nokgg")
@@ -47,7 +66,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_atk2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"attack",
 "speed": 6.0
 }, {
@@ -64,7 +83,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_walk3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
 "speed": 5.0
 }]
@@ -86,9 +105,11 @@ shape = SubResource("CapsuleShape2D_body")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=825913138]
 texture_filter = 1
+material = SubResource("ShaderMaterial_vcc1q")
 sprite_frames = SubResource("SpriteFrames_mob")
 animation = &"walk"
 autoplay = "walk"
+script = ExtResource("4_jkfaf")
 
 [node name="AlertLabel" type="Label" parent="." unique_id=847823643]
 visible = false

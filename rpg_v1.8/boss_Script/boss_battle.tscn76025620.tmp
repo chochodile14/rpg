@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://8jcdiem127uy"]
+
+[ext_resource type="Script" uid="uid://3umtmygl6ao0" path="res://boss_Script/boss_battle.gd" id="1_fkf5i"]
+[ext_resource type="Texture2D" uid="uid://c34ohskaqe7ik" path="res://art/boss/background.png" id="1_wnstj"]
+[ext_resource type="PackedScene" uid="uid://cpjo0h1uk5j5" path="res://boss_Script/boss_groupe.tscn" id="2_fkf5i"]
+[ext_resource type="PackedScene" uid="uid://del62hgxlfxd4" path="res://player/player_group.tscn" id="3_hc857"]
+[ext_resource type="PackedScene" uid="uid://bfsaaev66xhq8" path="res://ui/game_result.tscn" id="4_k7a5u"]
+
+[node name="Boss_Battle" type="Node2D" unique_id=1786488974]
+script = ExtResource("1_fkf5i")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2147463052]
+offset_right = 1147.0
+offset_bottom = 647.0
+texture = ExtResource("1_wnstj")
+
+[node name="Boss_Groupe" parent="." unique_id=2014099300 instance=ExtResource("2_fkf5i")]
+position = Vector2(-61.000008, -79.00003)
+scale = Vector2(2.5, 2.5)
+
+[node name="player group" parent="." unique_id=1595233973 instance=ExtResource("3_hc857")]
+position = Vector2(5, 5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1169517089]
+
+[node name="GameResult" parent="CanvasLayer" unique_id=683701261 instance=ExtResource("4_k7a5u")]
+
+[node name="UltBar" type="VBoxContainer" parent="CanvasLayer" unique_id=183725866]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -387.0
+offset_top = -254.0
+offset_right = -187.0
+offset_bottom = -145.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/UltBar" unique_id=1431339298]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_font_sizes/font_size = 16
+text = "⚡ Ultimate  0 / 10"
+
+[node name="BarBg" type="PanelContainer" parent="CanvasLayer/UltBar" unique_id=419037244]
+custom_minimum_size = Vector2(200, 84)
+layout_mode = 2
+
+[node name="Bar" type="TextureRect" parent="CanvasLayer/UltBar/BarBg" unique_id=306916613]
+layout_mode = 2
+expand_mode = 1
+
+[node name="Flash" type="ColorRect" parent="CanvasLayer/UltBar" unique_id=1479990823]
+visible = false
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0.9, 0.1, 0)
+
+[node name="choice" type="VBoxContainer" parent="CanvasLayer" unique_id=716492459]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -338.0
+offset_top = -139.0
+offset_right = -188.0
+offset_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="light" type="Button" parent="CanvasLayer/choice" unique_id=2070258621]
+layout_mode = 2
+size_flags_vertical = 8
+text = "light"
+
+[node name="heavy" type="Button" parent="CanvasLayer/choice" unique_id=726085652]
+layout_mode = 2
+size_flags_vertical = 8
+text = "heavy"
+
+[node name="ultimate" type="Button" parent="CanvasLayer/choice" unique_id=1641599367]
+layout_mode = 2
+size_flags_vertical = 8
+text = "ultimate"
+
+[node name="exit" type="Button" parent="CanvasLayer/choice" unique_id=2034754287]
+layout_mode = 2
+text = "exit"

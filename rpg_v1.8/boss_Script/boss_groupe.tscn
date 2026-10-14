@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cpjo0h1uk5j5"]
+
+[ext_resource type="Script" uid="uid://cv4ujnygcdhql" path="res://boss_Script/boss_groupe.gd" id="1_2weym"]
+[ext_resource type="PackedScene" uid="uid://tc3g35ggc3ef" path="res://boss_Script/boss_Battle_OP.tscn" id="1_p5tru"]
+
+[node name="Boss_Groupe" type="Node2D" unique_id=2014099300]
+script = ExtResource("1_2weym")
+
+[node name="Boss_Battle_OP" parent="." unique_id=1966233197 instance=ExtResource("1_p5tru")]

@@ -15,7 +15,7 @@ func _ready() -> void:
 		# Force l'application des stats (max_health peut avoir changé)
 		player[i]._ready()
 	player[0].focus()
-	var ennemies_node = get_parent().get_node("ennemies_groupe")
+	var ennemies_node = get_parent().get_node("Boss_Groupe")
 	ennemies_node.battle_won.connect(_on_battle_won)
 	ennemies_node.set_current_attacker(player[0])
 	game_result_ui = get_parent().get_node_or_null("CanvasLayer/GameResult")

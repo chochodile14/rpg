@@ -41,6 +41,7 @@ enabled=PackedStringArray("res://addons/lit/plugin.cfg")
 folder_colors={
 "res://art/": "purple",
 "res://art/map/": "orange",
+"res://boss_Script/": "pink",
 "res://data/": "gray",
 "res://mob/": "red",
 "res://player/": "yellow",
