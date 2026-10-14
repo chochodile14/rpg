@@ -1,108 +1,135 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Ashes of Dereliction</title>
-
-<style>
-body{
-    margin:0;
-    background:#111;
-    color:white;
-    font-family:Arial, Helvetica, sans-serif;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-}
-
-.card{
-    background:#1b1b1b;
-    padding:40px;
-    border-radius:15px;
-    width:600px;
-    text-align:center;
-    box-shadow:0 0 20px rgba(0,0,0,.4);
-}
-
-h1{
-    margin-top:0;
-    font-size:42px;
-}
-
-.version{
-    font-size:22px;
-    margin:20px 0;
-}
-
-.update{
-    text-align:left;
-    background:#2a2a2a;
-    padding:20px;
-    border-radius:10px;
-    white-space:pre-wrap;
-    margin-bottom:25px;
-}
-
-button{
-    padding:15px 35px;
-    font-size:22px;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-}
-
-button:hover{
-    transform:scale(1.05);
-}
-</style>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100d0c">
+  <meta name="description" content="Ashes of Dereliction — un RPG de dark fantasy façonné par Hexa Studio. Deux empires, une guerre, un souverain sans visage.">
+  <title>Ashes of Dereliction — Hexa Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <canvas id="embers" aria-hidden="true"></canvas>
+  <div class="cursor-glow" aria-hidden="true"></div>
 
-<div class="card">
+  <header class="topbar">
+    <a class="brand" href="#accueil" aria-label="Ashes of Dereliction, accueil">
+      <span class="brand-mark">H</span>
+      <span class="brand-copy"><strong>HEXA STUDIO</strong><small>INDÉPENDANT · PASSIONNÉ</small></span>
+    </a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    <nav class="nav" id="nav">
+      <a href="#univers">L’univers</a>
+      <a href="#equipe">Le studio</a>
+      <a href="#telechargement" class="nav-cta">Rejoindre la guerre <span>↗</span></a>
+    </nav>
+  </header>
 
-<h1>Ashes of Dereliction</h1>
+  <main>
+    <section class="hero" id="accueil">
+      <div class="hero-content reveal">
+        <div class="eyebrow"><span class="eyebrow-line"></span> UN RPG DARK FANTASY EN DÉVELOPPEMENT</div>
+        <h1>ASHES <span>OF</span><br><em>DERELICTION</em></h1>
+        <p class="hero-subtitle">Quand les couronnes brûlent, les cendres se souviennent.</p>
+        <p class="hero-text">Deux empires. Une guerre qui dévore les royaumes. Et, au sommet du pouvoir, un souverain dont personne n’a jamais vu le visage.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#telechargement">Découvrir le jeu <span>↘</span></a>
+          <a class="button button-ghost" href="#univers">Explorer l’univers</a>
+        </div>
+        <div class="hero-footnote"><span class="status-dot"></span> En développement — forgé par Hexa Studio</div>
+      </div>
+      <div class="hero-emblem" aria-hidden="true">
+        <div class="emblem-ring ring-outer"></div><div class="emblem-ring ring-inner"></div>
+        <div class="crown">♛</div>
+        <div class="emblem-flame">✦</div>
+        <span class="rune rune-a">ᚨ</span><span class="rune rune-b">ᚱ</span>
+        <span class="emblem-caption">REGNUM · CINIS · BELLUM</span>
+      </div>
+      <div class="hero-bottom"><span>01 / LE COMMENCEMENT</span><span class="scroll-line"></span><span>FAITES DÉFILER</span></div>
+    </section>
 
-<div class="version" id="version">
-Chargement...
-</div>
+    <section class="quote-band">
+      <p>« Un trône peut survivre à un roi.<br><em>Un empire, rarement à ses secrets.</em> »</p>
+    </section>
 
-<div class="update" id="notes">
-Chargement des nouveautés...
-</div>
+    <section class="section lore-section" id="univers">
+      <div class="section-heading reveal">
+        <span class="section-kicker">LES CHRONIQUES DES CENDRES</span>
+        <h2>Un monde au bord <em>de l’embrasement.</em></h2>
+        <p>La guerre ne se gagne pas seulement avec des lames. Elle se gagne avec des serments, des mensonges et le prix que chacun est prêt à payer.</p>
+      </div>
+      <div class="lore-grid">
+        <article class="lore-card reveal" data-tilt>
+          <div class="card-number">I</div><div class="card-symbol">♜</div>
+          <span class="card-label">LES COURONNES</span>
+          <h3>Deux empires</h3>
+          <p>Deux puissances se disputent terres, héritages et avenir. Dans cette guerre, chaque victoire nourrit une nouvelle rancune.</p>
+          <div class="card-rule"></div>
+        </article>
+        <article class="lore-card lore-card-featured reveal" data-tilt>
+          <div class="card-number">II</div><div class="card-symbol">♛</div>
+          <span class="card-label">LE MYSTÈRE DU TRÔNE</span>
+          <h3>Le roi sans visage</h3>
+          <p>Il gouverne dans l’ombre. Nul ne peut décrire ses traits, mais ses décisions font trembler tout un empire.</p>
+          <div class="card-rule"></div>
+        </article>
+        <article class="lore-card reveal" data-tilt>
+          <div class="card-number">III</div><div class="card-symbol">✹</div>
+          <span class="card-label">APRÈS L’INCENDIE</span>
+          <h3>Les cendres gardent tout</h3>
+          <p>Les flammes consument les cités, pas les vérités. Sous les ruines sommeillent les récits que le pouvoir voudrait effacer.</p>
+          <div class="card-rule"></div>
+        </article>
+      </div>
+    </section>
 
-<button id="download">
-Télécharger
-</button>
+    <section class="manifesto">
+      <div class="manifesto-mark">H<span>✦</span></div>
+      <div class="manifesto-copy reveal">
+        <span class="section-kicker">UN PROJET INDÉPENDANT</span>
+        <h2>Quatre amis.<br><em>Un monde à bâtir.</em></h2>
+        <p>Hexa Studio est né d’une passion commune pour les univers riches, les histoires qui laissent des traces et les jeux que l’on crée d’abord par envie. Ashes of Dereliction est encore en développement : chaque étape est une nouvelle pierre posée dans cet empire.</p>
+      </div>
+    </section>
 
-</div>
+    <section class="section team-section" id="equipe">
+      <div class="section-heading reveal">
+        <span class="section-kicker">CEUX QUI FORGENT L’EMPIRE</span>
+        <h2>La main derrière <em>la légende.</em></h2>
+        <p>Quatre passionnés, quatre rôles complémentaires, une seule ambition : donner vie à notre univers.</p>
+      </div>
+      <div class="team-grid">
+        <article class="team-card reveal"><div class="team-avatar">K</div><div class="team-role">SCRIPT · DESIGN · GESTION</div><h3>Kylawrens</h3><p>Structure le projet, façonne ses systèmes et veille à ce que la vision avance.</p><span class="team-index">01 — ARCHITECTE</span></article>
+        <article class="team-card reveal"><div class="team-avatar">A</div><div class="team-role">HISTORIEN</div><h3>Auster</h3><p>Veille sur la mémoire du monde, ses chroniques et la cohérence de son histoire.</p><span class="team-index">02 — MÉMOIRE</span></article>
+        <article class="team-card reveal"><div class="team-avatar">E</div><div class="team-role">CO-AUTEUR</div><h3>Emolga</h3><p>Participe à l’écriture et enrichit les récits qui donnent une âme à cet univers.</p><span class="team-index">03 — PLUME</span></article>
+        <article class="team-card reveal"><div class="team-avatar">O</div><div class="team-role">DÉVELOPPEUR</div><h3>Okalips</h3><p>Contribue à transformer les idées et les mécaniques en une expérience jouable.</p><span class="team-index">04 — FORGE</span></article>
+      </div>
+    </section>
 
-<script>
+    <section class="download-section" id="telechargement">
+      <div class="download-panel reveal">
+        <div class="download-seal">♛</div>
+        <span class="section-kicker">LE ROYAUME VOUS ATTEND</span>
+        <h2>Entrez dans <em>les cendres.</em></h2>
+        <p>Le jeu évolue encore. Rejoignez l’aventure, découvrez les versions disponibles et accompagnez Hexa Studio dans la construction de son monde.</p>
+        <div class="release-info"><span class="status-dot"></span><span id="version">Recherche de la dernière version…</span></div>
+        <div class="release-notes" id="notes">Les dernières nouvelles apparaîtront ici.</div>
+        <a class="button button-primary download-button" id="download" href="https://github.com/chochodile14/rpg/releases/latest">Accéder au téléchargement <span>↗</span></a>
+        <small class="download-hint" id="download-hint">Le téléchargement est hébergé sur GitHub.</small>
+      </div>
+    </section>
+  </main>
 
-const owner="chochodile14";
-const repo="rpg";
-
-fetch(`https://api.github.com/repos/${owner}/${repo}/releases/latest`)
-.then(r=>r.json())
-.then(release=>{
-
-document.getElementById("version").innerHTML =
-"<b>Version :</b> " + release.tag_name;
-
-document.getElementById("notes").innerText =
-release.body;
-
-document.getElementById("download").onclick=()=>{
-
-window.location.href =
-release.assets[0].browser_download_url;
-
-};
-
-});
-
-</script>
-
+  <footer class="footer">
+    <a class="footer-brand" href="#accueil">HEXA STUDIO <span>✦</span></a>
+    <p>ASHES OF DERELICTION · UN RPG EN CONSTRUCTION</p>
+    <a href="#accueil" class="back-top">RETOUR EN HAUT ↑</a>
+  </footer>
 </body>
 </html>
