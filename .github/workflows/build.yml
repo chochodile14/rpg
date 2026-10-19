@@ -59,17 +59,15 @@ jobs:
           name: AshesOfDereliction-v${{ env.VERSION }}
           path: AshesOfDereliction-v${{ env.VERSION }}.zip
           
-      - name: 🏷️ Créer le tag
+      - name: 🏷️ Créer ou déplacer le tag
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
 
-          if git rev-parse "v${VERSION}" >/dev/null 2>&1; then
-            echo "Le tag existe déjà."
-          else
-            git tag "v${VERSION}"
-            git push origin "v${VERSION}"
-          fi
+          # -f : si la version existe déjà, le tag est déplacé sur ce commit
+          # pour que la release corresponde bien au build qui vient d'être fait.
+          git tag -f "v${VERSION}"
+          git push origin "v${VERSION}" --force
 
       - name: 🚀 Créer la Release GitHub
         uses: softprops/action-gh-release@v2

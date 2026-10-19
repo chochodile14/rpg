@@ -144,10 +144,11 @@ func _action(stack: Array) -> void:
 			_move_index_to_alive()
 
 		if _get_alive_ennemies().size() == 0:
-			is_battling = false
-			waiting_for_attack_choice = false
-			emit_signal("battle_won")
-			return
+			await _boss_turn()  # Le boss contre-attaque !
+
+		is_battling = false
+		waiting_for_attack_choice = false
+		emit_signal("enemy_turn_done")
 
 	is_battling = false
 	waiting_for_attack_choice = false
@@ -197,3 +198,51 @@ func _debug_kill_all_enemies() -> void:
 		is_battling = false
 		waiting_for_attack_choice = false
 		emit_signal("battle_won")
+
+## Attaque du boss après le tour des joueurs
+func _boss_turn() -> void:
+	enemy_attacking = true
+	
+	# Pour chaque ennemi vivant (ici, juste le boss)
+	for enemy in _get_alive_ennemies():
+		if not is_instance_valid(enemy):
+			continue
+			
+		# Le boss choisit une attaque aléatoire (ou une logique plus complexe)
+		var attacks = ["light", "heavy", "ultimate"]
+		var attack_type = attacks[randi() % attacks.size()]
+		
+		var damage = 0.0
+		if enemy.has_method("get_boss_damage"):  # Si le boss a une méthode custom
+			damage = enemy.get_boss_damage(attack_type)
+		else:  # Valeurs par défaut
+			match attack_type:
+				"light":
+					damage = 15.0
+				"heavy":
+					damage = 30.0
+				"ultimate":
+					damage = 60.0
+
+		# 3. Animation (si le boss a un AnimationPlayer)
+		if enemy.has_node("AnimationPlayer"):
+			enemy.get_node("AnimationPlayer").play("boss_attack_" + attack_type)
+			await enemy.get_node("AnimationPlayer").animation_finished
+		# Le boss joue son animation d'attaque
+		await enemy.play_attack_animation(attack_type)
+		
+		# Cible un joueur aléatoire
+		var player_group = get_parent().get_node("player group")
+		var alive_players = player_group.get_alive_players()  # À implémenter dans player_group.gd
+		if alive_players.size() == 0:
+			continue
+			
+		var target_player = alive_players[randi() % alive_players.size()]
+		
+		# Applique les dégâts au joueur
+		if is_instance_valid(target_player):
+			target_player.take_damage(damage)
+			_spawn_damage_number(target_player, damage, "boss_" + attack_type)
+		
+		await get_tree().create_timer(0.5).timeout  # Délai entre les attaques
+	enemy_attacking = false
