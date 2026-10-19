@@ -31,7 +31,7 @@ var _hp_frames: Array = []
 
 var is_dying: bool = false
 
-var health: float = 100:
+var health: float = 1000:
 	set(value):
 		health = clamp(value, 0, max_health)
 		_update_progress_bar()
@@ -101,3 +101,30 @@ func attack_animation(target_node: Node2D) -> void:
 	tween.tween_property(self, "position", start_pos, 0.18)
 	await tween.finished
 	
+## Choix de l'attaque du boss (à personnaliser)
+func _choose_boss_attack() -> String:
+	var attacks = ["light", "heavy", "ultimate"]  # Types d'attaques possibles
+	return attacks[randi() % attacks.size()]  # Choix aléatoire
+
+## Calcul des dégâts du boss
+func _calculate_boss_damage(attack_type: String) -> float:
+	match attack_type:
+		"light":
+			return 10.0  # Dégâts de base pour une attaque légère
+		"heavy":
+			return 20.0  # Dégâts de base pour une attaque lourde
+		"ultimate":
+			return 50.0  # Dégâts de base pour une attaque ultime
+	return 10.0  # Par défaut
+
+## Animation d'attaque du boss
+func play_attack_animation(attack_type: String) -> void:
+	match attack_type:
+		"light":
+			$AnimationPlayer.play("Atk2")  # Remplace par le nom de ton animation
+		"heavy":
+			$AnimationPlayer.play("Atk3")
+		"ultimate":
+			$AnimationPlayer.play("Atk1")
+	# Émet un signal quand l'animation est finie (optionnel)
+	await $AnimationPlayer.animation_finished

@@ -71,6 +71,34 @@ region = Rect2(700, 212, 100, 106)
 atlas = ExtResource("2_hx71g")
 region = Rect2(800, 212, 100, 106)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_decn6"]
+atlas = ExtResource("2_hx71g")
+region = Rect2(0, 414, 100, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx71g"]
+atlas = ExtResource("2_hx71g")
+region = Rect2(100, 414, 100, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aixsq"]
+atlas = ExtResource("2_hx71g")
+region = Rect2(200, 414, 100, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arq2h"]
+atlas = ExtResource("2_hx71g")
+region = Rect2(300, 414, 100, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i44ku"]
+atlas = ExtResource("2_hx71g")
+region = Rect2(400, 414, 100, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrivp"]
+atlas = ExtResource("2_hx71g")
+region = Rect2(500, 414, 100, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfv78"]
+atlas = ExtResource("2_hx71g")
+region = Rect2(600, 414, 100, 69)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_tj8q5"]
 atlas = ExtResource("2_hx71g")
 region = Rect2(0, 684, 100, 114)
@@ -205,6 +233,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_decn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx71g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aixsq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arq2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i44ku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrivp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfv78")
+}],
+"loop": 1,
+"name": &"Atk3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_tj8q5")
 }, {
 "duration": 1.0,
@@ -311,9 +365,7 @@ script = ExtResource("1_decn6")
 position = Vector2(78, 149)
 scale = Vector2(1.94, 1.9399999)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"Atk1"
-frame = 6
-frame_progress = 0.84530294
+animation = &"Atk3"
 
 [node name="turn" type="Sprite2D" parent="." unique_id=1361737210]
 visible = false
