@@ -3,16 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#100d0c">
-  <meta name="description" content="Ashes of Dereliction — un RPG de dark fantasy façonné par Hexa Studio. Deux empires, une guerre, un souverain sans visage.">
-  <title>Ashes of Dereliction — Hexa Studio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#0f0c0b">
+  <title>Ashes of Dereliction — RPG dark fantasy par Hexa Studio</title>
+  <meta name="description" content="Ashes of Dereliction, un RPG de dark fantasy au tour par tour façonné par Hexa Studio. Deux empires, une guerre, un souverain sans visage. Version de test à télécharger.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Ashes of Dereliction — RPG dark fantasy">
+  <meta property="og:description" content="Deux empires, une guerre, un souverain sans visage. Découvrez la bande-annonce et téléchargez la version de test.">
+  <meta property="og:image" content="https://chochodile14.github.io/rpg/assets/img/partage.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 3 61 17 55 50 32 61 9 50 3 17Z' fill='%23100d0c' stroke='%23c9a46a' stroke-width='3'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='30' font-weight='700' fill='%23c9a46a'%3EH%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="assets/fonts/cinzel.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="enhance.css">
+  <script>document.documentElement.classList.add('js')</script>
   <script src="script.js" defer></script>
+  <script src="enhance.js" defer></script>
 </head>
 <body>
+  <div class="progress" aria-hidden="true"></div>
   <div class="ambient ambient-one" aria-hidden="true"></div>
   <div class="ambient ambient-two" aria-hidden="true"></div>
   <canvas id="embers" aria-hidden="true"></canvas>
@@ -25,67 +35,193 @@
     </a>
     <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
     <nav class="nav" id="nav">
+      <a href="#trailer">Bande-annonce</a>
       <a href="#univers">L’univers</a>
+      <a href="#heros">Les héros</a>
+      <a href="#galerie">Le jeu</a>
       <a href="#equipe">Le studio</a>
-      <a href="#telechargement" class="nav-cta">Rejoindre la guerre <span>↗</span></a>
+      <a href="#telechargement" class="nav-cta">Télécharger</a>
     </nav>
   </header>
 
   <main>
+    <!-- ACCUEIL -->
     <section class="hero" id="accueil">
-      <div class="hero-content reveal">
-        <div class="eyebrow"><span class="eyebrow-line"></span> UN RPG DARK FANTASY EN DÉVELOPPEMENT</div>
-        <h1>ASHES <span>OF</span><br><em>DERELICTION</em></h1>
+      <div class="hero-art" aria-hidden="true">
+        <img class="hero-img" src="assets/img/hero.webp" srcset="assets/img/hero-1280.webp 1280w, assets/img/hero.webp 1920w" sizes="100vw" width="1920" height="1080" alt="" fetchpriority="high" decoding="async">
+      </div>
+      <div class="hero-content">
+        <p class="hero-tag"><span class="status-dot"></span>RPG dark fantasy en développement</p>
+        <h1 aria-label="Ashes of Dereliction"><span class="t-small" aria-hidden="true">Ashes of</span><span class="t-big" aria-hidden="true">Dereliction</span></h1>
         <p class="hero-subtitle">Quand les couronnes brûlent, les cendres se souviennent.</p>
         <p class="hero-text">Deux empires. Une guerre qui dévore les royaumes. Et, au sommet du pouvoir, un souverain dont personne n’a jamais vu le visage.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#telechargement">Découvrir le jeu <span>↘</span></a>
-          <a class="button button-ghost" href="#univers">Explorer l’univers</a>
+          <button class="button button-primary" id="watch-trailer" type="button">Voir la bande-annonce</button>
+          <a class="button button-ghost" href="#telechargement">Télécharger la version de test</a>
         </div>
-        <div class="hero-footnote"><span class="status-dot"></span> En développement — forgé par Hexa Studio</div>
+        <p class="hero-version"><span class="status-dot"></span><span id="hero-version-text">Version de test disponible</span></p>
       </div>
-      <div class="hero-emblem" aria-hidden="true">
-        <div class="emblem-ring ring-outer"></div><div class="emblem-ring ring-inner"></div>
-        <div class="crown">♛</div>
-        <div class="emblem-flame">✦</div>
-        <span class="rune rune-a">ᚨ</span><span class="rune rune-b">ᚱ</span>
-        <span class="emblem-caption">REGNUM · CINIS · BELLUM</span>
+      <a class="scroll-cue" href="#trailer">Faire défiler<span class="scroll-line"></span></a>
+    </section>
+
+    <!-- BANDE-ANNONCE -->
+    <section class="section trailer" id="trailer">
+      <div class="wrap">
+        <header class="head-left reveal">
+          <h2>La bande-annonce</h2>
+          <p>59 secondes d’images tirées du jeu en développement.</p>
+        </header>
+        <div class="player reveal" id="player" data-src="assets/video/bande-annonce.mp4">
+          <img src="assets/img/affiche-trailer.webp" alt="Le château d’Ashes of Dereliction sous une lune rouge" width="1600" height="900" loading="lazy" decoding="async">
+          <button class="play" type="button" aria-label="Lancer la bande-annonce"><span class="play-icon"></span></button>
+        </div>
       </div>
-      <div class="hero-bottom"><span>01 / LE COMMENCEMENT</span><span class="scroll-line"></span><span>FAITES DÉFILER</span></div>
     </section>
 
     <section class="quote-band">
       <p>« Un trône peut survivre à un roi.<br><em>Un empire, rarement à ses secrets.</em> »</p>
     </section>
 
+    <!-- UNIVERS -->
     <section class="section lore-section" id="univers">
-      <div class="section-heading reveal">
-        <span class="section-kicker">LES CHRONIQUES DES CENDRES</span>
-        <h2>Un monde au bord <em>de l’embrasement.</em></h2>
-        <p>La guerre ne se gagne pas seulement avec des lames. Elle se gagne avec des serments, des mensonges et le prix que chacun est prêt à payer.</p>
+      <div class="wrap">
+        <header class="head-left reveal">
+          <h2>Un monde au bord de l’embrasement.</h2>
+          <p>La guerre ne se gagne pas seulement avec des lames. Elle se gagne avec des serments, des mensonges et le prix que chacun est prêt à payer.</p>
+        </header>
+        <div class="lore-grid">
+          <article class="lore-card lore-throne bevel reveal">
+            <div class="lore-media"><img src="assets/img/souverain.webp" alt="Un souverain couronné au visage voilé, assis sur son trône" width="1024" height="1024" loading="lazy" decoding="async"></div>
+            <span class="card-label">Le mystère du trône</span>
+            <h3>Le roi sans visage</h3>
+            <p>Il gouverne dans l’ombre. Nul ne peut décrire ses traits, mais ses décisions font trembler tout un empire.</p>
+          </article>
+          <article class="lore-card lore-empires bevel reveal">
+            <div class="lore-media"><img src="assets/img/hero.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async"></div>
+            <span class="card-label">Les couronnes</span>
+            <h3>Deux empires</h3>
+            <p>Deux puissances se disputent terres, héritages et avenir. Dans cette guerre, chaque victoire nourrit une nouvelle rancune.</p>
+          </article>
+          <article class="lore-card lore-ashes bevel reveal">
+            <div class="lore-media"><img src="assets/img/salle.webp" alt="" width="1000" height="1000" loading="lazy" decoding="async"></div>
+            <span class="card-label">Après l’incendie</span>
+            <h3>Les cendres gardent tout</h3>
+            <p>Les flammes consument les cités, pas les vérités. Sous les ruines sommeillent les récits que le pouvoir voudrait effacer.</p>
+          </article>
+        </div>
       </div>
-      <div class="lore-grid">
-        <article class="lore-card reveal" data-tilt>
-          <div class="card-number">I</div><div class="card-symbol">♜</div>
-          <span class="card-label">LES COURONNES</span>
-          <h3>Deux empires</h3>
-          <p>Deux puissances se disputent terres, héritages et avenir. Dans cette guerre, chaque victoire nourrit une nouvelle rancune.</p>
-          <div class="card-rule"></div>
-        </article>
-        <article class="lore-card lore-card-featured reveal" data-tilt>
-          <div class="card-number">II</div><div class="card-symbol">♛</div>
-          <span class="card-label">LE MYSTÈRE DU TRÔNE</span>
-          <h3>Le roi sans visage</h3>
-          <p>Il gouverne dans l’ombre. Nul ne peut décrire ses traits, mais ses décisions font trembler tout un empire.</p>
-          <div class="card-rule"></div>
-        </article>
-        <article class="lore-card reveal" data-tilt>
-          <div class="card-number">III</div><div class="card-symbol">✹</div>
-          <span class="card-label">APRÈS L’INCENDIE</span>
-          <h3>Les cendres gardent tout</h3>
-          <p>Les flammes consument les cités, pas les vérités. Sous les ruines sommeillent les récits que le pouvoir voudrait effacer.</p>
-          <div class="card-rule"></div>
-        </article>
+    </section>
+
+    <!-- HÉROS -->
+    <section class="section heroes-section" id="heros">
+      <div class="wrap">
+        <header class="head-left reveal">
+          <h2>Quatre héros, une aventure.</h2>
+          <p>Chacun a sa façon de combattre. Voici leurs statistiques dans la version de test actuelle : elles évolueront avec le développement.</p>
+        </header>
+        <div class="heroes-grid">
+          <article class="hero-card bevel reveal" data-tilt>
+            <div class="stage"><img src="assets/img/hero-mage.webp" alt="Le mage, une silhouette à capuche rouge" width="378" height="640" loading="lazy" decoding="async"></div>
+            <h3>Mage</h3>
+            <p class="role">Le plus fragile, mais son ultime frappe ×1,5.</p>
+            <div class="stats">
+              <div class="stat" style="--w:50%;--c:var(--moon)"><span>Points de vie</span><i></i><b>15</b></div>
+              <div class="stat" style="--w:33%;--c:var(--ember)"><span>Attaque</span><i></i><b>1</b></div>
+              <div class="stat" style="--w:33%;--c:var(--gold)"><span>Défense</span><i></i><b>1</b></div>
+              <div class="stat" style="--w:33%;--c:var(--bone)"><span>Critique</span><i></i><b>5 %</b></div>
+            </div>
+            <div class="chips"><span>Ultime ×1,5</span></div>
+          </article>
+          <article class="hero-card bevel reveal" data-tilt>
+            <div class="stage"><img src="assets/img/hero-bismark.webp" alt="Bismark, un guerrier en armure rouge et noire" width="525" height="640" loading="lazy" decoding="async"></div>
+            <h3>Bismark</h3>
+            <p class="role">Le plus solide : 30 points de vie et la meilleure défense.</p>
+            <div class="stats">
+              <div class="stat" style="--w:100%;--c:var(--moon)"><span>Points de vie</span><i></i><b>30</b></div>
+              <div class="stat" style="--w:33%;--c:var(--ember)"><span>Attaque</span><i></i><b>1</b></div>
+              <div class="stat" style="--w:100%;--c:var(--gold)"><span>Défense</span><i></i><b>3</b></div>
+              <div class="stat" style="--w:33%;--c:var(--bone)"><span>Critique</span><i></i><b>5 %</b></div>
+            </div>
+            <div class="chips"><span>Coup lourd ×2,5</span></div>
+          </article>
+          <article class="hero-card bevel reveal" data-tilt>
+            <div class="stage"><img src="assets/img/hero-elio.webp" alt="Elio, un mage en robe blanche avec un bâton doré" width="519" height="640" loading="lazy" decoding="async"></div>
+            <h3>Elio <small>nom provisoire</small></h3>
+            <p class="role">Le plus précis : 15 % de chances de coup critique.</p>
+            <div class="stats">
+              <div class="stat" style="--w:73%;--c:var(--moon)"><span>Points de vie</span><i></i><b>22</b></div>
+              <div class="stat" style="--w:67%;--c:var(--ember)"><span>Attaque</span><i></i><b>2</b></div>
+              <div class="stat" style="--w:33%;--c:var(--gold)"><span>Défense</span><i></i><b>1</b></div>
+              <div class="stat" style="--w:100%;--c:var(--bone)"><span>Critique</span><i></i><b>15 %</b></div>
+            </div>
+            <div class="chips"><span>Attaque légère ×2</span><span>Ultime ×1,5</span></div>
+          </article>
+          <article class="hero-card bevel reveal" data-tilt>
+            <div class="stage"><img src="assets/img/hero-naerys.webp" alt="Naerys, une guerrière blonde en armure avec une grande épée" width="555" height="640" loading="lazy" decoding="async"></div>
+            <h3>Naerys</h3>
+            <p class="role">La plus offensive : la meilleure attaque et un ultime ×2.</p>
+            <div class="stats">
+              <div class="stat" style="--w:100%;--c:var(--moon)"><span>Points de vie</span><i></i><b>30</b></div>
+              <div class="stat" style="--w:83%;--c:var(--ember)"><span>Attaque</span><i></i><b>2,5</b></div>
+              <div class="stat" style="--w:33%;--c:var(--gold)"><span>Défense</span><i></i><b>1</b></div>
+              <div class="stat" style="--w:13%;--c:var(--bone)"><span>Critique</span><i></i><b>2 %</b></div>
+            </div>
+            <div class="chips"><span>Attaque légère ×2</span><span>Ultime ×2</span><span class="weak">Coup lourd ×0,75</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE -->
+    <section class="section gallery-section" id="galerie">
+      <div class="wrap">
+        <header class="head-left reveal">
+          <h2>Le jeu en images</h2>
+          <p>Des captures de la version de test. Cliquez sur une image pour l’agrandir.</p>
+        </header>
+        <div class="shots reveal">
+          <button class="shot s-combat" type="button" data-full="assets/img/jeu-combat.webp"><img src="assets/img/jeu-combat.webp" alt="Un combat au tour par tour : quatre héros face à une rangée d’ennemis" width="1600" height="900" loading="lazy" decoding="async"><span>Combat au tour par tour</span></button>
+          <button class="shot s-menu" type="button" data-full="assets/img/jeu-menu.webp"><img src="assets/img/jeu-menu.webp" alt="Le menu principal, dans une salle aux piliers de pierre" width="1600" height="900" loading="lazy" decoding="async"><span>Le menu principal</span></button>
+          <button class="shot s-dialogue" type="button" data-full="assets/img/jeu-dialogue.webp"><img src="assets/img/jeu-dialogue.webp" alt="Le marchand Aldric Vennebroc salue le voyageur au bord d’un chemin" width="1600" height="900" loading="lazy" decoding="async"><span>Aldric Vennebroc, marchand itinérant</span></button>
+          <button class="shot s-boutique" type="button" data-full="assets/img/jeu-boutique.webp"><img src="assets/img/jeu-boutique.webp" alt="La boutique du marchand : épée, potion et bouclier" width="1600" height="900" loading="lazy" decoding="async"><span>Sa boutique : épées, potions, boucliers</span></button>
+          <button class="shot s-rencontre" type="button" data-full="assets/img/jeu-rencontre.webp"><img src="assets/img/jeu-rencontre.webp" alt="Un ennemi surgit sur la route, signalé par un point d’exclamation" width="1600" height="900" loading="lazy" decoding="async"><span>Une rencontre sur la route</span></button>
+          <button class="shot s-ultime" type="button" data-full="assets/img/jeu-ultime.webp"><img src="assets/img/jeu-ultime.webp" alt="Pendant un combat, la barre d’ultime est pleine" width="1600" height="900" loading="lazy" decoding="async"><span>L’ultime est prêt</span></button>
+          <button class="shot s-portail" type="button" data-full="assets/img/jeu-portail.webp"><img src="assets/img/jeu-portail.webp" alt="Un portail violet s’ouvre dans une plaine" width="1600" height="900" loading="lazy" decoding="async"><span>Un portail s’ouvre</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENU DE LA VERSION DE TEST -->
+    <section class="section facts-section" id="contenu">
+      <div class="wrap facts-layout">
+        <header class="head-left reveal">
+          <h2>Ce que contient la version de test</h2>
+          <p>Le jeu est en construction : voici ce que vous pouvez déjà essayer.</p>
+        </header>
+        <ul class="facts">
+          <li class="reveal"><h3>Combat au tour par tour</h3><p>Attaque légère, attaque lourde ou ultime. La jauge d’ultime se remplit au fil du combat.</p></li>
+          <li class="reveal"><h3>Exploration en 2D</h3><p>Parcourez un village, entrez dans les maisons et croisez les ennemis qui rôdent sur les routes.</p></li>
+          <li class="reveal"><h3>Marchands et inventaire</h3><p>Discutez avec les marchands, achetez de l’équipement et gérez votre sac.</p></li>
+          <li class="reveal"><h3>Quatre héros à jouer</h3><p>Mage, Bismark, Elio et Naerys, chacun avec ses statistiques et son style de combat.</p></li>
+          <li class="reveal"><h3>Trois emplacements de sauvegarde</h3><p>Gardez plusieurs parties en parallèle et reprenez où vous vous étiez arrêté.</p></li>
+          <li class="reveal"><h3>Une cinématique d’ouverture</h3><p>Le jeu commence par une scène qui pose le décor de la guerre.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MONDE -->
+    <section class="section world-section" id="monde">
+      <div class="wrap">
+        <header class="head-left reveal">
+          <h2>Les bannières du monde</h2>
+          <p>Quatre nations, quatre étendards. Reconnaîtrez-vous celui de votre camp ?</p>
+        </header>
+        <div class="banners">
+          <figure class="banner reveal"><div class="cloth"><img src="assets/img/drapeau-empire.webp" alt="Drapeau de l’Empire : bleu nuit, croix blanche, abeilles dorées et aigle" width="640" height="361" loading="lazy" decoding="async"></div><figcaption>L’Empire</figcaption></figure>
+          <figure class="banner reveal"><div class="cloth"><img src="assets/img/drapeau-aldricht.webp" alt="Drapeau du Royaume d’Aldricht" width="640" height="342" loading="lazy" decoding="async"></div><figcaption>Royaume d’Aldricht</figcaption></figure>
+          <figure class="banner reveal"><div class="cloth"><img src="assets/img/drapeau-terres-du-sud.webp" alt="Drapeau du Grand-Duché des Terres du Sud" width="640" height="430" loading="lazy" decoding="async"></div><figcaption>Grand-Duché des Terres du Sud</figcaption></figure>
+          <figure class="banner reveal"><div class="cloth"><img src="assets/img/drapeau-buonaparte.webp" alt="Drapeau de la cité-État de Buonaparte" width="640" height="424" loading="lazy" decoding="async"></div><figcaption>City State of Buonaparte</figcaption></figure>
+        </div>
       </div>
     </section>
 
@@ -93,35 +229,42 @@
       <div class="manifesto-mark">H<span>✦</span></div>
       <div class="manifesto-copy reveal">
         <span class="section-kicker">UN PROJET INDÉPENDANT</span>
-        <h2>Quatre amis.<br><em>Un monde à bâtir.</em></h2>
+        <h2>Quatre amis. Un monde à bâtir.</h2>
         <p>Hexa Studio est né d’une passion commune pour les univers riches, les histoires qui laissent des traces et les jeux que l’on crée d’abord par envie. Ashes of Dereliction est encore en développement : chaque étape est une nouvelle pierre posée dans cet empire.</p>
       </div>
     </section>
 
+    <!-- STUDIO -->
     <section class="section team-section" id="equipe">
-      <div class="section-heading reveal">
-        <span class="section-kicker">CEUX QUI FORGENT L’EMPIRE</span>
-        <h2>La main derrière <em>la légende.</em></h2>
-        <p>Quatre passionnés, quatre rôles complémentaires, une seule ambition : donner vie à notre univers.</p>
-      </div>
-      <div class="team-grid">
-        <article class="team-card reveal"><div class="team-avatar">K</div><div class="team-role">SCRIPT · DESIGN · GESTION</div><h3>Kylawrens</h3><p>Structure le projet, façonne ses systèmes et veille à ce que la vision avance.</p><span class="team-index">01 — ARCHITECTE</span></article>
-        <article class="team-card reveal"><div class="team-avatar">A</div><div class="team-role">HISTORIEN</div><h3>Auster</h3><p>Veille sur la mémoire du monde, ses chroniques et la cohérence de son histoire.</p><span class="team-index">02 — MÉMOIRE</span></article>
-        <article class="team-card reveal"><div class="team-avatar">E</div><div class="team-role">CO-AUTEUR</div><h3>Emolga</h3><p>Participe à l’écriture et enrichit les récits qui donnent une âme à cet univers.</p><span class="team-index">03 — PLUME</span></article>
-        <article class="team-card reveal"><div class="team-avatar">O</div><div class="team-role">DÉVELOPPEUR</div><h3>Okalips</h3><p>Contribue à transformer les idées et les mécaniques en une expérience jouable.</p><span class="team-index">04 — FORGE</span></article>
+      <div class="wrap">
+        <header class="head-left reveal">
+          <h2>La main derrière la légende</h2>
+          <p>Quatre passionnés, quatre rôles complémentaires, une seule ambition : donner vie à notre univers.</p>
+        </header>
+        <div class="team-grid">
+          <article class="team-card reveal"><div class="team-avatar">K</div><div class="team-role">SCRIPT · DESIGN · GESTION</div><h3>Kylawrens</h3><p>Structure le projet, façonne ses systèmes et veille à ce que la vision avance.</p><span class="team-index">Architecte</span></article>
+          <article class="team-card reveal"><div class="team-avatar">A</div><div class="team-role">HISTORIEN</div><h3>Auster</h3><p>Veille sur la mémoire du monde, ses chroniques et la cohérence de son histoire.</p><span class="team-index">Mémoire</span></article>
+          <article class="team-card reveal"><div class="team-avatar">E</div><div class="team-role">CO-AUTEUR</div><h3>Emolga</h3><p>Participe à l’écriture et enrichit les récits qui donnent une âme à cet univers.</p><span class="team-index">Plume</span></article>
+          <article class="team-card reveal"><div class="team-avatar">O</div><div class="team-role">DÉVELOPPEUR</div><h3>Okalips</h3><p>Contribue à transformer les idées et les mécaniques en une expérience jouable.</p><span class="team-index">Forge</span></article>
+        </div>
       </div>
     </section>
 
+    <!-- TÉLÉCHARGEMENT -->
     <section class="download-section" id="telechargement">
       <div class="download-panel reveal">
         <div class="download-seal">♛</div>
-        <span class="section-kicker">LE ROYAUME VOUS ATTEND</span>
-        <h2>Entrez dans <em>les cendres.</em></h2>
+        <h2>Entrez dans les cendres.</h2>
         <p>Le jeu évolue encore. Rejoignez l’aventure, découvrez les versions disponibles et accompagnez Hexa Studio dans la construction de son monde.</p>
         <div class="release-info"><span class="status-dot"></span><span id="version">Recherche de la dernière version…</span></div>
+        <ol class="steps">
+          <li><strong>Télécharger</strong><span>le fichier .zip de la dernière version</span></li>
+          <li><strong>Extraire</strong><span>tout le contenu du .zip dans un dossier</span></li>
+          <li><strong>Lancer</strong><span>AshesOfDereliction.exe</span></li>
+        </ol>
         <div class="release-notes" id="notes">Les dernières nouvelles apparaîtront ici.</div>
-        <a class="button button-primary download-button" id="download" href="https://github.com/chochodile14/rpg/releases/latest">Accéder au téléchargement <span>↗</span></a>
-        <small class="download-hint" id="download-hint">Le téléchargement est hébergé sur GitHub.</small>
+        <a class="button button-primary download-button" id="download" href="https://github.com/chochodile14/rpg/releases/latest">Télécharger la version de test</a>
+        <small class="download-hint" id="download-hint">Le téléchargement est hébergé sur GitHub. Version pour Windows.</small>
       </div>
     </section>
   </main>
@@ -131,5 +274,15 @@
     <p>ASHES OF DERELICTION · UN RPG EN CONSTRUCTION</p>
     <a href="#accueil" class="back-top">RETOUR EN HAUT ↑</a>
   </footer>
+
+  <dialog id="lightbox" aria-label="Capture agrandie">
+    <figure>
+      <img alt="" id="lightbox-img">
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+    <button class="lb-close" type="button" aria-label="Fermer">×</button>
+    <button class="lb-prev" type="button" aria-label="Image précédente">‹</button>
+    <button class="lb-next" type="button" aria-label="Image suivante">›</button>
+  </dialog>
 </body>
 </html>
