@@ -56,6 +56,7 @@
     linear-gradient(90deg,rgba(15,12,11,.72) 0%,rgba(15,12,11,0) 58%)}
 .hero-content{max-width:1100px}
 .hero-content>p{max-width:60ch}
+.hero-logo{display:block;width:clamp(92px,10vw,148px);height:auto;margin:0 0 4px -8px;filter:drop-shadow(0 0 30px rgba(232,90,42,.4)) drop-shadow(0 6px 14px rgba(0,0,0,.6))}
 .hero-tag{display:flex;align-items:center;gap:10px;margin:0 0 20px;font-size:12px;letter-spacing:.06em;color:#dcc6a2}
 
 .hero h1{display:flex;flex-direction:column;margin:0 0 22px;line-height:.9;letter-spacing:0;text-shadow:none}
@@ -82,12 +83,13 @@
 .js .hero-art{animation:heroIn 2.6s cubic-bezier(.2,.6,.2,1) both}
 @keyframes heroIn{from{opacity:0;filter:brightness(.2)}to{opacity:1;filter:brightness(1)}}
 .js .hero-content>*{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
-.js .hero-content>*:nth-child(1){animation-delay:.9s}
-.js .hero-content>*:nth-child(2){animation-delay:1.05s}
-.js .hero-content>*:nth-child(3){animation-delay:1.25s}
-.js .hero-content>*:nth-child(4){animation-delay:1.4s}
-.js .hero-content>*:nth-child(5){animation-delay:1.55s}
-.js .hero-content>*:nth-child(6){animation-delay:1.7s}
+.js .hero-content>*:nth-child(1){animation-delay:.8s}
+.js .hero-content>*:nth-child(2){animation-delay:1s}
+.js .hero-content>*:nth-child(3){animation-delay:1.15s}
+.js .hero-content>*:nth-child(4){animation-delay:1.35s}
+.js .hero-content>*:nth-child(5){animation-delay:1.5s}
+.js .hero-content>*:nth-child(6){animation-delay:1.65s}
+.js .hero-content>*:nth-child(7){animation-delay:1.8s}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
 /* ---------- Bande-annonce ---------- */
@@ -196,6 +198,8 @@ dialog#lightbox figcaption{padding:14px 4px 0;font-size:13px;color:#c8bdb2;text-
 .team-index{letter-spacing:.06em}
 
 /* ---------- Téléchargement ---------- */
+.download-seal{width:104px;height:104px;border:0;clip-path:none;display:block;margin:0 auto 14px}
+.download-seal img{display:block;width:100%;height:100%;filter:drop-shadow(0 0 22px rgba(232,90,42,.35))}
 .download-panel{max-width:860px}
 .download-panel h2{color:var(--bone)}
 .steps{list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px auto;padding:0;max-width:680px;text-align:left}
@@ -224,6 +228,7 @@ dialog#lightbox figcaption{padding:14px 4px 0;font-size:13px;color:#c8bdb2;text-
   .hero h1 .t-big{font-size:10.4vw}
   .hero h1 .t-small{font-size:15px;letter-spacing:.34em}
   .hero-text{font-size:14px}
+  .hero-logo{width:84px;margin-left:-6px}
   .hero-actions .button{width:100%}
   .trailer{padding-top:64px;padding-bottom:64px}
   .player:before{left:-5px;top:-5px}.player:after{right:-5px;bottom:-5px}
